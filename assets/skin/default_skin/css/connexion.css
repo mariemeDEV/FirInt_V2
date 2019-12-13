@@ -1,0 +1,12 @@
+#content_wrapper {
+    overflow-y: hidden !important;
+}
+
+#main {
+    /*background: #06273a !important;*/
+    background-image: url(../../../img/patterns/backgrounds/1.jpg) !important
+}
+
+.forgot-pw-logo {
+    width: 54% !important;
+}
