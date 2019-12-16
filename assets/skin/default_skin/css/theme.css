@@ -14,6 +14,95 @@
     font-size: 14px !important;
 }*/
 
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: #0112216b;
+    /* Fallback color */
+    ;
+    /* Black w/ opacity */
+}
+
+.documents-content {
+    background: #ffffff;
+    height: auto !important;
+    width: auto !important;
+}
+
+.modal-content {
+    padding: 29px;
+    font-size: 14px;
+}
+
+.modal-content {
+    background: #c1c1c1;
+    width: 50%;
+    margin: auto;
+}
+
+.recap-tray ul li {
+    font-size: 14px !important;
+    list-style: none !important;
+}
+
+.recap-sector:nth-child(odd) {
+    float: right !important;
+}
+
+
+/*#reduction-com {
+    position: relative;
+    top: 36px;
+    width: 56px !important;
+    left: 582px;
+    background: #011221;
+    border: none;
+    color: #cc9e39;
+    font-weight: bold;
+}
+
+#bonus-rc {
+    position: relative;
+    top: 123px;
+    width: 90px !important;
+    left: 355px;
+    background: #011221;
+    border: none;
+    color: #cc9e39;
+    font-weight: bold;
+}*/
+
+
+/* The Close Button */
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #d19e4f !important;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.recap-sector ul:odd {
+    color: green !important
+}
+
 .primes-tab th td {
     border: 1px solid black
 }
@@ -15580,6 +15669,7 @@ a.thumbnail.active {
 .media-list {
     padding-left: 0;
     list-style: none;
+    overflow: scroll !important
 }
 
 
@@ -23220,7 +23310,7 @@ body.sb-top #toggle_sidemenu_t {
 #content.table-layout>div,
 #content.table-layout>section {
     vertical-align: top;
-    padding: 25px 20px 50px;
+    padding: 0 20px 50px !important;
 }
 
 #content.table-layout>aside {

@@ -7,7 +7,7 @@
                                 <span class="glyphicon glyphicon-tasks"></span>Table des productions</div>
                         </div>
                         <div class="panel-body pn">
-                            <table class="table table-striped table-hover data_tab" id="datatable3" cellspacing="0" width="100%">
+                            <table class="table table-striped table-hover data_tab data" id="datatable3" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Name</th>

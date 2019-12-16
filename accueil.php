@@ -32,7 +32,9 @@
 
     <!-- Start: Main -->
     <div id="main" class="container-fluid accueil-content">
-        <?php include('blank1.php');?><!--Header include-->
+        <?php include('blank1.php')?><!--Header include-->
+
+        <!--div data-include="./blank1.html"></div><Header include-->
 
         <div class="container-fluid accueil-content"><!--Page content-->
         <div class="row fonctionalites-row"><!--row-->

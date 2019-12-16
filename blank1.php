@@ -19,16 +19,14 @@
           </a>
           <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">
             <li class="dropdown-header">
-              <span class="dropdown-title"> Notifications</span>
-              <span class="label label-warning">12</span>
+              <span class="dropdown-title">TARIFICATIONS CATEGORIE4</span>
             </li>
             <li class="media">
-              <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
               <div class="media-body">
                 <h5 class="media-heading">Article
-                  <small class="text-muted">- 08/16/22</small>
-                </h5> Last Updated 36 days ago by
-                <a class="text-system" href="#"> Max </a>
+                  <small class="text-muted">7 à 10 cheveaux</small>
+                </h5> Prime
+                <a class="text-system" href="#"> 17701 </a>
               </div>
             </li>
             <li class="media">

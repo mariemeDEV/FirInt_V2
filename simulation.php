@@ -16,9 +16,8 @@
   <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
   <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/validate.css">
-  <link rel="stylesheet" type="text/css" href="vendor/plugins/magnific/magnific-popup.css">
-
-
+  <link rel="stylesheet" type="text/css" href="vendor/plugins/animate/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -53,7 +52,126 @@
     </div>
   </section><!-- End: Content -->
 
-  
+  <section class='modal' id='cat4-modal' style='font-size: 10px !important'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100 modal-content'>
+      <p>NB : Pour les véhicules de catégorie4, les tarifications se font comme suit:</p>
+      <table class="table table-bordered table-stripted">
+        <thead>
+          <tr>
+            <th>Energie</th>
+            <th>Nombre de places</th>
+            <th>Puissance fiscale</th>
+          </tr>
+        </thead>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+         <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+         <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+         <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+         <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+         <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+        <tr>
+            <td>Essence</td>
+            <td>15 places</td>
+            <td>2ch</td>
+        </tr>
+      </table>
+    </section>
+  </section>
+
+  <section class='modal' id='tierce-modal'>
+  <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100'>
+    <p>NB : Les tiérces complétes et tierces collusion sont résérvées aux voitures de moins de 5ans et avec une période de couverture d'au moins 6mois </p>
+    </section>
+  </section>
+
+  <section class='modal' id='collision'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100'>
+    <p>Les tiérces complétes sont pour les catégories 1,2 et 6</p>
+    </section>
+  </section>
+
 
 
 </div><!-- End: Main -->
@@ -62,15 +180,18 @@
 
   <!-- BEGIN: PAGE SCRIPTS -->
   <!-- jQuery -->
-  <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
   <script src="vendor/plugins/validate/validate.js"></script>
   <script src="vendor/plugins/validate/steps.js"></script>
   <script src="assets/js/utility/utility.js"></script>
   <script src="assets/js/demo/demo.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
+  <script src="assets/js/number_divider.js"></script>
+
   <script src="assets/js/validate_form.js"></script>
+  <script src="assets/js/prime.js"></script>
 
 
   
