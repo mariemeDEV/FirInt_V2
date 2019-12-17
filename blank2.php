@@ -241,6 +241,18 @@
             </a>
           </li>
 
+          <li class="sidebar-label pt15">Avenants</li>
+          <li>
+            <a href="garanties.php">
+              <span class="fa fa-calendar"></span>
+              <span class="sidebar-title">Créer un avenant</span>
+            </a>
+            <a href="tarifs.php">
+              <span class="fa fa-calendar"></span>
+              <span class="sidebar-title">Consultation</span>
+            </a>
+          </li>
+
           <li class="sidebar-label pt15">Simulation</li>
           <li>
             <a href="simulation.php">

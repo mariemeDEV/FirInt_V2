@@ -127,7 +127,7 @@
                         "sNext": ""
                     }
                 },
-                "iDisplayLength": 9,
+                "iDisplayLength": 5,
                 "aLengthMenu": [
                     [5, 10, 25, 50, -1],
                     [5, 10, 25, 50, "All"]

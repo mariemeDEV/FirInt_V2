@@ -72,7 +72,6 @@ $(document).ready(function() {
                     printData3()
                     $('#documents').fadeOut()
                     $('#success-souscript').fadeIn()
-
                 })
                 $('.close').on('click', function() {
                     $('#documents').fadeOut()

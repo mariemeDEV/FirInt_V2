@@ -1,7 +1,7 @@
 
 
                 <div class="col-md-12">
-                    <div class="panel panel-visible" id="spy3">
+                    <div class="panel panel-visible data-panel" id="spy3">
                         <div class="panel-heading">
                             <div class="panel-title hidden-xs">
                                 <span class="glyphicon glyphicon-tasks"></span>Table des productions</div>
