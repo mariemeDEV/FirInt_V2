@@ -1,0 +1,156 @@
+//-- Structure de la table `utilisateur`--//
+TABLE utilisateur as user{
+  id_user int[pk]
+  role_user varchar
+  login varchar
+  password varchar
+ }
+ 
+//-- Structure de la table `annulation`--//
+ TABLE annulation as ann{
+  id_annulation int[pk]
+  numpolice varchar
+  code_intermediaire int
+  motif_annulation varchar
+  etat_annulation varchar
+  date_annulation datetime 
+  matricule_auteur int
+ }
+
+//-- Structure de la table `attestation`
+ TABLE attestation as att{
+  id_attestation int[pk]
+  numero_attestation varchar
+  id_type int
+  id_vente varchar
+  intermediaire int
+  etat_actuel enum('attribue','libre')
+  etat_sortie enum('restante','vendue')
+}
+
+//-- Structure de la table 'categorie_vehicule`
+ TABLE genre_vehicule as genre_veh{
+  code_genre int[pk]
+  libelle_categorie varchar
+}
+
+//-- Structure de la table `commandes`
+ TABLE commandes as c{
+  id_commande int[pk]
+  date_commande date
+  matricule_intermediaire int
+  nombre_attestation_verte int
+  nombre_attestation_jaune int
+  nombre_attestation_cedeao int
+  etat_commande varchar
+}
+
+//-- Structure de la table `garantie`
+ TABLE garantie as gant{
+  id_garantie int[pk]
+  libelle_garantie varchar
+  numpolice varchar
+}
+
+//-- Structure de la table `intermediaire`
+ TABLE intermediaire as inte{  
+  codeintermediaire int[pk]
+  id_user int
+  nom varchar
+  prenom varchar
+  adresse varchar
+  tel varchar
+  email varchar
+  mdp varchar
+  role int
+  actived tinyint(1) 
+}
+
+//-- Structure de la table `police`
+ TABLE police_valide as pol{
+  numpolice varchar[pk]
+  codeformule varchar
+  codeintermediaire int
+  codecategorie varchar
+  naturecontrat varchar
+  codezone tinyint(1)
+  dateeffet varchar
+  dateecheance int
+  qualite varchar
+  nom varchar
+  prenom varchar
+  adresse varchar
+  codeville varchar
+  codeprofession varchar
+  codeactivite varchar
+  typepiece varchar
+  numpiece varchar
+  telephone varchar
+  typepermi varchar
+  numepermis varchar
+  datedelivpermis varchar
+  lieudelivpermis varchar
+  immatriculation varchar
+  numchassis varchar
+  codemarque varchar
+  codeserie varchar
+  codegenre varchar
+  codeusage varchar
+  codeenergie varchar
+  nombreplace varchar
+  cylindre varchar
+  valeurneuve float
+  valeurvenale float
+  puissancefiscale int
+  codecarrosserie varchar
+  datemisecirculation varchar
+  montant_prime varchar
+  montant_accessoire varchar
+  montant_taxe float
+  montant_fga float
+  montant_ttc float
+  datevali date
+  datesous varchar
+  flagtrans varchar
+}
+
+//-- Structure de la table `role`
+ TABLE role as r{
+  id_role int[pk]
+  libelle_role varchar
+}
+
+//-- Structure de la table `type_attestation`
+ TABLE type_attestation as type_att{
+  id_type int[pk]
+  libelle varchar
+}
+
+//-- Structure de la table `avenant`
+ TABLE avenant as av{
+   id int[pk]
+  id_type int[pk]
+  libelle varchar
+}
+//-- Structure de la table `typr d'avenant
+ TABLE type_avenant as type_av{
+  id_type int[pk]
+  libelle varchar
+}
+
+
+Ref: pol.numpolice < gant.id_garantie
+Ref: pol.numpolice < av.id
+Ref: type_av.id_type <  av.id
+Ref: pol.numpolice < inte.codeintermediaire
+Ref: ann.id_annulation - pol.numpolice
+Ref: pol.codegenre <  genre_veh.code_genre
+Ref: type_att.id_type < att.id_attestation
+Ref: intermediaire.codeintermediaire < commandes.id_commande
+Ref: commandes.id_commande < attestation.id_attestation
+Ref: user.id_user < r.id_role
+Ref: user.id_user < intermediaire.codeintermediaire
+
+
+
+Ref: "avenant"."id_type" < "police_valide"."numpolice"
