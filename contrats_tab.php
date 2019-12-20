@@ -8,7 +8,7 @@
                             <table class="table table-striped table-hover data_tab data" id="datatable3" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th>Numér Police</th>
+                                        <th>Numéro Police</th>
                                         <th>Prénom/Nom assuré</th>
                                         <th>Imm. véhicule</th>
                                         <th>Effet</th>

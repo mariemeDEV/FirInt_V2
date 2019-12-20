@@ -534,7 +534,7 @@ mark {
 
 p,
 pre {
-    margin: 1em 0;
+    padding-top: 0;
 }
 
 
@@ -1061,6 +1061,10 @@ Wizard
     padding: 2.5%;
 }
 
+.documents-sector {
+    margin: 45px !important
+}
+
 .wizard>.content>.body ul {
     list-style: disc !important;
 }
@@ -1390,7 +1394,10 @@ fieldset {
 }
 
 .conditions-row h3 {
-    text-align: center !important
+    text-align: center !important;
+    position: relative;
+    top: -33px;
+    font-weight: lighter !important;
 }
 
 .conditions-row {
@@ -1547,6 +1554,11 @@ fieldset {
     z-index: 1;
 }
 
-z-index: 1;
-
+#impress-btn {
+    position: absolute;
+    top: 68px;
+    right: 29px;
+    color: #d6992a !important;
+    font-size: 40px;
+    cursor: pointer
 }

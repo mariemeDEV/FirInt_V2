@@ -16,10 +16,11 @@
   <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
   <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/validate.css">
-  <link rel="stylesheet" type="text/css" href="vendor/plugins/animate/animate.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css">  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="assets/img/favicon.ico">
 

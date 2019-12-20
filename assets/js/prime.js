@@ -1071,6 +1071,7 @@ function getSectionData(section_number) {
             }
         }
     })
+    console.log(sectionData);
     return sectionData;
 }
 
@@ -1189,7 +1190,8 @@ function writeData() {
     var assureData = getSectionData(0);
     var periodeData = getSectionData(1);
     var garantiesData = getSectionData(3);
-    var assureLibelles = ['Prénom', 'Nom']
+    var vehiculeData = getSectionData(2);
+    var assureLibelles = ['Prénom', 'Nom'];
     $('#assure_data li').remove();
     for (a = 0; a < assureData.length; a++) {
         $('#assure_data').append('<li>' + assureData[a] + '</li>');
@@ -1201,6 +1203,10 @@ function writeData() {
     $('#garanties_data li').remove();
     for (g = 0; g < garantiesData.length; g++) {
         $('#garanties_data').append('<li>' + garantiesData[g] + '</li>');
+    }
+    $('#vehicule_data li').remove();
+    for (v = 0; v < garantiesData.length; v++) {
+        $('#vehicule_data').append('<li>' + garantiesData[v] + '</li>');
     }
 }
 
@@ -1334,9 +1340,20 @@ $(document).ready(function() {
     //Number divider
     $('.divide').divide();
     $('.owl-carousel').owlCarousel({
-        margin: 10,
         loop: true,
-        autoWidth: true,
-        items: 1
+        margin: 0,
+        nav: true,
+        autowidth: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
     })
 });

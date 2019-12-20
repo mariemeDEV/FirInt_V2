@@ -343,7 +343,7 @@
                 <label for="" style='position: relative;left: 472px;top: 80px;color:white !important'>Réduction Com.</label>
                 <p class="reductions"><input type="text" class='garantie-val' name='reduction-com' id='reduction-com' value="0" 
                     style='position: relative;
-                    top: 27px;
+                    top: 47px;
                     width: 56px !important;
                     left: 601px;
                     background: #011221;
@@ -368,15 +368,15 @@
            <div class="row inputs-row">
                 <div class="col-md-6 jaune-col">
                     <label for="attestations jaunes" class="garantie-label">No attestation jaune</label>
-                    <input id="jaunes" name="att_jaunes" type="text" class="required">
+                    <input id="jaunes" name="att_jaunes" type="text" class="required" style='text-align:center !important'>
                 </div>
                 <div class="col-md-6 verte-col">
                     <label for="attestations vertes" class="garantie-label">No attestation verte</label>
-                    <input id="vertes" name="att_vertes" type="text" class="required">
+                    <input id="vertes" name="att_vertes" type="text" class="required" style='text-align:center !important'>
                 </div>
                 <div class="col-md-6 cedeao-col">
                     <label for="attestations_cedeao" class="garantie-label">No attestation cedeao</label>
-                    <input id="cedeao" name="att_cedeao" type="text" class="required">
+                    <input id="cedeao" name="att_cedeao" type="text" class="required" style='text-align:center !important'>
                 </div>
            </div>
         </section><!--Fin validation-->
@@ -385,17 +385,22 @@
         <section class='recap-sector' id='recap-section'>
             <section id="content" class="table-layout animated fadeIn">
             <!--Begi left-->
-            <aside class="tray tray-left tray320 p20 recap-tray">
+            <aside class="tray tray-left tray310 p10 recap-tray">
                 <h4> ASSURE</h4>
                 <hr class="alt short">
                     <ul id='assure_data'></ul>
             </aside>
-            <aside class="tray tray-left tray320 p20  recap-tray">
+            <aside class="tray tray-left tray310 p10  recap-tray">
+                <h4>VEHICULE</h4>
+                <hr class="alt short">
+                    <ul id='vehicule_data'></ul>
+            </aside>
+            <aside class="tray tray-left tray310 p10  recap-tray">
                 <h4> PERIODE DE GARANTIE </h4>
                 <hr class="alt short">
                     <ul id='periode_data'></ul>
             </aside> 
-            <aside class="tray tray-left tray320 p20  recap-tray">
+            <aside class="tray tray-left tray310 p10  recap-tray">
                 <h4> GARANTIES</h4>
                 <hr class="alt short">
                     <ul id='garanties_data'></ul>
@@ -405,7 +410,7 @@
             <!-- End: Content -->
             <div class='quittence-section'>
             <section class='prime-sector' id='prime-recap-section'>
-            <table class="table table-bordered mbn decompte-tab" style='position: absolute;top:304px'>
+            <table class="table table-bordered mbn decompte-tab recap-decompte" style='position: absolute;top:304px'>
                 <thead>
                     <tr class="decompte-header">
                         <th class='decompte-header'>Bonus RC</th>
@@ -433,14 +438,19 @@
         </section><!--Fin récapitulatif-->
     </div>
     <section id='documents' class='modal'><!--Documents-->
-    <span class="close">&times;</span>
+        <span class="close">&times;</span>
         <div class="documents-content">
-            <button id='impress-btn'>PRINT</button>
-            <div class="owl-carousel owl-theme">
-                <div class="item" id='item1' style="width:250px"><h4>Attestation jaune</h4></div>
-                <div class="item" id='item2' style="width:100px"><h4>Attestation verte</h4></div>
-                <div class="item" id='item3' style="width:500px"><h4>Attestation cedeao</h4></div>
-            </div>
+        <i class="fa fa-print animated infinite bounceIn delay-1s tooltip" id='impress-btn' title='Imprimer les documents...'></i>
+        <div class="owl-carousel owl-theme">
+            <div class="item" id='item1' style="width: 180%"><!--JAUNE DATA-->
+                <img src="assets/img/documents/jaune.JPG" alt="">
+            </div><!--JAUNE DATA-->
+            <div class="item" id='item2' style="width: 180%"><!--CP DATA-->
+                <img src="assets/img/documents/cp.JPG" alt="">
+            </div><!--CP DATA-->
+            <div class="item" id='item3' style="width: 180%"><!--CEDEAO DATA-->
+                <img src="assets/img/documents/jaune.JPG" alt="">
+            </div><!--CEDEAO DATA-->
         </div>
     </section><!--Documents-->
     </form>

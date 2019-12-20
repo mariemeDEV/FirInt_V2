@@ -54,12 +54,12 @@
             </div><!--End left side-->
 
             <div class="col-md-4 col-lg-5 dynamic-side"><!--Begin right side-->
-                <div class="owl-carousel owl-theme owl-visuels">
+                <div class="owl-carousel owl-theme owl-visuels accueil-carousel">
                     <div class="item owl-carousel-item">
-                        <img src="assets/img/patterns/slide1.png" alt="">
+                        <img src="assets/img/patterns/slide1.png" alt="" style='width:100% !important'>
                     </div>
                     <div class="item owl-carousel-item">
-                        <img src="assets/img/patterns/slide2.jpg" alt="">
+                        <img src="assets/img/patterns/slide2.jpg" alt="" style='width:100% !important'>
                     </div>
                 </div>
             </div><!--End right side-->

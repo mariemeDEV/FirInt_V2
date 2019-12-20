@@ -25,7 +25,7 @@ $(document).ready(function() {
 
     function printData2() {
         //window.open("http://localhost/forint_v2/jaune.php");
-        var divContents = document.getElementById('item2').innerHTML;
+        var divContents = document.getElementById('CP-body').innerHTML;
         var a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
         a.document.write('<body > <h1>Div contents are <br>');
@@ -38,11 +38,10 @@ $(document).ready(function() {
     }
 
     function printData3() {
-        //window.open("http://localhost/forint_v2/jaune.php");
-        var divContents = document.getElementById('item3').innerHTML;
+        var divContents = document.getElementById('item2').innerHTML;
         var a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
-        a.document.write('<body > <h1>Div contents are <br>');
+        a.document.write('<body> <h1>Div contents are <br>');
         a.document.write(divContents);
         a.document.write('</body></html>');
         a.document.close();

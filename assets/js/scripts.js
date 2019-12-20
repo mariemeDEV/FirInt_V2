@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('.fonctionnality').mouseenter(function() {
         $('.f-row .fonctionnality i').css('display', 'block')
     })
-    $('.owl-carousel').owlCarousel({
+    $('.accueil-carousel').owlCarousel({
         autoplay: true,
         loop: true,
         margin: 10,
