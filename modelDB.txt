@@ -22,11 +22,18 @@ TABLE utilisateur as user{
   id_attestation int[pk]
   numero_attestation varchar
   id_type int
-  id_vente varchar
   intermediaire int
-  etat_actuel enum('attribue','libre')
-  etat_sortie enum('restante','vendue')
+  //*id_vente varchar
+  //etat_actuel enum('attribue','libre')
+  //etat_sortie enum('restante','vendue')
 }
+//-- Structure de la table `vente_attestation`
+ TABLE vente_attestation as va{
+  id_vente varchar[pk]
+  id_attestation varchar
+  id_type int
+}
+
 
 //-- Structure de la table 'categorie_vehicule`
  TABLE genre_vehicule as genre_veh{
@@ -70,6 +77,7 @@ TABLE utilisateur as user{
  TABLE police_valide as pol{
   numpolice varchar[pk]
   codeformule varchar
+  id_vente varchar
   codeintermediaire int
   codecategorie varchar
   naturecontrat varchar
@@ -147,10 +155,9 @@ Ref: ann.id_annulation - pol.numpolice
 Ref: pol.codegenre <  genre_veh.code_genre
 Ref: type_att.id_type < att.id_attestation
 Ref: intermediaire.codeintermediaire < commandes.id_commande
-Ref: commandes.id_commande < attestation.id_attestation
 Ref: user.id_user < r.id_role
 Ref: user.id_user < intermediaire.codeintermediaire
-
-
-
-Ref: "avenant"."id_type" < "police_valide"."numpolice"
+Ref: avenant.id_type < police_valide.numpolice
+Ref: pol.numpolice - va.id_vente
+Ref: va.id_attestation < attestation.id_attestation
+Ref: intermediaire.codeintermediaire < attestation.intermediaire

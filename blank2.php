@@ -251,10 +251,6 @@
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Consultation</span>
             </a>
-            <a href="cp.php">
-              <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Consultation</span>
-            </a>
           </li>
 
           <li class="sidebar-label pt15">Simulation</li>
