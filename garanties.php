@@ -34,7 +34,7 @@
 
   <!-- Start: Main -->
   <div id="main">
-  <?php include('blank2.php');?><!--Header include-->
+  <?php include('menu_intermediaire.php');?><!--Header include-->
     <!-- Start: Content-Wrapper -->
     <div id="content_wrapper" style="margin:20px">
       <!-- Begin: Content -->

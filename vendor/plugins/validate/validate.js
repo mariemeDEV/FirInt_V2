@@ -62,7 +62,6 @@
                 // Validate the form on submit
                 this.on("submit.validate", function(event) {
                     if (validator.settings.debug) {
-
                         // Prevent form submit to be able to see console output
                         event.preventDefault();
                     }

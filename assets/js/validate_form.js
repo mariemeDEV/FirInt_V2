@@ -6,7 +6,12 @@ $(document).ready(function() {
             confirm: {
                 equalTo: "#password"
             }
-        }
+        },
+            /*messages: {
+                firstname: 'This field is required',
+                lastname: 'This field is required',
+                u_email: 'Enter a valid email',
+            },*/
     });
 
     function printData1() {
@@ -59,8 +64,18 @@ $(document).ready(function() {
             return form.valid();
         },
         /* onFinishing: function(event, currentIndex) {
-             form.validate().settings.ignore = ":disabled";
-             console.log(form.valid())
+             $('#documents').fadeIn(function() {
+                 $('#impress-btn').on('click', function() {
+                     printData1()
+                     printData2()
+                     printData3()
+                     $('#documents').fadeOut()
+                     $('#success-souscript').fadeIn()
+                 })
+                 $('.close').on('click', function() {
+                     $('#documents').fadeOut()
+                 })
+             });
              return form.valid();
          },*/
         onFinished: function(event, currentIndex) {
@@ -76,8 +91,10 @@ $(document).ready(function() {
                     $('#documents').fadeOut()
                 })
             });
-            var souscription_data = $(".auto-form").serializeArray()
+            form.submit();
+            /*var souscription_data = $(".auto-form").serializeArray()
             console.log(souscription_data)
+            form.submit();*/
         }
     });
     if (form.valid()) {

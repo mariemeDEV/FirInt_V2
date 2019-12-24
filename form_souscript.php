@@ -1,4 +1,4 @@
- <form method='POST' id="souscription-form" action="" class="auto-form">
+ <form method='POST' id="souscription-form" action="./controllers/PoliceController.php" class="auto-form">
       <div>
         <h3>Assuré</h3>
         <section><!--Début Bloc assuré-->
@@ -453,6 +453,7 @@
             </div><!--CEDEAO DATA-->
         </div>
     </section><!--Documents-->
+    <input type='hidden' value='submit'/>
     </form>
     
      

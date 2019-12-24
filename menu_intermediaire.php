@@ -239,6 +239,10 @@
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Consulter mes contrats</span>
             </a>
+            <a href="admin_index.php">
+                <span class="fa fa-calendar"></span>
+                <span class="sidebar-title">Admin</span>
+            </a>
           </li>
 
           <li class="sidebar-label pt15">Avenants</li>

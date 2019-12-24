@@ -42,6 +42,9 @@
         height: 15px !important;
         margin-right: 110px !important;
       }
+      .data{
+        font-size:14px !important
+      }
   </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,13 +65,13 @@
 <body class="sb-l-o admin-validation-page">
   <div class="main"><!-- Start: Main -->
 
-  <?php include('menu_intermediaire.php');?><!-- Header include-->
+  <?php include('menu_admin.php');?><!-- Header include-->
 
   <section id='content' class='table-layout'><!-- Begin: Content -->
     <div class="tray tray-center">
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
-          <?php include('tarifs_tab.php');?>
+          <?php include('contrats_tab.php');?>
       </div><!-- Second row -->
       </div>
     </div>
@@ -116,7 +119,7 @@
         
 
 
-            $('#datatable4').dataTable({
+            $('#datatable3').dataTable({
                 "aoColumnDefs": [{
                     'bSortable': false,
                     'aTargets': [-1]
@@ -127,7 +130,7 @@
                         "sNext": ""
                     }
                 },
-                "iDisplayLength": 5,
+                "iDisplayLength": 8,
                 "aLengthMenu": [
                     [5, 10, 25, 50, -1],
                     [5, 10, 25, 50, "All"]

@@ -65,7 +65,7 @@
 <body class="sb-l-o admin-validation-page">
   <div class="main"><!-- Start: Main -->
 
-  <?php include('blank2.php');?><!-- Header include-->
+  <?php include('menu_intermediaire.php');?><!-- Header include-->
 
   <section id='content' class='table-layout'><!-- Begin: Content -->
     <div class="tray tray-center">
