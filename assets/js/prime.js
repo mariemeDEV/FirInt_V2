@@ -1058,20 +1058,20 @@ function getSectionData(section_number) {
     var sectionData = [];
     var insertedData;
     $('#steps-uid-0-p-' + section_number).find('select,input,checkbox').each(function(i, champ) {
-        insertedData = champ.value;
-        if (insertedData != '' && insertedData != 0 && insertedData != 'on') {
-            if (section_number == 3) {
-                if (champ.type == 'checkbox') {
-                    if (champ.checked) {
-                        sectionData.push(insertedData)
-                    }
-                } else if (champ.type != 'checkbox') {}
-            } else {
-                sectionData.push(insertedData)
+            insertedData = champ.value;
+            if (insertedData != '' && insertedData != 0 && insertedData != 'on') {
+                if (section_number == 3) {
+                    if (champ.type == 'checkbox') {
+                        if (champ.checked) {
+                            sectionData.push(insertedData)
+                        }
+                    } else if (champ.type != 'checkbox') {}
+                } else {
+                    sectionData.push(insertedData)
+                }
             }
-        }
-    })
-    console.log(sectionData);
+        })
+        //console.log(sectionData);
     return sectionData;
 }
 

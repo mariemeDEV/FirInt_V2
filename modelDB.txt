@@ -140,7 +140,7 @@ TABLE utilisateur as user{
   id_type int[pk]
   libelle varchar
 }
-//-- Structure de la table `typr d'avenant
+//-- Structure de la table `type d'avenant
  TABLE type_avenant as type_av{
   id_type int[pk]
   libelle varchar

@@ -1,21 +1,7 @@
 $(document).ready(function() {
-    var form = $(".auto-form");
-    form.validate({
-        errorPlacement: function errorPlacement(error, element) { element.before(error); },
-        rules: {
-            confirm: {
-                equalTo: "#password"
-            }
-        },
-            /*messages: {
-                firstname: 'This field is required',
-                lastname: 'This field is required',
-                u_email: 'Enter a valid email',
-            },*/
-    });
+    var form = $("#souscription-form");
 
     function printData1() {
-        //window.open("http://localhost/forint_v2/jaune.php");
         var divContents = document.getElementById('item1').innerHTML;
         var a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
@@ -29,8 +15,7 @@ $(document).ready(function() {
     }
 
     function printData2() {
-        //window.open("http://localhost/forint_v2/jaune.php");
-        var divContents = document.getElementById('CP-body').innerHTML;
+        var divContents = document.getElementById('item2').innerHTML;
         var a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
         a.document.write('<body > <h1>Div contents are <br>');
@@ -43,7 +28,7 @@ $(document).ready(function() {
     }
 
     function printData3() {
-        var divContents = document.getElementById('item2').innerHTML;
+        var divContents = document.getElementById('item3').innerHTML;
         var a = window.open('', '', 'height=500, width=500');
         a.document.write('<html>');
         a.document.write('<body> <h1>Div contents are <br>');
@@ -63,41 +48,25 @@ $(document).ready(function() {
             form.validate().settings.ignore = ":disabled,:hidden";
             return form.valid();
         },
-        /* onFinishing: function(event, currentIndex) {
-             $('#documents').fadeIn(function() {
-                 $('#impress-btn').on('click', function() {
-                     printData1()
-                     printData2()
-                     printData3()
-                     $('#documents').fadeOut()
-                     $('#success-souscript').fadeIn()
-                 })
-                 $('.close').on('click', function() {
-                     $('#documents').fadeOut()
-                 })
-             });
-             return form.valid();
-         },*/
+        onFinishing: function(event, currentIndex) {
+            return form.valid();
+        },
         onFinished: function(event, currentIndex) {
-            $('#documents').fadeIn(function() {
-                $('#impress-btn').on('click', function() {
-                    printData1()
-                    printData2()
-                    printData3()
-                    $('#documents').fadeOut()
-                    $('#success-souscript').fadeIn()
-                })
-                $('.close').on('click', function() {
-                    $('#documents').fadeOut()
-                })
+            form.submit(function(event) {
+                event.preventDefault(); // Empêcher le rechargement de la page.
+                var formData = form.serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "../../controllers/PoliceController.php",
+                    data: formData,
+                    success: function() {
+                        console.log(data)
+                    },
+                    error: function() {
+                        console.log('nothing')
+                    }
+                });
             });
-            form.submit();
-            /*var souscription_data = $(".auto-form").serializeArray()
-            console.log(souscription_data)
-            form.submit();*/
         }
     });
-    if (form.valid()) {
-        $('#content').fadeIn()
-    }
 })

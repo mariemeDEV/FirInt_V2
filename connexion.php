@@ -55,7 +55,7 @@
           <!-- Login Panel/Form -->
           <div class="panel mt30 mb25">
 
-            <form method="post" action="/" id="contact">
+            <form method="post" id="connexion">
               <div class="panel-body bg-light p25 pb15">
 
                 <!-- Social Login Buttons -->
@@ -108,10 +108,8 @@
                 </div>
 
               </div>
-
               <div class="panel-footer clearfix">
-                <!--button type="submit" class="button btn-primary mr10 pull-right">Connexion</button-->
-                <a href="accueil.php" class="button btn-primary mr10 pull-right">Connexion</a>
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submit'>Connexion</button>
                 <label class="switch ib switch-primary mt10">
                   <input type="checkbox" name="remember" id="remember" checked>
                   <label for="remember" data-on="OUI" data-off="NON"></label>
@@ -160,6 +158,7 @@
   <script src="assets/js/utility/utility.js"></script>
   <script src="assets/js/demo/demo.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/connexion.js"></script>
 
   <!-- Page Javascript -->
   <script type="text/javascript">

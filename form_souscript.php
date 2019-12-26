@@ -1,4 +1,4 @@
- <form method='POST' id="souscription-form" action="./controllers/PoliceController.php" class="auto-form">
+ <form method='POST' id="souscription-form" action='./controllers/PoliceController.php' class="auto-form">
       <div>
         <h3>Assuré</h3>
         <section><!--Début Bloc assuré-->
@@ -446,14 +446,13 @@
                 <img src="assets/img/documents/jaune.JPG" alt="">
             </div><!--JAUNE DATA-->
             <div class="item" id='item2' style="width: 180%"><!--CP DATA-->
-                <img src="assets/img/documents/cp.JPG" alt="">
+                <img src="assets/img/documents/jaune.JPG" alt="">
             </div><!--CP DATA-->
             <div class="item" id='item3' style="width: 180%"><!--CEDEAO DATA-->
-                <img src="assets/img/documents/jaune.JPG" alt="">
+                <img src="assets/img/documents/cp.JPG" alt="">
             </div><!--CEDEAO DATA-->
         </div>
     </section><!--Documents-->
-    <input type='hidden' value='submit'/>
     </form>
     
      
