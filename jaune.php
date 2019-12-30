@@ -5,7 +5,6 @@
     <title>JAUNE</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
-    <link href="../../view/style/form_v3.css" rel="stylesheet">
     <style>
     @media print{@page {size: landscape}}
         .b3{

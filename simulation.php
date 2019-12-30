@@ -13,14 +13,14 @@
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-  <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/navbar.css">
-  <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/validate.css">
-  <link rel="stylesheet" type="text/css" href="vendor/plugins/animate/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/skin/default_skin/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="../assets/skin/default_skin/css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="../assets/skin/default_skin/css/validate.css">
+  <link rel="stylesheet" type="text/css" href="../vendor/plugins/animate/animate.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="shortcut icon" href="../assets/img/favicon.ico">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
  <!--form tray center background-->
 <style>
   .tray-center{
-    background-image:url('./assets/img/patterns/backgrounds/bg_home.png')
+    background-image:url('../assets/img/patterns/backgrounds/bg_home.png')
   }
 </style>
 <!--Form tray center background-->
@@ -181,17 +181,17 @@
   <!-- BEGIN: PAGE SCRIPTS -->
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
-  <script src="vendor/plugins/validate/validate.js"></script>
-  <script src="vendor/plugins/validate/steps.js"></script>
-  <script src="assets/js/utility/utility.js"></script>
-  <script src="assets/js/demo/demo.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
-  <script src="assets/js/number_divider.js"></script>
+  <script src="../vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+  <script src="../vendor/plugins/validate/validate.js"></script>
+  <script src="../vendor/plugins/validate/steps.js"></script>
+  <script src="../assets/js/utility/utility.js"></script>
+  <script src="../assets/js/demo/demo.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../vendor/plugins/magnific/jquery.magnific-popup.js"></script>
+  <script src="../assets/js/number_divider.js"></script>
 
-  <script src="assets/js/validate_form.js"></script>
-  <script src="assets/js/prime.js"></script>
+  <script src="../assets/js/validate_form.js"></script>
+  <script src="../assets/js/prime.js"></script>
 
 
   

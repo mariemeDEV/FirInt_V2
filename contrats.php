@@ -55,7 +55,7 @@
  <!--form tray center background-->
 <style>
   .tray-center{
-    background-image:url('./assets/img/patterns/backgrounds/bg_home.png')
+    background-image:url('assets/img/patterns/backgrounds/bg_home.png')
   }
 </style>
 <!--Form tray center background-->

@@ -10,3 +10,10 @@
 .forgot-pw-logo {
     width: 54% !important;
 }
+
+.loader {
+    position: relative;
+    left: 43%;
+    width: 14%;
+    top: 52px;
+}

@@ -109,7 +109,7 @@
 
               </div>
               <div class="panel-footer clearfix">
-                <button type="submit" class="button btn-primary mr10 pull-right" name='submit'>Connexion</button>
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submitConnexion'>Connexion</button>
                 <label class="switch ib switch-primary mt10">
                   <input type="checkbox" name="remember" id="remember" checked>
                   <label for="remember" data-on="OUI" data-off="NON"></label>
@@ -143,6 +143,13 @@
 
     </section>
     <!-- End: Content-Wrapper -->
+    <div class="modal connection-modal">
+      <img src="assets/img/patterns/ajax-loader.gif" class ='loader' alt="Chargement...">
+    </div>
+
+    <div class="modal error-modal">
+      <p>Vous n'etes pas reconnu</p>
+    </div>
 
   </div>
   <!-- End: Main -->
