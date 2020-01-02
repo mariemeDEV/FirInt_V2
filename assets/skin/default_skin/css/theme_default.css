@@ -9,8 +9,73 @@
  * attr to create a delayed page animation
  * read docs for more info on proper use*/
 
-.add-user-modal {
+.add-user-modal,
+.add-office-modal {
     background: #0000ff2e !important
+}
+
+#add-user,
+#add-office {
+    position: absolute;
+    margin: 63px 28% 9px 28%;
+    width: 44%;
+}
+
+#add-office .section {
+    margin-bottom: 22px;
+    margin-left: 15%;
+    width: 102%;
+}
+
+#add-user .section {
+    margin-bottom: 22px;
+    margin-left: 15%;
+    width: 102%;
+}
+
+#add-user label {
+    font-size: 12px !important
+}
+
+#add-office label {
+    font-size: 12px !important
+}
+
+#add-user .button {
+    padding: 0 14px 0 14px !important;
+    font-size: 12px !important;
+}
+
+#add-office .button {
+    padding: 0 14px 0 14px !important;
+    font-size: 12px !important;
+}
+
+#add-user input {
+    height: 36px;
+    width: 70%;
+}
+
+#add-office input {
+    height: 36px;
+    width: 70%;
+}
+
+.admin-form .panel-body {
+    padding: 20px 0 0 0 !important;
+}
+
+.add-user-modal {
+    height: 100% !important
+}
+
+.close {
+    position: absolute !important;
+    z-index: 1;
+    left: 69% !important;
+    top: 69px !important;
+    color: green !important;
+    font-size: 28px !important;
 }
 
 .animated-delay,

@@ -9,4 +9,22 @@ $(document).ready(function() {
         $('.add-user-modal,.add-office-modal').fadeOut()
     })
 
+    /*Add a new user*/
+    $('#add-user').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'controllers/UserController.php',
+                data: $(this).serialize(),
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function() {
+                    console.log('no data');
+                }
+            })
+        })
+        /*Add a new user*/
+
+
 })

@@ -1063,55 +1063,139 @@
         </aside>
         <!-- End: Right Sidebar -->
 
-    <div class="modal add-user-modal"><!-- Add user modal -->
-        <form method="post" action="">
-            <div class="row">
-                <div class="col col-md-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                        <input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
-                    </div>
+    <div class="modal add-user-modal panel"><!-- Add user modal -->
+    <span class="close">&times;</span>
+    <div class="admin-form theme-info mw500">
+        <form method="post" id="add-user" class='modal-form'>
+        <input type="hidden" name='addUser' value='newUser'>
+            <div class="panel-body bg-light p25 pb15">
+                <!-- Divider -->
+                <div class="section-divider mv30">
+                  <span>Nouveau compte utilisateur</span>
                 </div>
-                <div class="col col-md-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                        <input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
-                    </div>
+                <!-- Matricule Input -->
+                <div class="section">
+                  <label for="username" class="field prepend-icon">
+                    <input type="text" name="matricule" id="mat" class="gui-input" placeholder="Matricule">
+                    <label for="matricule" class="field-icon">
+                      <i class="fa fa-user"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Prénom Input -->
+                <div class="section">
+                  <label for="prenom" class="field prepend-icon">
+                    <input type="text" name="prenom" id="prenom" class="gui-input" placeholder="Prénom">
+                    <label for="prenom" class="field-icon">
+                        <i class="fa fa-pencil"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Nom Input -->
+                <div class="section">
+                  <label for="nom" class="field prepend-icon">
+                    <input type="text" name="nom" id="nom" class="gui-input" placeholder="Nom">
+                    <label for="nom" class="field-icon">
+                        <i class="fa fa-pencil"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Adresse Input -->
+                <div class="section">
+                  <label for="adresse" class="field prepend-icon">
+                    <input type="text" name="adresse" id="adresse" class="gui-input" placeholder="Adresse">
+                    <label for="adresse" class="field-icon">
+                      <i class="fa fa-calendar"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Téléphone Input -->
+                <div class="section">
+                  <label for="telephone" class="field prepend-icon">
+                    <input type="text" name="telephone" id="phone" class="gui-input" placeholder="Téléphone">
+                    <label for="telephone" class="field-icon">
+                      <i class="fa fa-phone"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- E-mail Input -->
+                <div class="section">
+                  <label for="mail" class="field prepend-icon">
+                    <input type="email" name="login" id="log" class="gui-input" placeholder="E-mail">
+                    <label for="email" class="field-icon">
+                      <i class="fa fa-envelope"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Mot de passe Input -->
+                <div class="section">
+                  <label for="password" class="field prepend-icon">
+                    <input type="text" name="password" id="password" class="gui-input" placeholder="Mot de passe">
+                    <label for="password" class="field-icon">
+                      <i class="fa fa-lock"></i>
+                    </label>
+                  </label>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col col-md-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                        <input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
-                    </div>
-                </div>
-                <div class="col col-md-6">
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-search"></i>
-                        </span>
-                        <input type="text" id="sidebar-search" class="form-control" placeholder="Search...">
-                    </div>
-                </div>
-            </div> 
-
-        </form>   
+            <div class="panel-footer clearfix">
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submit' value='Submit'>Ajouter</button>
+                <button type="reset" class="button btn-primary mr10 pull-right">Annuler</button>
+            </div>
+        </form>
+    </div>
     </div><!-- Add user modal-->
 
     <div class="modal add-office-modal">
-        <span class="close">&times;</span>
-        <p>Nouveau bureau</p>
+    <span class="close">&times;</span>
+    <div class="admin-form theme-info mw500" id="bureau">
+        <form method="post" id="add-office" class='modal-form'>
+            <div class="panel-body bg-light p25 pb15">
+                <!-- Divider -->
+                <div class="section-divider mv30">
+                  <span>Nouveau bureau</span>
+                </div>
+                <!-- Matricule Input -->
+                <div class="section">
+                  <label for="matricule" class="field prepend-icon">
+                    <input type="text" name="matricule-intermediaire" id="mat-int" class="gui-input" placeholder="Matricule">
+                    <label for="matricule" class="field-icon">
+                      <i class="fa fa-user"></i>
+                    </label>
+                  </label>
+                </div>
+                   <!--Gerant Input -->
+                   <div class="section">
+                  <label for="nom et prenom" class="field prepend-icon">
+                    <input type="text" name="gerant" id="g" class="gui-input" placeholder="Prénom & Nom gérant">
+                    <label for="matricule" class="field-icon">
+                      <i class="fa fa-user"></i>
+                    </label>
+                  </label>
+                </div>
+                 <!-- Login gérant Input -->
+                 <div class="section">
+                  <label for="username" class="field prepend-icon">
+                    <input type="text" name="login-gerant" id="ug" class="gui-input" placeholder="Login gérant">
+                    <label for="Login" class="field-icon">
+                      <i class="fa fa-envelope"></i>
+                    </label>
+                  </label>
+                </div>
+                 <!-- Password gérant -->
+                 <div class="section">
+                  <label for="password" class="field prepend-icon">
+                    <input type="text" name="password-gerant" id="pg" class="gui-input" placeholder="Mot de passe gérant">
+                    <label for="password" class="field-icon">
+                      <i class="fa fa-lock"></i>
+                    </label>
+                  </label>
+                </div>
+                <div class="panel-footer clearfix">
+                    <button type="submit" class="button btn-primary mr10 pull-right" name=''>Ajouter</button>
+                    <button type="reset" class="button btn-primary mr10 pull-right" name=''>Annuler</button>
+            </div>
+        </form>
     </div>
-    
-
     </div>
     <!-- End: Main -->
 

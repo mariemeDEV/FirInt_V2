@@ -2,7 +2,6 @@
 //namespace entities;
 
 class Utilisateur {
-
     private $id;
     private $prenom;
     private $nom;

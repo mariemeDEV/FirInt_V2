@@ -44,47 +44,20 @@
       <section id="content">
 
         <div class="admin-form theme-info mw500" id="login">
-
           <!-- Login Logo -->
           <div class="row table-layout">
             <a href="index.php" title="Return to Dashboard">
               <img src="assets/img/logos/logo-footer.png" title="For-Int" class="center-block img-responsive" style="max-width: 275px;">
             </a>
           </div>
-
           <!-- Login Panel/Form -->
           <div class="panel mt30 mb25">
-
-            <form method="post" id="connexion">
+            <form method="post" action="controllers/UserController.php" id="connexion">
               <div class="panel-body bg-light p25 pb15">
-
-                <!-- Social Login Buttons -->
-                <!--div class="section row">
-                  <div class="col-md-6">
-                    <a href="#" class="button btn-social facebook span-left btn-block">
-                      <span>
-                        <i class="fa fa-facebook"></i>
-                      </span>Facebook</a>
-                  </div>
-                  <div class="col-md-6">
-                    <a href="#" class="button btn-social googleplus span-left btn-block">
-                      <span>
-                        <i class="fa fa-google-plus"></i>
-                      </span>Google+</a>
-                  </div>
-                  <div class="col-md-6 hidden">
-                    <a href="#" class="button btn-social twitter span-left btn-block">
-                      <span>
-                        <i class="fa fa-twitter"></i>
-                      </span>Twitter</a>
-                  </div>
-                </div-->
-
                 <!-- Divider -->
                 <div class="section-divider mv30">
                   <span>For-Int</span>
                 </div>
-
                 <!-- Username Input -->
                 <div class="section">
                   <label for="username" class="field-label text-muted fs18 mb10">Login</label>
@@ -95,7 +68,6 @@
                     </label>
                   </label>
                 </div>
-
                 <!-- Password Input -->
                 <div class="section">
                   <label for="username" class="field-label text-muted fs18 mb10">Mot de passe</label>
@@ -106,17 +78,15 @@
                     </label>
                   </label>
                 </div>
-
               </div>
               <div class="panel-footer clearfix">
-                <button type="submit" class="button btn-primary mr10 pull-right" name='submitConnexion'>Connexion</button>
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submitConnexion' id='conexion'>Connexion</button>
                 <label class="switch ib switch-primary mt10">
                   <input type="checkbox" name="remember" id="remember" checked>
                   <label for="remember" data-on="OUI" data-off="NON"></label>
                   <span>Se rappeler de moi</span>
                 </label>
               </div>
-
             </form>
           </div>
 
