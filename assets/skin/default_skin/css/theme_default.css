@@ -51,12 +51,29 @@
     font-size: 12px !important;
 }
 
-#add-user input {
+#add-user input:not([type=radio]) {
     height: 36px;
     width: 70%;
 }
 
-#add-office input {
+#add-user input[type="radio"] {
+    width: initial !important;
+    height: initial !important;
+    position: initial !important;
+    margin: initial !important
+}
+
+.radio-row {
+    display: flex;
+    align-items: center !important;
+    margin-left: 5px !important;
+}
+
+#add-user .col-xs-4 {
+    margin: -38px;
+}
+
+#add-office input:not([type=radio]) {
     height: 36px;
     width: 70%;
 }

@@ -3,6 +3,7 @@
 
 class Utilisateur {
     private $id;
+    private $matricule;
     private $prenom;
     private $nom;
     private $adresse;
@@ -11,9 +12,10 @@ class Utilisateur {
     private $login;
     private $password;
 
-    function __construct( $id='', $prenom='', $nom='', $adresse='', $telephone='', $role='', $login='', $password='')
+    function __construct( $id='', $matricule='',$prenom='', $nom='', $adresse='', $telephone='', $role='', $login='', $password='')
     {
         $this->id=$id;
+        $this->matricule=$matricule;
         $this->prenom=$prenom;
         $this->nom=$nom;
         $this->adresse=$adresse;
@@ -22,9 +24,6 @@ class Utilisateur {
         $this->password=$password;
         $this->role=$role;
     }
-  
-
-   
 
     /**
      * Get the value of id
@@ -42,6 +41,26 @@ class Utilisateur {
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of matricule
+     */ 
+    public function getMatricule()
+    {
+        return $this->matricule;
+    }
+
+    /**
+     * Set the value of matricule
+     *
+     * @return  self
+     */ 
+    public function setMatricule($matricule)
+    {
+        $this->matricule = $matricule;
 
         return $this;
     }
@@ -185,4 +204,6 @@ class Utilisateur {
 
         return $this;
     }
+
+    
 }

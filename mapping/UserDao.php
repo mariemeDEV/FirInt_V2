@@ -1,8 +1,6 @@
 <?php
 //namespace mapping;
 require_once '../controllers/ConnexionDB.php';
-require_once '../entities/Utilisateur.php';
-
 
 class UserDao{
 private static $connector;
@@ -12,10 +10,8 @@ public function getConnector(){
     return  self::$connector;
 }
 //Connection
-public function connectUser(){
+public function connectUser($login,$password){
    try {
-        $login=$_POST['username'];
-        $password = $_POST['password'];
         $connector = $this->getConnector();
         $connectRequest = "SELECT * FROM utilisateur WHERE login='$login' AND password='$password' LIMIT 1";
         $prepared=$connector->prepare($connectRequest);
@@ -27,24 +23,54 @@ public function connectUser(){
     }
 }
 //Insertion d'un nouvel uitilisateur
-public function insertUser(){
+public function insertUser(Utilisateur $user){
     $connector = $this->getConnector();
-    $utilisateur = new Utilisateur(NULL,$_POST['matricule'],$_POST['prenom'],$_POST['nom'],$_POST['adresse'],$_POST['telephone'],2,$_POST['login'],$_POST['password']);
-    $insertUserRequest = "INSERT INTO utilisateur values(
-            $utilisateur->getMatricule(),
-            $utilisateur->getPrenom(),
-            $utilisateur->getNom(),
-            $utilisateur->getAdresse(),
-            $utilisateur->getTelephone(),
-            $utilisateur->getRole(),
-            $utilisateur->getLogin(),
-            $utilisateur->getPassword()
-        )";
-        $preparedInsert = $connector->prepare($insertUserRequest);
-        $preparedInsert->execute();
-    return $utilisateur;
-   
+    $insertUserRequest = $connector->prepare(
+        "insert into utilisateur values(
+        '".$user->getId()."',
+        '".$user->getMatricule()."',
+        '".$user->getPrenom()."',
+        '".$user->getNom()."',
+        '".$user->getAdresse()."',
+        '".$user->getTelephone()."',
+        '".$user->getRole()."',
+        '".$user->getLogin()."',
+        '".$user->getPassword()."'
+        )"
+    );
+    try{
+   $insertUserRequest->execute(); 
+//Action à effectuer s'il s'agit d'un intermédiaire
+        if(isset($_POST['optionCompte']) && $_POST['optionCompte']=='intermediaireOpt') {
+            $idUser= $connector->prepare("SELECT MAX(id_user) FROM `utilisateur`");
+            $idUser->execute();
+            $data =$idUser->fetchAll(PDO::FETCH_ASSOC);
+            $lastId=$data[0]['MAX(id_user)'];
+            $insertIntRequest= $connector->prepare(
+                "insert into intermediaire values(
+                    '".NULL."',
+                    '".$lastId."'
+                )"
+                );
+                $insertIntRequest->execute();
+        } 
+    }catch(Exception $e){
+        $e->getMessage();
+    }
+    }
+//Requete pour obtenir l'ensemble des utilisateurs
+function getUsers(){
+    try {
+        $connector = $this->getConnector();
+        $usersRequest = "SELECT * FROM utilisateur";
+        $prepared=$connector->prepare($usersRequest );
+        $prepared->execute();
+        $users = $prepared->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    } catch (Exception $e) {
+        return $e->getMessage();
+    }
+}
 }
 
- 
-}
+

@@ -1073,9 +1073,29 @@
                 <div class="section-divider mv30">
                   <span>Nouveau compte utilisateur</span>
                 </div>
+                <!-- Type de compte -->
+                <div class="section">
+                <div class="row radio-row">
+                    <div class="col-xs-4 col1">
+                    <label class="radio-inline mr10">
+                        <input type="radio" name="optionCompte" id="admin" value="adminOpt">Admin
+                    </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label class="radio-inline mr10">
+                            <input type="radio" name="optionCompte" id="intermediaire" value="intermediaireOpt">Intermediaire
+                        </label>
+                    </div>
+                    <div class="col-xs-4 col3">
+                        <label class="radio-inline mr10">
+                            <input type="radio" name="optionCompte" id="controlleur" value="controlleurOpt">Controlleur
+                        </label>
+                    </div>
+                </div>
+                </div>
                 <!-- Matricule Input -->
                 <div class="section">
-                  <label for="username" class="field prepend-icon">
+                  <label for="matricule" class="field prepend-icon">
                     <input type="text" name="matricule" id="mat" class="gui-input" placeholder="Matricule">
                     <label for="matricule" class="field-icon">
                       <i class="fa fa-user"></i>
@@ -1213,6 +1233,14 @@
     <script src="assets/js/demo/demo.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/adds.js"></script>
+    <script>
+       /* $(document).ready(function() {
+            $('#mat').prop('disabled', true);
+            $('#intermediaire').on('click', function() {
+                $('#mat').prop('disabled', false);
+            })      
+        })*/
+    </script>
     <!-- END: PAGE SCRIPTS -->
 </body>
 
