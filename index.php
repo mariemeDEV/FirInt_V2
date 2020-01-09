@@ -32,7 +32,7 @@
     <div id="main">
         <p class='text-welcome'>
             For-Int <span class='forInt_subtitle'>Saham Sénégal</span>
-            <a href="connexion.php" class="glyphicons glyphicons-circle_arrow_right get-connexion-icon animated infinite bounceIn delay-1s tooltip" title='Connexion'></a>
+            <a href="controllers/routes.php?action=pageConnect" class="glyphicons glyphicons-circle_arrow_right get-connexion-icon animated infinite bounceIn delay-1s tooltip" title='Connexion'></a>
             <hr>
         </p>
     </div>

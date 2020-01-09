@@ -1,0 +1,41 @@
+body .left-side {
+    height: 100% !important
+}
+
+body #main {
+    overflow: hidden;
+    background: url(../../../img/patterns/backgrounds/accueilPhoto.png) no-repeat top center #2d494d;
+    background-repeat: no-repeat;
+    background-blend-mode: soft-light;
+    background-size: cover;
+}
+
+body #main .text-welcome {
+    display: inline-block !important;
+    padding: 233px 25px 233px 183px;
+    /*font-weight: bold;*/
+    font-size: 45px;
+    color: #ecb137e6;
+}
+
+hr {
+    width: 5%;
+    position: relative;
+    top: -271px;
+    left: 14%;
+    border-style: inset;
+}
+
+body #main .text-welcome .forInt_subtitle {
+    font-size: 16px;
+}
+
+body #main .text-welcome .get-connexion-icon {
+    font-size: 63px !important;
+    color: #074b54 !important;
+    z-index: 1;
+    text-decoration: none !important;
+    position: absolute;
+    top: 33%;
+    left: 33%;
+}

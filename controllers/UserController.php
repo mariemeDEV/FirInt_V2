@@ -2,17 +2,15 @@
 require_once '../mapping/UserDao.php';
 require_once '../entities/Utilisateur.php';
 
-$dao = new UserDao();
-$usersData = $dao->getUsers();
-require_once('../users.php');
 /*Connect a user */
 	if(isset($_POST['username']) && isset($_POST['password'])){
-		$user = $dao->connectUser($_POST['username'],$_POST['password']);
+		$dao = new UserDao();
+		$user   = $dao->connectUser();
 		$noData = false;
 		if($user==[]){
-			print_r($noData);
+			echo($noData);
 		}else{
-			print_r(json_encode($dao->connectUser($_POST['username'],$_POST['password'])));
+			echo(json_encode($user));
 		}
 	//Insertion d'un utilisateur
 	}else if(isset($_POST['addUser'])){
@@ -29,11 +27,15 @@ require_once('../users.php');
 				$userRole=3;
 			break;
 		}
-		$utilisateur = new Utilisateur(NULL,$_POST['matricule'],$_POST['prenom'],$_POST['nom'],$_POST['adresse'],$_POST['telephone'],$userRole,$_POST['login'],$_POST['password']);
+		$dao = new UserDao();
+		$utilisateur = new Utilisateur(NULL,$_POST['matricule'],$_POST['prenom'],$_POST['nom'],$_POST['adresse'],$_POST['telephone'],$userRole,$_POST['login'],$_POST['password'],0);
 		$dao->insertUser($utilisateur);
-		print_r("Insertion effectuée avec succés.");
+		echo("Insertion effectuée avec succés.");
 	}
 /*Connect a user*/
+
+
+
 
 
 

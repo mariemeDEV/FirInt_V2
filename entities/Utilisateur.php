@@ -11,8 +11,9 @@ class Utilisateur {
     private $role;
     private $login;
     private $password;
+    private $etat;
 
-    function __construct( $id='', $matricule='',$prenom='', $nom='', $adresse='', $telephone='', $role='', $login='', $password='')
+    function __construct( $id='', $matricule='',$prenom='', $nom='', $adresse='', $telephone='', $role='', $login='', $password='',$etat='')
     {
         $this->id=$id;
         $this->matricule=$matricule;
@@ -23,6 +24,7 @@ class Utilisateur {
         $this->login=$login;
         $this->password=$password;
         $this->role=$role;
+        $this->etat=$etat;
     }
 
     /**
@@ -206,4 +208,24 @@ class Utilisateur {
     }
 
     
+
+    /**
+     * Get the value of etat
+     */ 
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set the value of etat
+     *
+     * @return  self
+     */ 
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
 }

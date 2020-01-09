@@ -21,6 +21,12 @@
     width: 44%;
 }
 
+#dotations-attestations {
+    position: absolute !important;
+    margin: 63px 28% 9px 28% !important;
+    width: 44% !important;
+}
+
 #add-office .section {
     margin-bottom: 22px;
     margin-left: 15%;

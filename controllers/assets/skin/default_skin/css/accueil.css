@@ -1,0 +1,191 @@
+body {
+    overflow: hidden !important;
+}
+
+#main {
+    background-image: url(../../../img/patterns/backgrounds/1.jpg)
+}
+
+.accueil-content {
+    padding: 0 !important
+}
+
+.fonctionalities-side {
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+}
+
+.fonctionalites-row {
+    background: #ffffff !important;
+    position: relative;
+    top: -14px !important
+}
+
+.dynamic-side {
+    /*   position: relative;
+    left: -10px;*/
+}
+
+.owl-carousel-item img {
+    height: 606px !important
+}
+
+
+/*.owl-visuels {
+    width: 540px;
+    margin-right: 10px;
+}*/
+
+.owl-carousel .owl-item img {
+    display: block;
+}
+
+.owl-nav {
+    position: relative;
+    top: -133px;
+    text-align: center;
+}
+
+.link_item {
+    padding: 21%;
+    padding-top: 248px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.link1 {
+    font-size: 20px !important
+}
+
+.link_hr {
+    font-size: 27px
+}
+
+.link_hr {
+    margin: 35px 0;
+    border-top: 1px solid #ecb137e6;
+    position: relative;
+    top: -18px;
+    width: 68%;
+    left: 71px;
+}
+
+.mysaham {
+    color: #ecb137e6 !important
+}
+
+.mySaham-text {
+    font-weight: lighter;
+    padding: 5px;
+}
+
+.link_item a {
+    text-decoration: none;
+    color: #d6a438 !important;
+}
+
+.f-row {
+    margin-left: -11px;
+    margin-right: -11px;
+}
+
+.f-row .fonctionnality i {
+    display: none
+}
+
+.f-row .fonctionnality i p {
+    font-size: 21px;
+}
+
+.f-row i {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 72px;
+    margin: 63px;
+}
+
+.fonctionnality {
+    background-size: 99% !important;
+    /* background-color: #1a4085 !important;*/
+    background-color: #1a40858f !important;
+    padding: 0 !important;
+    height: 204px;
+    box-shadow: inset 0 0 0 5px #ffffff;
+    cursor: pointer;
+    transition: .5s all ease-in-out;
+    background-blend-mode: soft-light;
+    background-position: center;
+    background-origin: content-box;
+}
+
+.fonctionnality .f-row i:hover {
+    color: #f2d20099 !important
+}
+
+.fonctionnality:hover {
+    box-shadow: inset 0 0 0 10px #ffffff;
+}
+
+.f1 {
+    background: url(../../../img/patterns/1.jpg) center no-repeat;
+}
+
+.f2 {
+    background: url(../../../img/patterns/2.jpg) center no-repeat;
+    background-position-y: bottom !important;
+}
+
+.f3 {
+    background: url(../../../img/patterns/3.jpg) center no-repeat;
+}
+
+.f4 {
+    background: url(../../../img/patterns/4.jpg) center no-repeat;
+}
+
+.f5 {
+    background: url(../../../img/patterns/5.jpg) center no-repeat;
+}
+
+.f6 {
+    background: url(../../../img/patterns/6.jpg) center no-repeat;
+}
+
+.admin-right {
+    background-color: #0e1938 !important;
+    height: 618px !important;
+    margin-left: -4px;
+    transition: .5s all ease-in-out;
+    cursor: pointer
+}
+
+.admin-right:hover {
+    box-shadow: inset 0 0 0 10px #ffffff;
+}
+
+.profil-avatar {
+    color: #ffffff;
+    margin: 37%;
+    margin-top: 193px;
+    font-size: 198px;
+    z-index: -2;
+    filter: opacity(0.5);
+}
+
+.profil-title {
+    position: absolute;
+    top: 65%;
+    left: 38%;
+    font-size: 23px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: .5s all ease-in-out;
+    color: #ffffff
+}
+
+.profil-title :hover {
+    box-shadow: inset 0 0 0 10px #ffffff;
+    color: green !important
+}
