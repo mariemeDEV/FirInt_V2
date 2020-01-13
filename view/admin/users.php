@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php
-$assets = './assets/';
-$vendor = './vendor/';
+    $assets = './assets/';
+    $vendor = './vendor/';
 ?><!--Header include-->
 
 <head>
@@ -445,7 +445,7 @@ $vendor = './vendor/';
                                                 <span class="checkbox mn"></span>
                                             </label>
                                         </td>
-                                        <td class="">';echo($user->id_user).'</td>
+                                        <td>';echo($user->id_user).'</td>
                                          <td class="w175">
                                             <img class="img-responsive mw20 ib mr10" title="user" src="assets/img/avatars/1.jpg">
                                             <span>';echo($user->prenom)." "; echo($user->nom).'</span>
@@ -470,15 +470,26 @@ $vendor = './vendor/';
                                                     <li>
                                                         <a href="#">Production</a>
                                                     </li>
-                                                    <li>
-                                                        <a href="#">Extraction</a>
+                                                    <li class="extract-production">
+                                                        <a>Extraction</a>
+                                                        <input id="user-extract-prod" type="hidden" value="';echo $user->matricule.'"/>
                                                     </li>
-                                                    <li>
-                                                        <a>Editer</a>
-                                                    </li>
-                                                    <li class="divider"></li>
                                                     <li class="dots">
                                                         <a>Dotation</a>
+                                                        <input id="user-dotation" type="hidden" value="';echo $user->matricule.'"/>
+                                                        <input id="user-dotation-id" type="hidden" value="';echo $user->id_user.'"/>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li class="update-data">
+                                                        <a>Editer</a>
+                                                        <input id="role-up" type="hidden" value="';echo $user->role_user.'"/>
+                                                        <input id="mat-up" type="hidden" value="';echo $user->matricule.'"/>
+                                                        <input id="prenom-up" type="hidden" value="';echo $user->prenom.'"/>
+                                                        <input id="nom-up" type="hidden" value="';echo $user->nom.'"/>
+                                                        <input id="adresse-up" type="hidden" value="';echo $user->adresse.'"/>
+                                                        <input id="telephone-up" type="hidden" value="';echo $user->telephone.'"/>
+                                                        <input id="email-up" type="hidden" value="';echo $user->login.'"/>
+                                                        <input id="password-up" type="hidden" value="';echo $user->password.'"/>
                                                     </li>
                                                     <li>
                                                         <a href="#">Activer</a>
@@ -491,13 +502,12 @@ $vendor = './vendor/';
                                         </td>
                                     </tr>';
                                     }
-                                        ?>
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- end: .tray-center -->
             </section>
@@ -564,85 +574,97 @@ $vendor = './vendor/';
                     <span class="pull-right text-primary fw600">USA</span>
                 </h5>
             </div>
-        </aside>
+        </aside><!-- End: Right Sidebar -->
 
-    <!-- End: Right Sidebar -->
-    <div class="modal dots-modal add-user-modal panel"><!--Dotations modal-->
-        <span class="close">&times;</span>
-        <div class="admin-form theme-info mw500">
-        <form method="post" id="dotations-attestations" class='modal-form'>
-        <input type="hidden" name='' value=''>
+    <div class="modal extract-modal panel add-modal"><!-- Extraction modal-->
+    <span class="close">&times;</span>
+    <div class="admin-form theme-info mw500">
+        <form method="post" id="extraction-production" class='modal-form'>
+        <input type="hidden" name='extract-prod' value='extraire-prod'>
             <div class="panel-body bg-light p25 pb15">
                 <!-- Divider -->
                 <div class="section-divider mv30">
-                  <span>Dotations d'attestations</span>
+                  <span>Extraction de la production</span>
                 </div>
-                <!-- Type de compte -->
+                <!-- Matricule intermédiaire -->
                 <div class="section">
-                <div class="row radio-row">
-                    <div class="col-xs-4 col1">
-                    <label class="radio-inline mr10">
-                        <input type="radio" name="" id="" value="">Admin
-                    </label>
-                    </div>
-                    <div class="col-xs-4">
-                        <label class="radio-inline mr10">
-                            <input type="radio" name="" id="" value="">Intermediaire
-                        </label>
-                    </div>
-                    <div class="col-xs-4 col3">
-                        <label class="radio-inline mr10">
-                            <input type="radio" name="" id="" value="">Controlleur
-                        </label>
-                    </div>
+                    <input type="text" id="mat-extraction" class="form-control" placeholder="Matricule intermédiaire">
                 </div>
+                <!-- Date début -->
+                <div class="section">
+                    <input type="date" id="date_debut" class="form-control" placeholder="Date début">
+                </div>
+                <!-- Date fin-->
+                <div class="section">
+                    <input type="date" id="date_fin" class="form-control" placeholder="Date fin">
+                  </label>
+                </div>
+            </div>
+            <div class="panel-footer clearfix">
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submit' value='Submit'>Ajouter</button>
+                <button type="reset" class="button btn-primary mr10 pull-right">Annuler</button>
+            </div>
+        </form>
+    </div>
+    </div><!--Extraction modal-->
+
+    <div class="modal dots-modal panel add-modal"><!-- Dotations modal -->
+    <span class="close">&times;</span>
+    <div class="admin-form theme-info mw500">
+        <form method="post" id="dotations-attestations" class='modal-form'>
+        <input type="hidden" name='dotation-att' value='dotation-attes'>
+            <div class="panel-body bg-light p25 pb15">
+                <!-- Divider -->
+                <div class="section-divider mv30">
+                  <span>Dotation d'attestations</span>
+                </div>
+                <!-- Type d'attestation' -->
+                <div class="section">
+                <select class="form-control" type='select' name='type_attestations' required>
+                    <option value="Type d'attestation" selected disabled>Type d'attestation</option>
+                    <option value='1'>Attestations jaunes</option>
+                    <option value ='2'>Attestations vertes</option>
+                    <option value='3'>Attestations CEDEAO</option>
+                </select>
                 </div>
                 <!-- Matricule Input -->
                 <div class="section">
-                  <label for="" class="field prepend-icon">
-                    <input type="text" name="" id="" class="gui-input" placeholder="">
-                    <label for="" class="field-icon">
+                  <label for="matricule" class="field prepend-icon">
+                    <input type="number" name="matricule_intermediaire" id="matricule-inter" class="gui-input" placeholder="Matricule intérmédiaire">
+                    <input type="hidden" name="id_intermediaire" id='id-dotation-int'>
+                    <label for="matricule" class="field-icon">
                       <i class="fa fa-user"></i>
                     </label>
                   </label>
                 </div>
-                <!-- Prénom Input -->
+                <!-- Début série -->
                 <div class="section">
-                  <label for="" class="field prepend-icon">
-                    <input type="text" name="" id="" class="gui-input" placeholder="">
-                    <label for="" class="field-icon">
+                  <label for="debut serie" class="field prepend-icon">
+                    <input type="number" name="num_debut_serie" id="n-debut-serie" class="gui-input" placeholder="Numéro début de série" required>
+                    <label for="numero de debut de serie" class="field-icon">
                         <i class="fa fa-pencil"></i>
                     </label>
                   </label>
                 </div>
-                <!-- Nom Input -->
+                <!-- Fin série -->
                 <div class="section">
-                  <label for="" class="field prepend-icon">
-                    <input type="text" name="" id="" class="gui-input" placeholder="">
-                    <label for="" class="field-icon">
+                  <label for="fin serie" class="field prepend-icon">
+                    <input type="number" name="num_fin_serie" id="n-fin-serie" class="gui-input" placeholder="Numéro début de série" required>
+                    <label for="numero de fin de série" class="field-icon">
                         <i class="fa fa-pencil"></i>
-                    </label>
-                  </label>
-                </div>
-                <!-- Adresse Input -->
-                <div class="section">
-                  <label for="" class="field prepend-icon">
-                    <input type="text" name="" id="" class="gui-input" placeholder="">
-                    <label for="" class="field-icon">
-                      <i class="fa fa-calendar"></i>
                     </label>
                   </label>
                 </div>
             </div>
             <div class="panel-footer clearfix">
-                <button type="submit" class="button btn-primary mr10 pull-right" name='submit' value='Submit'>Valider</button>
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submit' value='Submit'>Ajouter</button>
                 <button type="reset" class="button btn-primary mr10 pull-right">Annuler</button>
             </div>
         </form>
     </div>
-    </div><!-- Dotations modal-->
+    </div><!--Dotations modal-->
 
-    <div class="modal add-user-modal panel"><!-- Add user modal -->
+    <div class="modal add-user-modal panel add-modal"><!-- Add user modal -->
     <span class="close">&times;</span>
     <div class="admin-form theme-info mw500">
         <form method="post" id="add-user" class='modal-form'>
@@ -744,7 +766,108 @@ $vendor = './vendor/';
     </div>
     </div><!-- Add user modal-->
 
-    <div class="modal add-office-modal"><!-- Add office-->
+    <div class="modal update-modal panel add-modal"><!-- Update modal -->
+    <span class="close">&times;</span>
+    <div class="admin-form theme-info mw500">
+        <form method="post" id="edit-user" class='modal-form'>
+            <div class="panel-body bg-light p25 pb15">
+                <!-- Divider -->
+                <div class="section-divider mv30">
+                  <span>Editer</span>
+                </div>
+                <!-- Type de compte -->
+                <div class="section">
+                <div class="row radio-row">
+                    <div class="col-xs-4 col1">
+                    <label class="radio-inline mr10">
+                        <input type="radio" name="optionCompte_update" id="admin-update" value="adminOpt-update">Admin
+                    </label>
+                    </div>
+                    <div class="col-xs-4">
+                        <label class="radio-inline mr10">
+                            <input type="radio" name="optionCompte_update" id="intermediaire-update" value="intermediaireOpt-update">Intermediaire
+                        </label>
+                    </div>
+                    <div class="col-xs-4 col3">
+                        <label class="radio-inline mr10">
+                            <input type="radio" name="optionCompte_update" id="controlleur-update" value="controlleurOpt-update">Controlleur
+                        </label>
+                    </div>
+                </div>
+                </div>
+                <!-- Matricule Input -->
+                <div class="section">
+                  <label for="matricule" class="field prepend-icon">
+                    <input type="text" name="matricule_update" id="mat-update" class="gui-input">
+                    <label for="matricule" class="field-icon">
+                      <i class="fa fa-user"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Prénom Input -->
+                <div class="section">
+                  <label for="prenom" class="field prepend-icon">
+                    <input type="text" name="prenom_update" id="prenom-update" class="gui-input">
+                    <label for="prenom" class="field-icon">
+                        <i class="fa fa-pencil"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Nom Input -->
+                <div class="section">
+                  <label for="nom" class="field prepend-icon">
+                    <input type="text" name="nom_update" id="nom-update" class="gui-input">
+                    <label for="nom" class="field-icon">
+                        <i class="fa fa-pencil"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Adresse Input -->
+                <div class="section">
+                  <label for="adresse" class="field prepend-icon">
+                    <input type="text" name="adresse_update" id="adresse-update" class="gui-input">
+                    <label for="adresse" class="field-icon">
+                      <i class="fa fa-calendar"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Téléphone Input -->
+                <div class="section">
+                  <label for="telephone" class="field prepend-icon">
+                    <input type="text" name="telephone_update" id="phone-update" class="gui-input">
+                    <label for="telephone" class="field-icon">
+                      <i class="fa fa-phone"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- E-mail Input -->
+                <div class="section">
+                  <label for="mail" class="field prepend-icon">
+                    <input type="email" name="login_update" id="log-update" class="gui-input">
+                    <label for="email" class="field-icon">
+                      <i class="fa fa-envelope"></i>
+                    </label>
+                  </label>
+                </div>
+                <!-- Mot de passe Input -->
+                <div class="section">
+                  <label for="password" class="field prepend-icon">
+                    <input type="text" name="password_update" id="password-update" class="gui-input">
+                    <label for="password" class="field-icon">
+                      <i class="fa fa-lock"></i>
+                    </label>
+                  </label>
+                </div>
+            </div>
+            <div class="panel-footer clearfix">
+                <button type="submit" class="button btn-primary mr10 pull-right" name='submit' value='Submit'>Ajouter</button>
+                <button type="reset" class="button btn-primary mr10 pull-right">Annuler</button>
+            </div>
+        </form>
+    </div>
+    </div><!-- Add user modal-->
+
+    <div class="modal add-office-modal add-modal"><!-- Add office-->
     <span class="close">&times;</span>
     <div class="admin-form theme-info mw500" id="bureau">
         <form method="post" id="add-office" class='modal-form'>
@@ -813,14 +936,7 @@ $vendor = './vendor/';
         <script src=';echo $assets.'js/main.js></script>
         <script src=';echo $assets.'js/adds.js></script>'
     ?>
-    <script>
-       /* $(document).ready(function() {
-            $('#mat').prop('disabled', true);
-            $('#intermediaire').on('click', function() {
-                $('#mat').prop('disabled', false);
-            })      
-        })*/
-    </script>
+
     <!-- END: PAGE SCRIPTS -->
 </body>
 

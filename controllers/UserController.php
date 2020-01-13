@@ -1,6 +1,11 @@
 <?php
+//Mappings
 require_once '../mapping/UserDao.php';
+require_once '../mapping/AttestationDao.php';
+
+//Entities
 require_once '../entities/Utilisateur.php';
+
 
 /*Connect a user */
 	if(isset($_POST['username']) && isset($_POST['password'])){
@@ -31,8 +36,18 @@ require_once '../entities/Utilisateur.php';
 		$utilisateur = new Utilisateur(NULL,$_POST['matricule'],$_POST['prenom'],$_POST['nom'],$_POST['adresse'],$_POST['telephone'],$userRole,$_POST['login'],$_POST['password'],0);
 		$dao->insertUser($utilisateur);
 		echo("Insertion effectuée avec succés.");
+	}else if(isset($_POST['dotation-att'])){
+		$attDao= new AttestationsDao();
+		echo($attDao->setDotation());
+	}else{
+		echo('no data');
 	}
 /*Connect a user*/
+
+/*Dotation d'attestations*/
+
+
+/*Dotation d'attestations*/
 
 
 

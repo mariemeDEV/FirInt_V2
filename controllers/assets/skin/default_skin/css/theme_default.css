@@ -14,8 +14,23 @@
     background: #0000ff2e !important
 }
 
+.dots-modal {
+    background: #0000ff2e !important
+}
+
+.extract-modal {
+    background: #0000ff2e !important
+}
+
+.update-modal {
+    background: #0000ff2e !important
+}
+
 #add-user,
-#add-office {
+#add-office,
+#dotations-attestations,
+#extraction-production,
+#edit-user {
     position: absolute;
     margin: 63px 28% 9px 28%;
     width: 44%;
@@ -33,11 +48,41 @@
     width: 102%;
 }
 
+#dotations-attestations .section {
+    margin-bottom: 22px;
+    margin-left: 15%;
+    width: 102%;
+}
+
+#extraction-production .section {
+    margin-bottom: 22px;
+    margin-left: 15%;
+    width: 102%;
+}
+
+#edit-user .section {
+    margin-bottom: 22px;
+    margin-left: 15%;
+    width: 102%;
+}
+
 #add-user label {
     font-size: 12px !important
 }
 
 #add-office label {
+    font-size: 12px !important
+}
+
+#dotations-attestations label {
+    font-size: 12px !important
+}
+
+#extraction-production label {
+    font-size: 12px !important
+}
+
+#edit-user label {
     font-size: 12px !important
 }
 
@@ -51,12 +96,59 @@
     font-size: 12px !important;
 }
 
+#dotations-attestations .button {
+    padding: 0 14px 0 14px !important;
+    font-size: 12px !important;
+}
+
+#extraction-production .button {
+    padding: 0 14px 0 14px !important;
+    font-size: 12px !important;
+}
+
+#edit-user .button {
+    padding: 0 14px 0 14px !important;
+    font-size: 12px !important;
+}
+
+#extraction-production input {
+    height: 36px;
+    width: 70%;
+}
+
 #add-user input:not([type=radio]) {
     height: 36px;
     width: 70%;
 }
 
+#edit-user input:not([type=radio]) {
+    height: 36px;
+    width: 70%;
+}
+
+#dotations-attestations input {
+    height: 36px;
+    width: 70%;
+}
+
+#add-office input {
+    height: 36px;
+    width: 70%;
+}
+
+#dotations-attestations select {
+    height: 36px;
+    width: 70%;
+}
+
 #add-user input[type="radio"] {
+    width: initial !important;
+    height: initial !important;
+    position: initial !important;
+    margin: initial !important
+}
+
+#edit-user input[type="radio"] {
     width: initial !important;
     height: initial !important;
     position: initial !important;
@@ -71,11 +163,6 @@
 
 #add-user .col-xs-4 {
     margin: -38px;
-}
-
-#add-office input:not([type=radio]) {
-    height: 36px;
-    width: 70%;
 }
 
 .admin-form .panel-body {
