@@ -1,4 +1,6 @@
- 
+<?php
+ include('./sessions.php');
+?>
     <!-- Start: Header -->
     <header class="navbar navbar-fixed-top">
       <div class="navbar-branding">
@@ -99,7 +101,7 @@
           <i class="fa fa-circle"></i>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">Khady Wade Gueye
+          <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"><?php echo($matricule)?>
             <span class="caret caret-tp hidden-xs"></span>
           </a>
           <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">

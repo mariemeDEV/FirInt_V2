@@ -8,7 +8,6 @@ if(isset($_GET['action'])){
         break;
     }
 }
-
 /*Differentes actions admin*/
 	if(isset($_GET['action'])){
         $resource = '../view/admin/';

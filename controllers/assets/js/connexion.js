@@ -14,7 +14,6 @@ $(document).ready(function() {
                             $(this).dequeue();
                         });
                     } else {
-                        alert('ok');
                         var user = JSON.parse(userData);
                         console.log(user);
                         var role = user[0].role_user;
@@ -29,12 +28,7 @@ $(document).ready(function() {
                                 window.location.replace("accueil_controlleur.php")
                                 break;
                         }
-                        /*$('.connection-modal').fadeIn().delay(5000).queue(function() {
-                            $(this).fadeOut();
-                            $(this).dequeue();
-                            console.log(userData);*/
-                        //window.location.replace("accueil.php");
-                        // });
+
                     }
                 },
                 error: function() {

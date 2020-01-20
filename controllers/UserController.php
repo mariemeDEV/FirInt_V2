@@ -2,7 +2,6 @@
 //Mappings
 require_once '../mapping/UserDao.php';
 require_once '../mapping/AttestationDao.php';
-
 //Entities
 require_once '../entities/Utilisateur.php';
 

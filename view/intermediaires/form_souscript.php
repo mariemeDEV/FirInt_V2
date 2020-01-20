@@ -27,6 +27,10 @@
                 <label for="email">E-mail </label>
                 <input id="mail" name="email_assure" type="email">
             </div>
+            <div class="col col-md-6">
+                <label for="ville">Ville <span class="require-caracter">*</span></label>
+                <input id="ville" name="ville_assure" type="text">
+            </div>
         </div>
         <p><span class="require-caracter">(*) Champs Obligatoires</span></p>
         </section><!--Fin Bloc assuré-->

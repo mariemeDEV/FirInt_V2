@@ -76,10 +76,6 @@
       </div>
     </div>
   </section><!-- End: Content -->
-
-  
-
-
 </div><!-- End: Main -->
 
   
@@ -100,19 +96,15 @@
 
     <!-- Datatables Bootstrap Modifications  -->
     <script src="../../vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
-
-  <script src="../../assets/js/utility/utility.js"></script>
-  <script src="../../assets/js/demo/demo.js"></script>
-  <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/utility/utility.js"></script>
+    <script src="../../assets/js/demo/demo.js"></script>
+    <script src="../../assets/js/main.js"></script>
 
   <script type="text/javascript">
         jQuery(document).ready(function() {
-
             "use strict";
-
             // Init Theme Core    
             Core.init();
-
             // Init Demo JS  
             Demo.init();
             $('#datatable3').dataTable({
@@ -136,15 +128,8 @@
                     "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
                 }
             });
-
-      
-
-           
-
             // Add Placeholder text to datatables filter bar
             $('.dataTables_filter input').attr("placeholder", "Enter Terms...");
-
-
         });
     </script>
 

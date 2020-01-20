@@ -14,15 +14,14 @@ $(document).ready(function() {
                             $(this).dequeue();
                         });
                     } else {
-                        alert('ok');
                         var user = JSON.parse(userData);
                         console.log(user);
                         var role = user[0].role_user;
                         var ressource = 'http://localhost/forint_v2/view/';
                         var url1 = ressource + 'admin/accueil_admin.php';
                         var url2 = ressource + 'intermediaires/accueil.php';
-                        var url3 = ressource + 'intermediaires/accueil.php';
-                        var notFouund = ressource + 'pages_404.php';
+                        var url3 = ressource + 'controlleurs/accueil_controlleur.php';
+                        var notFound = ressource + 'pages_404.php';
                         switch (role) {
                             case '1':
                                 alert('1')
@@ -37,17 +36,9 @@ $(document).ready(function() {
                                 window.location.replace(url3);
                                 break;
                             default:
-                                window.location.replace("");
+                                window.location.replace(notFound);
                                 break;
-
-
                         }
-                        /*$('.connection-modal').fadeIn().delay(5000).queue(function() {
-                            $(this).fadeOut();
-                            $(this).dequeue();
-                            console.log(userData);*/
-                        //window.location.replace("accueil.php");
-                        // });
                     }
                 },
                 error: function() {
@@ -56,4 +47,5 @@ $(document).ready(function() {
             })
         })
         /*Connexion*/
+
 })

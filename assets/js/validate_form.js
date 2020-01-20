@@ -52,21 +52,24 @@ $(document).ready(function() {
             return form.valid();
         },
         onFinished: function(event, currentIndex) {
-            form.submit(function(event) {
+            $("#souscription-form").on('submit', function() {
                 event.preventDefault(); // Empêcher le rechargement de la page.
                 var formData = form.serialize();
-                $.ajax({
-                    type: "POST",
-                    url: "../../controllers/PoliceController.php",
-                    data: formData,
-                    success: function() {
-                        console.log(data)
-                    },
-                    error: function() {
-                        console.log('nothing')
-                    }
-                });
-            });
+                console.log(formData)
+                    /*  $.ajax({
+                          type: "POST",
+                          url: "../../controllers/PoliceController.php",
+                          data: formData,
+                          success: function() {
+                              console.log(data)
+                          },
+                          error: function() {
+                              console.log('nothing')
+                          }
+                      });*/
+                printData1();
+            })
+
         }
     });
 })

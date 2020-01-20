@@ -912,6 +912,24 @@
                     </label>
                   </label>
                 </div>
+                  <!-- Adresse bureau -->
+                  <div class="section">
+                  <label for="adresse" class="field prepend-icon">
+                    <input type="text" name="adresse-gerant" id="ag" class="gui-input" placeholder="Adresse bureau">
+                    <label for="adresse" class="field-icon">
+                      <i class="fa fa-lock"></i>
+                    </label>
+                  </label>
+                </div>
+                  <!-- Téléphone bureau -->
+                  <div class="section">
+                  <label for="telephone" class="field prepend-icon">
+                    <input type="text" name="telephone-gerant" id="tg" class="gui-input" placeholder="Téléphonne bureau">
+                    <label for="telephone" class="field-icon">
+                      <i class="fa fa-phone"></i>
+                    </label>
+                  </label>
+                </div>
                 <div class="panel-footer clearfix">
                     <button type="submit" class="button btn-primary mr10 pull-right" name=''>Ajouter</button>
                     <button type="reset" class="button btn-primary mr10 pull-right" name=''>Annuler</button>

@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
 <?php
-include('includes_css.php');
-$assets = 'http://localhost/forint_v2/assets/';
-$vendor = 'http://localhost/forint_v2/vendor/';
+    include('includes_css.php');
+    $assets = 'http://localhost/forint_v2/assets/';
+    $vendor = 'http://localhost/forint_v2/vendor/';
 ?><!--Header include-->
 <body class="blank-page">
-
     <!-- Start: Main -->
     <div id="main" class="container-fluid accueil-content">
         <?php include('../blank1.php')?><!--Header include-->
-
         <!--div data-include="./blank1.html"></div><Header include-->
-
         <div class="container-fluid accueil-content"><!--Page content-->
         <div class="row fonctionalites-row"><!--row-->
             <div class="col-md-4 col-lg-7 fonctionalities-side"><!--Begin left side-->
@@ -40,7 +37,6 @@ $vendor = 'http://localhost/forint_v2/vendor/';
                     </div>
                 </div>
             </div><!--End right side-->
-
         </div>
     </div>
     </div>
@@ -60,18 +56,15 @@ echo'
 ?>
 <script>
 
-jQuery(document).ready(function() {
-
-    "use strict";
-
-    // Init Theme Core    
-    Core.init();
-
-      // Init Demo JS
-    Demo.init();
-});
-</script>
-<!-- END: PAGE SCRIPTS -->
+    jQuery(document).ready(function() {
+        "use strict";
+        // Init Theme Core    
+        Core.init();
+        // Init Demo JS
+        Demo.init();
+    });
+    </script>
+    <!-- END: PAGE SCRIPTS -->
 
         
 </body>

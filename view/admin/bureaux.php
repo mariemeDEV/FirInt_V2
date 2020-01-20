@@ -618,9 +618,9 @@ $vendor = './vendor/';
                                         <tr>
                                             <td class="text-center">
                                                 <label class="option block mn">
-                          <input type="checkbox" name="mobileos" value="FR">
-                          <span class="checkbox mn"></span>
-                        </label>
+                                                    <input type="checkbox" name="mobileos" value="FR">
+                                                    <span class="checkbox mn"></span>
+                                                </label>
                                             </td>
                                             <td class="w100">
                                                 <img class="img-responsive mw40 ib mr10" title="user" src="assets/img/stock/products/thumb_3.jpg">

@@ -1,5 +1,6 @@
 <?php
 $assets = 'http://localhost/forint_v2/assets/';
+  include('./sessions.php');
 ?><!--Header include-->
     <!-- Start: Header -->
     <header class="navbar navbar-static-top">
@@ -7,16 +8,12 @@ $assets = 'http://localhost/forint_v2/assets/';
         <a class="navbar-brand" href="../../index.php"></a>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li>
-          <a class="topbar-menu-toggle" href="#">
-            <span class="ad ad-lines"></span>
-          </a>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="ad ad-radio-tower fs18"></span>
+            <span class="label label-warning" style="color: #d19e4f !important;background-color: #64707e !important;position: relative;top: -13px;left: 32px;font-weight: bold !important">2</span>
+            <span class="fa fa-envelope"></span>
           </a>
           <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">
             <li class="dropdown-header">
@@ -62,28 +59,14 @@ $assets = 'http://localhost/forint_v2/assets/';
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="flag-xs flag-us"></span> US
+            <span class="fa fa-user"></span>
           </a>
-          <ul class="dropdown-menu pv5 animated animated-short flipInX" role="menu">
-            <li>
-              <a href="javascript:void(0);">
-                <span class="flag-xs flag-in mr10"></span> Hindu </a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">
-                <span class="flag-xs flag-tr mr10"></span> Turkish </a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">
-                <span class="flag-xs flag-es mr10"></span> Spanish </a>
-            </li>
-          </ul>
         </li>
         <li class="menu-divider hidden-xs">
-          <i class="fa fa-circle"></i>
+          <i class="fa fa-circle" style='color:#00800099 !important'></i>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">Khady Wade Gueye
+          <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"><?php echo($matricule)?>
             <span class="caret caret-tp hidden-xs"></span>
           </a>
           <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
@@ -110,23 +93,13 @@ $assets = 'http://localhost/forint_v2/assets/';
             </li>
             <li class="list-group-item">
               <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-envelope"></span> Messages
+                <span class="fa fa-envelope"></span> Notifications
                 <span class="label label-warning">2</span>
               </a>
             </li>
             <li class="list-group-item">
               <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-user"></span> Friends
-                <span class="label label-warning">6</span>
-              </a>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-gear"></span> Account Settings </a>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-power-off"></span> Logout </a>
+                <span class="fa fa-power-off"></span> Deconnexion </a>
             </li>
           </ul>
         </li>

@@ -191,12 +191,22 @@
   <script src="../../assets/js/utility/utility.js"></script>
   <script src="../../assets/js/demo/demo.js"></script>
   <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/scripts.js"></script>
   <script src="../../vendor/plugins/magnific/jquery.magnific-popup.js"></script>
   <script src="../../assets/js/number_divider.js"></script>
-
   <script src="../../assets/js/validate_form.js"></script>
   <script src="../../assets/js/prime.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 
+<script>
+$(document).ready(function(){
+  var marques_voitures = ['FIAT','BMW','ACURA','FORD','HOLDEN','HONDA','HYUNDAI','ISUZU','KIA','LEXUS','NISSAN','RENAULT','SEAT','CHEVROLET','CITROEN','DACIA','INFINITI','MAZDA','MITSUBISHI','PEUGEOT','SUBARU','TOYOTA','VOLSWAGEN']
+  $('#ville').on('change', function() {
+        $(this).autocomplete({
+            source: marques_voitures
+        })
+    })
+})
+</script>
 </html>

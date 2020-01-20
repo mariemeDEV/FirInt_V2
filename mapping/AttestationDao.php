@@ -30,7 +30,8 @@ function insertAttestation(Attestation $attestation){
         '".$attestation->getId()."',
         '".$attestation->getNumeroAttestation()."',
         '".$attestation->getTypeAttestation()."',
-        '".$attestation->getIntermediaire()."'
+        '".$attestation->getIntermediaire()."',
+        '".$attestation->getEtat()."'
         )"
     );
     $insertAttestationsRequest->execute();
@@ -41,7 +42,7 @@ function insertAttestation(Attestation $attestation){
         $serie = $this->getAttestations();
         try{
             for($a=0;$a<count($serie);$a++){
-               $attestation = new Attestation('NULL',$serie[$a],$_POST['type_attestations'],$_POST['id_intermediaire']);
+               $attestation = new Attestation('NULL',$serie[$a],$_POST['type_attestations'],$_POST['id_intermediaire'],"attribuee,restante");
                 $this->insertAttestation($attestation);
             }
         }catch(Exception $e){

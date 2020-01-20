@@ -5,12 +5,14 @@ class Attestation{
     private $numeroAttestation;
     private $typeAttestation;
     private $intermediaire;
+    private $etat;
 
-    public function __construct($id='',$numeroAttestation='',$typeAttestation='',$intermediaire=''){
+    public function __construct($id='',$numeroAttestation='',$typeAttestation='',$intermediaire='', $etat=''){
         $this->id = $id;
         $this->numeroAttestation=$numeroAttestation;
         $this->typeAttestation=$typeAttestation;
         $this->intermediaire=$intermediaire;
+        $this->etat =  $etat;
     }
 
     /**
@@ -77,6 +79,26 @@ class Attestation{
     public function setIntermediaire($intermediaire)
     {
         $this->intermediaire = $intermediaire;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of etat
+     */ 
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set the value of etat
+     *
+     * @return  self
+     */ 
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
 
         return $this;
     }

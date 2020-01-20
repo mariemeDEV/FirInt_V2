@@ -23,7 +23,7 @@ body {
 }
 
 .dynamic-side {
-    /*   position: relative;
+    /*  position: relative;
     left: -10px;*/
 }
 
@@ -31,14 +31,9 @@ body {
     height: 606px !important
 }
 
-
-/*.owl-visuels {
-    width: 540px;
-    margin-right: 10px;
-}*/
-
 .owl-carousel .owl-item img {
     display: block;
+    width: 39% !important
 }
 
 .owl-nav {
@@ -92,7 +87,7 @@ body {
 }
 
 .f-row .fonctionnality i {
-    display: none
+    /* display: none*/
 }
 
 .f-row .fonctionnality i p {
@@ -100,7 +95,7 @@ body {
 }
 
 .f-row i {
-    color: #ffffff;
+    color: #f3dcb9;
     text-decoration: none;
     font-size: 72px;
     margin: 63px;
@@ -108,7 +103,6 @@ body {
 
 .fonctionnality {
     background-size: 99% !important;
-    /* background-color: #1a4085 !important;*/
     background-color: #1a40858f !important;
     padding: 0 !important;
     height: 204px;
