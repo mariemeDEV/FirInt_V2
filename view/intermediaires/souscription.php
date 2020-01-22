@@ -34,6 +34,17 @@
   .tray-center{
     background-image:url('../../assets/img/patterns/backgrounds/bg_home.png')
   }
+  .owl-dots{
+    position: relative !important;
+    top: -355px !important;
+  }
+  .owl-dots:first-child{
+    padding-right: 56px !important;
+  }
+  .owl-dots:last-child{
+    padding-left: 56px !important;
+  }
+
 </style>
 <!--Form tray center background-->
 
@@ -194,6 +205,7 @@
   <script src="../../assets/js/scripts.js"></script>
   <script src="../../vendor/plugins/magnific/jquery.magnific-popup.js"></script>
   <script src="../../assets/js/number_divider.js"></script>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"></script>
   <script src="../../assets/js/validate_form.js"></script>
   <script src="../../assets/js/prime.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

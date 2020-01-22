@@ -3,16 +3,17 @@
 class Police{
     private $numeroPolice;
     private $codeFormule;
-    private $idVente;
     private $intermediaire;
     private $codeCategorie;
     private $natureContrat;
     private $codeZone;
     private $dateEffet;
+    private $duree;
     private $dateEcheance;
     private $qualiteAssure;
     private $nomAssure;
     private $prenomAssure;
+    private $adresse;
     private $codeProfession;
     private $codeVilleAssure;
     private $codeActivite;
@@ -37,17 +38,66 @@ class Police{
     private $puissanceFiscale;
     private $codeCarosserie;
     private $dateMiseEnCirculation;
-    private $montangtPrime;
+    private $montantPrime;
     private $montantAccessoires;
     private $montantTaxes;
     private $montantFGA;
     private $montantTTC;
     private $dateValidation;
     private $dateSouscription;
-    private $etatPolice;
-    private $avenant;
-    private $typeAvenant;
+    private $dateSais;
+    private $flagtrans;
 
+
+    function __construct($numeroPolice='', $codeFormule='',$intermediaire='', $codeCategorie='', $natureContrat='', $codeZone='', $dateEffet='', $duree='', $dateEcheance='', $qualiteAssure='',$nomAssure='',$prenomAssure='',$adresse='',$codeProfession='',$codeVilleAssure='',$codeActivite='',$typePiece='',$numPiece='',$telephone='',$typePermis='',$numPermis='',$dateDeLivPermis='',$lieuDeLivPermis='',$immatriculation='',$numChassis='',$codeMarque='',$codeSerie='',$codeGenre='',$codeUsage='',$codeEnergie='',$nombreDePlace='',$cylindre='',$valeurNeuve='',$valeurVenale='',$puissanceFiscale='',$codeCarosserie='',$dateMiseEnCirculation='',$montantPrime='',$montantAccessoires='',$montantTaxes='',$montantFGA='',$montantTTC='',$dateValidation='',$dateSouscription='',$dateSais='',$flagtrans='')
+    {
+        $this->numeroPolice=$numeroPolice;
+        $this->codeFormule=$codeFormule;
+        $this->intermediaire=$intermediaire;
+        $this->codeCategorie=$codeCategorie;
+        $this->natureContrat=$natureContrat;
+        $this->codeZone=$codeZone;
+        $this->dateEffet=$dateEffet;
+        $this->duree=$duree;
+        $this->dateEcheance=$dateEcheance;
+        $this->qualiteAssure=$qualiteAssure;
+        $this->nomAssure=$nomAssure;
+        $this->prenomAssure=$prenomAssure;
+        $this->adresse=$adresse;
+        $this->codeProfession=$codeProfession;
+        $this->codeVilleAssure=$codeVilleAssure;
+        $this->codeActivite=$codeActivite;
+        $this->typePiece=$typePiece;
+        $this->numPiece=$numPiece;
+        $this->telephone=$telephone;
+        $this->typePermis=$typePermis;
+        $this->numPermis=$numPermis;
+        $this->dateDeLivPermis=$dateDeLivPermis;
+        $this->lieuDeLivPermis=$lieuDeLivPermis;
+        $this->immatriculation=$immatriculation;
+        $this->numChassis=$numChassis;
+        $this->codeMarque=$codeMarque;
+        $this->codeSerie=$codeSerie;
+        $this->codeGenre=$codeGenre;
+        $this->codeUsage=$codeUsage;
+        $this->codeEnergie=$codeEnergie;
+        $this->nombreDePlace=$nombreDePlace;
+        $this->cylindre=$cylindre;
+        $this->valeurNeuve=$valeurNeuve;
+        $this->valeurVenale=$valeurVenale;
+        $this->puissanceFiscale=$puissanceFiscale;
+        $this->codeCarosserie=$codeCarosserie;
+        $this->dateMiseEnCirculation=$dateMiseEnCirculation;
+        $this->montantPrime=$montantPrime;
+        $this->montantAccessoires=$montantAccessoires;
+        $this->montantTaxes=$montantTaxes;
+        $this->montantFGA=$montantFGA;
+        $this->montantTTC=$montantTTC;
+        $this->dateValidation=$dateValidation;
+        $this->dateSouscription=$dateSouscription;
+        $this->dateSais=$dateSais;
+        $this->flagtrans=$flagtrans;
+    }
 
     /**
      * Get the value of numeroPolice
@@ -85,26 +135,6 @@ class Police{
     public function setCodeFormule($codeFormule)
     {
         $this->codeFormule = $codeFormule;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of idVente
-     */ 
-    public function getIdVente()
-    {
-        return $this->idVente;
-    }
-
-    /**
-     * Set the value of idVente
-     *
-     * @return  self
-     */ 
-    public function setIdVente($idVente)
-    {
-        $this->idVente = $idVente;
 
         return $this;
     }
@@ -769,25 +799,6 @@ class Police{
         return $this;
     }
 
-    /**
-     * Get the value of montangtPrime
-     */ 
-    public function getMontangtPrime()
-    {
-        return $this->montangtPrime;
-    }
-
-    /**
-     * Set the value of montangtPrime
-     *
-     * @return  self
-     */ 
-    public function setMontangtPrime($montangtPrime)
-    {
-        $this->montangtPrime = $montangtPrime;
-
-        return $this;
-    }
 
     /**
      * Get the value of montantAccessoires
@@ -909,62 +920,103 @@ class Police{
         return $this;
     }
 
+
     /**
-     * Get the value of etatPolice
+     * Get the value of montantPrime
      */ 
-    public function getEtatPolice()
+    public function getMontantPrime()
     {
-        return $this->etatPolice;
+        return $this->montantPrime;
     }
 
     /**
-     * Set the value of etatPolice
+     * Set the value of montantPrime
      *
      * @return  self
      */ 
-    public function setEtatPolice($etatPolice)
+    public function setMontantPrime($montantPrime)
     {
-        $this->etatPolice = $etatPolice;
+        $this->montantPrime = $montantPrime;
 
         return $this;
     }
 
     /**
-     * Get the value of avenant
+     * Get the value of dateSais
      */ 
-    public function getAvenant()
+    public function getDateSais()
     {
-        return $this->avenant;
+        return $this->dateSais;
     }
 
     /**
-     * Set the value of avenant
+     * Set the value of dateSais
      *
      * @return  self
      */ 
-    public function setAvenant($avenant)
+    public function setDateSais($dateSais)
     {
-        $this->avenant = $avenant;
+        $this->dateSais = $dateSais;
 
         return $this;
     }
 
     /**
-     * Get the value of typeAvenant
+     * Get the value of flagtrans
      */ 
-    public function getTypeAvenant()
+    public function getFlagtrans()
     {
-        return $this->typeAvenant;
+        return $this->flagtrans;
     }
 
     /**
-     * Set the value of typeAvenant
+     * Set the value of flagtrans
      *
      * @return  self
      */ 
-    public function setTypeAvenant($typeAvenant)
+    public function setFlagtrans($flagtrans)
     {
-        $this->typeAvenant = $typeAvenant;
+        $this->flagtrans = $flagtrans;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of adresse
+     */ 
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set the value of adresse
+     *
+     * @return  self
+     */ 
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of duree
+     */ 
+    public function getDuree()
+    {
+        return $this->duree;
+    }
+
+    /**
+     * Set the value of duree
+     *
+     * @return  self
+     */ 
+    public function setDuree($duree)
+    {
+        $this->duree = $duree;
 
         return $this;
     }

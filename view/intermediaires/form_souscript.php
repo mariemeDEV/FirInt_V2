@@ -1,9 +1,10 @@
- <form method='POST' id="souscription-form" action='../../controllers/PoliceController.php' class="auto-form">
+ <form method='POST' id="souscription-form" class="auto-form">
       <div>
         <h3>Assuré</h3>
         <section><!--Début Bloc assuré-->
         <div class="row">
             <div class="col col-md-6">
+            <input type="hidden" name='souscription'>
                 <label for="prenom">Prénom assuré <span class="require-caracter">*</span></label>
                 <input id="prenom" name="prenom_assure" type="text" class="required">
             </div>
@@ -29,7 +30,10 @@
             </div>
             <div class="col col-md-6">
                 <label for="ville">Ville <span class="require-caracter">*</span></label>
-                <input id="ville" name="ville_assure" type="text">
+                <select name="ville_assure" id="ville">
+                <option value="00010">Dakar</option>
+                <option value="00150">Thies</option>
+                </select>
             </div>
         </div>
         <p><span class="require-caracter">(*) Champs Obligatoires</span></p>
@@ -38,6 +42,10 @@
         <h3>Période de garantie</h3><!--Début période de garantie-->
         <section><!--Début période de garantie-->
             <div class="row">
+                <div class="col col-md-6">
+                    <label for="effet contrat">Date d'effet <span class="require-caracter">*</span></label>
+                    <input id="effet" name="date_effet" type="date" class="required">
+                </div>
                 <div class="col col-md-6">
                 <label for="duree contrat">Durée contrat <span class="require-caracter">*</span></label>
                     <select id="duree" name="duree_contrat">
@@ -50,12 +58,9 @@
                         <option value="12">Annuel</option>
                     </select>
                 </div>
-                <div class="col col-md-6">
-                    <label for="effet contrat">Date d'effet <span class="require-caracter">*</span></label>
-                    <input id="effet" name="date_effet" type="date" class="required">
-                </div>
             </div>
             <p class="echeance">Echéance : <p class="echeance" id="date_echeance"></p></p>
+            <input id="echeance" name="date_echeance" type='hidden'>
         </section><!--Fin Période de garantie-->
 
         <h3>Caractéristiques du véhicule</h3>
@@ -63,7 +68,7 @@
             <div class="row">
                 <div class="col col-md-4" id="categorie_col">
                     <label for="Categorie vehicule">Catégorie<span class="require-caracter">*</span></label>
-                    <select class="required" id="categorie">
+                    <select class="required" id="categorie" name='categorie'>
                         <option value="categorie" disabled selected>Catégorie</option>
                         <option value="1">CAT 401</option>
                         <option value="2">CAT 402</option>
@@ -79,7 +84,11 @@
                 </div>
                 <div class="col col-md-4" id="marque_col">
                     <label for="Marque">Marque <span class="require-caracter">*</span></label>
-                    <input id="marque" name="marque" type="text" class="required" value="" placeholder="Marque">
+                    <select name="marque" id="marque">
+                        <option value="marque" disabled selected>Marque</option>
+                        <option value="1">A</option>
+                        <option value="2">B</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
@@ -99,11 +108,11 @@
             <div class="row">
                 <div class="col col-md-4" id="vv_col">
                     <label for="Valeur neuve">Valeur neuve</label>
-                    <input id="valeur_neuve" class="divide" name="valeur_venale" type="text" value="" placeholder="Valeur Neuve">
+                    <input id="valeur_neuve" class="divide" name="valeurVenale" type="text" value="" placeholder="Valeur Neuve">
                 </div>
                 <div class="col col-md-4" id="vn_col">
                     <label for="Valeur neuve">Valeur vénale</label>
-                    <input id="valeur_venale" class="divide" name="valeur_neuve" type="text" value="" placeholder="Valeur Vénale">
+                    <input id="valeur_venale" class="divide" name="valeurNeuve" type="text" value="" placeholder="Valeur Vénale">
                 </div>
                 <div class="col col-md-4" id="energie_col">
                     <label for="Energie">Enérgie</label>
@@ -117,7 +126,7 @@
             <div class="row">
                 <div class="col col-md-4" id="nombre_de_places_col">
                     <label for="Nombre de places">Nombre de places <span class="require-caracter">*</span></label>
-                    <select id="nombre_de_places" name="nombre de places" class="required">
+                    <select id="nombre_de_places" name="nombreDePlaces" class="required">
                         <option value="Nombre de places" selected disabled>Nombre de places</option>
                         <option value="5">5</option>
                         <option value="3">3 places</option>
@@ -142,7 +151,7 @@
                 </div>
                 <div class="col col-md-4" id="mise_en_circulation_col">
                     <label for="Date de mse en crculation">Date de mise en circulation <span class="require-caracter">*</span></label>
-                    <input id="date_circulation" name="date_de_mise_en_circulation" type="date" class="required" value="">
+                    <input id="date_circulation" name="dateDeMiseEnCirculation" type="date" class="required" value="">
                 </div>
                 <div class="col col-md-4" id="charge_col">
                     <label for="Charge utile" id="charge_label">Charge utile <span class="require-caracter">*</span></label>
@@ -321,11 +330,11 @@
                                 <option value="35">35%</option>
                             </select>
                         </td>
-                        <td><input type="text" value="0" class ="divide" id="fga"  disabled></td>
-                        <td><input type="text" value="0" class ="divide" id="taxe" disabled></td>
-                        <td><input type="text" value="0" class ="divide" id="accessoires" disabled></td>
-                        <td><input type="text" value="0" class ="divide" id="prime-nette" disabled></td>
-                        <td><input type="text" value="0" class ="divide" id="prime-totale" disabled ></td>
+                        <td><input type="text" value="0" class ="divide" id="fga"  disabled name='fga'></td>
+                        <td><input type="text" value="0" class ="divide" id="taxe" disabled name='taxe'></td>
+                        <td><input type="text" value="0" class ="divide" id="accessoires" disabled name='acc'></td>
+                        <td><input type="text" value="0" class ="divide" id="prime-nette" disabled name='nette'></td>
+                        <td><input type="text" value="0" class ="divide" id="prime-totale" disabled name='totale'></td>
                     </tr>
                 </tbody>
             </table>
@@ -447,15 +456,20 @@
         <i class="fa fa-print animated infinite bounceIn delay-1s tooltip" id='impress-btn' title='Imprimer les documents...'></i>
         <div class="owl-carousel owl-theme">
             <div class="item" id='item1' style="width: 180%"><!--JAUNE DATA-->
-                <img src="../../assets/img/documents/jaune.JPG" alt="">
+                <img src="../../assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
             </div><!--JAUNE DATA-->
             <div class="item" id='item2' style="width: 180%"><!--CP DATA-->
-                <img src="../../assets/img/documents/jaune.JPG" alt="">
+                <img src="../../assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
             </div><!--CP DATA-->
             <div class="item" id='item3' style="width: 180%"><!--CEDEAO DATA-->
-                <img src="../../assets/img/documents/cp.JPG" alt="">
+                <img src="../../assets/img/documents/cp.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
             </div><!--CEDEAO DATA-->
         </div>
+    </section><!--Documents-->
+    <section id='success-souscript' class='modal'><!--Documents-->
+      <img src="../../assets/img/patterns/ajax-loader.gif" id='loader' alt="" style='margin-left:42%'>
+      <!--img src="../../assets/img/patterns/success-img.JPG" id='success-img' alt="" style='display:none'-->
+      <p  style='text-align: center;color: #f7ba00;font-size: 23px;padding-top:45px'>Souscrption effectuée avec succés...</p>
     </section><!--Documents-->
     </form>
     
