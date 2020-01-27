@@ -1,10 +1,9 @@
 <?php
 //Mappings
 require_once '../mapping/PoliceDao.php';
-
 //Entities
 require_once '../entities/Police.php';
-
+//obtenir le numéro de police
 function getNumeroPolice($cat){
    $pDao = new PoliceDao();
    $policeNumber = $pDao->getNumPolice($cat);
@@ -15,7 +14,7 @@ function getNumeroPolice($cat){
    }
 return $numPolice;
 }
-
+//obtenir de code energie
    function getCodeEnergie($energie){
    $codeEnergie=0;
    if($energie=='essence'){
@@ -25,56 +24,11 @@ return $numPolice;
    }
    return $codeEnergie;
 }
+//Insertion d'une nouvelle police
 if(isset($_POST['souscription'])){
    extract($_POST);
-   $p = new Police(
-   getNumeroPolice($categorie),
-   'NULL',
-   30, 
-   $categorie, 
-   'NULL', 
-   'NULL', 
-   $date_effet,
-   $duree_contrat,
-   $date_echeance,
-   'NULL',
-   $nom_assure,
-   $prenom_assure,
-   $adresse_assure,
-   'NULL',
-   $ville_assure,
-   'NULL',
-   'NULL',
-   'NULL',
-   $telephone_assure,
-   'NULL',
-   'NULL',
-   'NULL',
-   'NULL',
-   $immatriculation,
-   $immatriculation,
-   2,
-   $marque,
-   1,
-   'NULL',
-   getCodeEnergie($energie),
-   $nombreDePlaces,
-   $cylindre,
-   $valeurNeuve,
-   $valeurVenale,
-   $puissance,
-   'NULL',
-   $dateDeMiseEnCirculation,
-   $nette,
-   $acc,
-   $taxe,
-   $fga,
-   $totale,
-   'NULL',
-   'NULL',
-   date_create()->format('Y-m-d H:i:s'),
-   'NULL'
-   );
+   $numeroPolice = getNumeroPolice($categorie);
+   $p = new Police($numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
    $pDao = new PoliceDao();
    echo($pDao->insertPolice($p));
 }

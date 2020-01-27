@@ -1,4 +1,4 @@
 <?php
-//require_once 'UserDao.php';
-	$_SESSION['User']='Marieme';
+  require_once '../../controllers/Sessions.php';
+  $matricule = $_SESSION['User']
 ?>

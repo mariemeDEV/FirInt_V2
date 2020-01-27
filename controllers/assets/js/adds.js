@@ -1,7 +1,6 @@
 function getModal(modal) {
     $("." + modal).fadeIn();
 }
-
 $(document).ready(function() {
     $('#new-user').on('click', function() {
         getModal('add-user-modal')
@@ -11,8 +10,7 @@ $(document).ready(function() {
     })
     $('.dots').each(function() {
         $(this).on('click', function() {
-            $('#matricule-inter').val($(this).find('#user-dotation').val());
-            $('#id-dotation-int').val($(this).find('#user-dotation-id').val())
+            $('#matricule-inter').val($(this).find('#user-dotation').val())
             getModal('dots-modal');
         })
     })
@@ -72,8 +70,8 @@ $(document).ready(function() {
     $('#add-user').on('submit', function(e) {
             e.preventDefault();
             $.ajax({
-                type: 'POST',
-                url: '../controllers/UserController.php',
+                type: "POST",
+                url: "../controllers/UserController.php",
                 data: $(this).serialize(),
                 dataType: "json",
                 success: function(response) {
@@ -88,19 +86,19 @@ $(document).ready(function() {
         })
         /*Add a new user*/
 
+
     /*Faire une dotation*/
-    $('#dotations-attestations').on('submit', function(e) {
-            e.preventDefault()
+    $('#dotations-attestations').on('submit', function() {
             $.ajax({
                 type: "POST",
                 url: "../controllers/UserController.php",
                 data: $(this).serialize(),
                 dataType: "json",
                 success: function(response) {
-                    console.log(response);
+                    alert(response);
                 },
                 error: function(response) {
-                    console.log(response);
+                    alert(response);
                 }
             })
         })

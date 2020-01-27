@@ -1,3 +1,4 @@
+
  <form method='POST' id="souscription-form" class="auto-form">
       <div>
         <h3>Assuré</h3>
@@ -341,7 +342,7 @@
             <div class="prime_section">
                 <h1 class="total-text animated fadeInLeft animation-delay-100">PRIME TOTALE(FCFA)</h1>
                 <input type='text' value='0' id='valueTotale' class='divide total-input  animated fadeInLeft animation-delay-100' disabled>
-                <img src="../../assets/img/patterns/prime.png" class="animated fadeInLeft animation-delay-100" alt="">
+                <img src="./assets/img/patterns/prime.png" class="animated fadeInLeft animation-delay-100" alt="">
                 <label for="" style='position: relative;left: 235px;top: 169px;color: white !important;'>Bonus RC</label>
                 <p class="reductions"><input type="text" class='garantie-val divide' name='bonus-sur-rc' id='bonus-rc' value="0" 
                 style='position: relative;
@@ -379,7 +380,36 @@
                 </ul>
            </div>
            <div class="row inputs-row">
-                <div class="col-md-6 jaune-col">
+                <?php 
+                    $attJaunes = json_decode($jauneData);
+                    echo '<div class="col-md-6 jaune-col">
+                    <label for="attestations jaunes" class="garantie-label">No attestation jaune</label>
+                    <select id="att_jaune" name="att_jaunes" type="text" style="text-align:center !important">';
+                    echo '<option value="No attestation jaune" selected disabled>attestations jaunes</option>';
+                    foreach($attJaunes as $key=>$attJaune){
+                        echo '<option value="'.$attJaune->numero_attestation.'">'.$attJaune->numero_attestation.'</option>';
+                    }
+                    echo '</select></div>';
+                    $attVertes = json_decode($verteData);
+                    echo '<div class="col-md-6 jaune-col>
+                    <label for="attestations vertes" class="garantie-label">attestations vertes</label>
+                    <select id="att_verte" name="att_vertes" type="text" style="text-align:center !important">';
+                    echo '<option value="No attestation verte" selected disabled>No attestation verte</option>';
+                    foreach($attVertes as $key=>$attVerte){
+                        echo '<option value="'.$attVerte->numero_attestation.'">'.$attVerte->numero_attestation.'</option>';
+                    }
+                    echo '</select></div>';
+                    $attCedeao = json_decode($cedeaoData);
+                    echo '<div class="col-md-6 jaune-col>
+                    <label for="attestations_cedeao" class="garantie-label">attestations cedeao</label>
+                    <select  id="att_cedeao"  name="att_cedeao" type="text" style="text-align:center !important">';
+                    echo '<option value="No attestation cedeao" selected disabled>No attestation cedeao</option>';
+                    foreach($attCedeao as $key=>$attC){
+                        echo '<option value="'.$attC->numero_attestation.'">'.$attC->numero_attestation.'</option>';
+                    }
+                    echo '</select></div>';
+                ?>
+                <!--div class="col-md-6 jaune-col">
                     <label for="attestations jaunes" class="garantie-label">No attestation jaune</label>
                     <input id="jaunes" name="att_jaunes" type="text" class="required" style='text-align:center !important'>
                 </div>
@@ -390,7 +420,7 @@
                 <div class="col-md-6 cedeao-col">
                     <label for="attestations_cedeao" class="garantie-label">No attestation cedeao</label>
                     <input id="cedeao" name="att_cedeao" type="text" class="required" style='text-align:center !important'>
-                </div>
+                </div-->
            </div>
         </section><!--Fin validation-->
 
@@ -456,18 +486,18 @@
         <i class="fa fa-print animated infinite bounceIn delay-1s tooltip" id='impress-btn' title='Imprimer les documents...'></i>
         <div class="owl-carousel owl-theme">
             <div class="item" id='item1' style="width: 180%"><!--JAUNE DATA-->
-                <img src="../../assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
+                <img src="./assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
             </div><!--JAUNE DATA-->
             <div class="item" id='item2' style="width: 180%"><!--CP DATA-->
-                <img src="../../assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
+                <img src="./assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
             </div><!--CP DATA-->
             <div class="item" id='item3' style="width: 180%"><!--CEDEAO DATA-->
-                <img src="../../assets/img/documents/cp.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
+                <img src="./assets/img/documents/cp.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
             </div><!--CEDEAO DATA-->
         </div>
     </section><!--Documents-->
     <section id='success-souscript' class='modal'><!--Documents-->
-      <img src="../../assets/img/patterns/ajax-loader.gif" id='loader' alt="" style='margin-left:42%'>
+      <img src="./assets/img/patterns/ajax-loader.gif" id='loader' alt="" style='margin-left:42%'>
       <!--img src="../../assets/img/patterns/success-img.JPG" id='success-img' alt="" style='display:none'-->
       <p  style='text-align: center;color: #f7ba00;font-size: 23px;padding-top:45px'>Souscrption effectuée avec succés...</p>
     </section><!--Documents-->

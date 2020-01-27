@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    var marques_voitures = ['FIAT', 'BMW', 'ACURA', 'FORD', 'HOLDEN', 'HONDA', 'HYUNDAI', 'ISUZU', 'KIA', 'LEXUS', 'NISSAN', 'RENAULT', 'SEAT', 'CHEVROLET', 'CITROEN', 'DACIA', 'INFINITI', 'MAZDA', 'MITSUBISHI', 'PEUGEOT', 'SUBARU', 'TOYOTA', 'VOLSWAGEN']
-        //Champ autocomplete
-    fieldComplete('ville', marques_voitures);
-
     $('.fonctionnality').mouseenter(function() {
         $('.f-row .fonctionnality i').css('display', 'block')
     })
@@ -16,6 +12,9 @@ $(document).ready(function() {
                 items: 1
             },
             600: {
+                items: 1
+            },
+            1000: {
                 items: 1
             }
         }

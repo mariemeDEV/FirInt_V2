@@ -17,18 +17,28 @@ $(document).ready(function() {
                         var user = JSON.parse(userData);
                         console.log(user);
                         var role = user[0].role_user;
+                        var ressource = 'http://localhost/forint_v2/view/';
+                        var url1 = ressource + 'admin/accueil_admin.php';
+                        var url2 = ressource + 'intermediaires/accueil.php';
+                        var url3 = ressource + 'controlleurs/accueil_controlleur.php';
+                        var notFound = ressource + 'pages_404.php';
                         switch (role) {
                             case '1':
-                                window.location.replace("accueil_admin.php")
+                                alert('1')
+                                window.location.replace(url1);
                                 break;
                             case '2':
-                                window.location.replace("accueil.php")
+                                alert('2')
+                                window.location.replace(url2);
                                 break;
                             case '3':
-                                window.location.replace("accueil_controlleur.php")
+                                alert('3')
+                                window.location.replace(url3);
+                                break;
+                            default:
+                                window.location.replace(notFound);
                                 break;
                         }
-
                     }
                 },
                 error: function() {

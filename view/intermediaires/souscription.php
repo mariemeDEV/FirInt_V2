@@ -13,16 +13,16 @@
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/theme.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/navbar.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/validate.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/validate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css">  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+  <link rel="shortcut icon" href="./assets/img/favicon.ico">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
  <!--form tray center background-->
 <style>
   .tray-center{
-    background-image:url('../../assets/img/patterns/backgrounds/bg_home.png')
+    background-image:url('./assets/img/patterns/backgrounds/bg_home.png')
   }
   .owl-dots{
     position: relative !important;
@@ -196,18 +196,18 @@
   <!-- BEGIN: PAGE SCRIPTS -->
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="../../vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
-  <script src="../../vendor/plugins/validate/validate.js"></script>
-  <script src="../../vendor/plugins/validate/steps.js"></script>
-  <script src="../../assets/js/utility/utility.js"></script>
-  <script src="../../assets/js/demo/demo.js"></script>
-  <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/scripts.js"></script>
-  <script src="../../vendor/plugins/magnific/jquery.magnific-popup.js"></script>
-  <script src="../../assets/js/number_divider.js"></script>
+  <script src="./vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+  <script src="./vendor/plugins/validate/validate.js"></script>
+  <script src="./vendor/plugins/validate/steps.js"></script>
+  <script src="./assets/js/utility/utility.js"></script>
+  <script src="./assets/js/demo/demo.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/scripts.js"></script>
+  <script src="./vendor/plugins/magnific/jquery.magnific-popup.js"></script>
+  <script src="./assets/js/number_divider.js"></script>
   <script src=" https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"></script>
-  <script src="../../assets/js/validate_form.js"></script>
-  <script src="../../assets/js/prime.js"></script>
+  <script src="./assets/js/validate_form.js"></script>
+  <script src="./assets/js/prime.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 
@@ -219,6 +219,20 @@ $(document).ready(function(){
             source: marques_voitures
         })
     })
+    function pushAttestations(selector,tab=[]){
+        $(selector).each(function(){
+            tab.push($(this).val())
+        })
+        return tab;
+    }
+    var attestationsJaunes = [];
+    var jaunes = pushAttestations('#att_jaune option',attestationsJaunes);
+    $('#jaunes').on('change',function(){
+      $(this).autocomplete({
+            source: jaunes
+        })
+    })
+
 })
 </script>
 </html>

@@ -4,6 +4,7 @@
     include('includes_css.php');
     $assets = 'http://localhost/forint_v2/assets/';
     $vendor = 'http://localhost/forint_v2/vendor/';
+    $routes = '../../controllers/users_routes.php';
 ?><!--Header include-->
 <body class="blank-page">
     <!-- Start: Main -->
@@ -14,16 +15,16 @@
         <div class="row fonctionalites-row"><!--row-->
             <div class="col-md-4 col-lg-7 fonctionalities-side"><!--Begin left side-->
                 <div class="row f-row">
-                    <a href="souscription.php"><div class="col-md-4 col-lg-6 fonctionnality f1"><i class="glyphicons glyphicons-cars"><p>Souscription</p></i></div></a>
-                    <a href="simulation.php"><div class="col-md-4 col-lg-6 fonctionnality f2"><i class="glyphicons glyphicons-restart"><p>Simulation</p></i></div></a>
+                    <a href=<?php echo $routes.'?action=souscript'?>><div class="col-md-4 col-lg-6 fonctionnality f1"><i class="glyphicons glyphicons-cars"><p>Souscription</p></i></div></a>
+                    <a href=<?php echo $routes.'?action=simul'?>><div class="col-md-4 col-lg-6 fonctionnality f2"><i class="glyphicons glyphicons-restart"><p>Simulation</p></i></div></a>
                 </div>
                 <div class="row f-row">
-                    <a href="contrats.php"><div class="col-md-4 col-lg-6 fonctionnality f3"><i class="glyphicons glyphicons-suitcase"><p>Contrats</p></i></div></a>
-                    <a href="devis.php"><div class="col-md-4 col-lg-6 fonctionnality f4"><i class="glyphicons glyphicons-blog"><p>Dévis</p></i></div></a>
+                    <a href=<?php echo $routes.'?action=contrats'?>><div class="col-md-4 col-lg-6 fonctionnality f3"><i class="glyphicons glyphicons-suitcase"><p>Contrats</p></i></div></a>
+                    <a href=<?php echo $routes.'?action=devis'?>><div class="col-md-4 col-lg-6 fonctionnality f4"><i class="glyphicons glyphicons-blog"><p>Dévis</p></i></div></a>
                 </div>
                 <div class="row f-row">
-                    <a href="attestations.php"><div class="col-md-4 col-lg-6 fonctionnality f5"><i class="glyphicons glyphicons-folder_open"><p>Attestations</p></i></div></a>
-                    <a href="garanties.php"><div class="col-md-4 col-lg-6 fonctionnality f6"><i class="glyphicons glyphicons-notes"><p>Garanties</p></i></div></a>
+                    <a href=<?php echo $routes.'?action=attestations'?>><div class="col-md-4 col-lg-6 fonctionnality f5"><i class="glyphicons glyphicons-folder_open"><p>Attestations</p></i></div></a>
+                    <a href=<?php echo $routes.'?action=garanties'?>><div class="col-md-4 col-lg-6 fonctionnality f6"><i class="glyphicons glyphicons-notes"><p>Garanties</p></i></div></a>
                 </div>
             </div><!--End left side-->
 

@@ -1,7 +1,10 @@
 <?php
 require_once '../entities/Police.php';
+require_once '../entities/VenteAttestation.php';
+
 //namespace mapping;
 require_once '../controllers/ConnexionDB.php';
+require_once '../mapping/AttestationsDao.php';
 class PoliceDao{
     
     private static $connector;
@@ -23,10 +26,21 @@ class PoliceDao{
                 return $e->getMessage();
             }
     }
+    //Générer Id vente d'attestation
+    public function generateIdVente($length):string{
+        $idGenerated      = '';
+        $characters       = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@';
+        $charactersLength = strlen($characters);
+        for ($i = 0; $i < $length; $i++) {
+            $idGenerated .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $idGenerated;
+    }
     //Creation de police
     public function insertPolice(Police $p){
-        $connector = $this->getConnector();
-        $insertPoliceRequest = $connector->prepare(
+      //  $this->getConnector()->beginTransaction();
+        try{
+        $insertPoliceRequest =  $this->getConnector()->prepare(
             "insert into police_valide values(
             '".$p->getNumeroPolice()."',
             '".$p->getCodeFormule()."',
@@ -76,9 +90,36 @@ class PoliceDao{
             '".$p->getFlagtrans()."'
             )"
         );
-        try{
-            $insertPoliceRequest->execute();
-            return true;
+        //$insertPoliceRequest->execute();
+        //$insertPoliceRequest->closeCursor();
+
+    //Insertion dans vente attestation
+        $attDao = new AttestationsDao();
+        //Vente jaune et cedeao
+        if(isset($_POST['att_jaunes']) && isset($_POST['att_cedeao']) ){
+            $idVente = $this->generateIdVente(5);
+            $vente_j = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_jaunes'])[0]['id_attestation'],'4010000001');
+            $vente_c= new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_cedeao'])[0]['id_attestation'],'4010000001');
+            $attDao->inserteVente($vente_j,$vente_c);
+        //Vente verte et cedeao
+        }else if(isset($_POST['att_vertes']) && isset($_POST['att_cedeao']) ){
+            $idVente = $this->generateIdVente(5);
+            $vente_v = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_vertes'])[0]['id_attestation'],'4010000001');
+            $vente_c = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_cedeao'])[0]['id_attestation'],'4010000001');
+            $attDao->inserteVente($vente_v,$vente_c);
+        //Vente jaune(cas catégorie5)
+        }else{
+            $idVente = $this->generateIdVente(5);
+            $vente_j = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_jaunes'])[0]['id_attestation'],'4010000001');
+            $attDao->inserteVente($vente_j,NULL);
+        }
+  
+    
+
+        //Update table attestation pour les attestations vendues
+
+           // return true;
+        //   print_r($numatt1+' '+$numatt2+' '+' '+ $numatt3+' '+$idVente);
         }catch(Exception $e){
            return $e->getMessage();
         }

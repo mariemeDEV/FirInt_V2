@@ -1,15 +1,34 @@
+//https://stackoverflow.com/questions/12409299/how-to-get-current-formatted-date-dd-mm-yyyy-in-javascript-and-append-it-to-an-i
+function formatDate(dateToFormat) {
+    var dd = dateToFormat.getDate();
+    var mm = dateToFormat.getMonth() + 1; //January is 0!
+    var yyyy = dateToFormat.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    var formatedDate = dd + '/' + mm + '/' + yyyy;
+    return formatedDate;
+}
 //Calcul de la date d'echeance
 function getEcheance() {
     var dateChoisie = $('#effet').val()
     var dateEffet = new Date(dateChoisie)
     var dateSimple = new Date();
-    curentYear = dateSimple.getFullYear();
-    if (curentYear > dateEffet.getFullYear()) {
+    if (formatDate(dateEffet) < formatDate(dateSimple)) {
         $('#date_echeance').fadeOut();
-        alert('La date choisie est invalide.');
+        alert('La d\'effet ne peut etre antéreure à aujord\'hui.');
+        $('#effet').val('0000-00-00');
     } else {
+      //  $('#echeance').val('21/12/2020');
         $('#date_echeance').fadeIn();
-        $("#date_echeance").text("Votre contrat prend fin le : " + parseInt(dateEffet.getDate() - 1) + "/" + parseInt(dateEffet.getMonth() + 1) + "/" + parseInt(dateEffet.getFullYear() + 1) + " à 23H 59min")
+        if ($('#duree').value == 12) {
+            $("#date_echeance").text("Votre contrat prend fin le : " + parseInt(dateEffet.getDate() - 1) + "/" + parseInt(dateEffet.getMonth() + 1) + "/" + parseInt(dateEffet.getFullYear() + 1) + " à 23H 59min")
+        } else {
+            $("#date_echeance").text("Votre contrat prend fin le : " + parseInt(dateEffet.getDate() - 1) + "/" + parseInt(dateEffet.getMonth() + 1) + "/" + parseInt(dateEffet.getFullYear()) + " à 23H 59min")
+        }
     }
 }
 //Affichage des champs en fonction des catégories
@@ -35,19 +54,6 @@ function enableCheck() {
 function disableCheck() {
     $('#bris_check,#incendie-check,#vol-check').prop('disabled', true);
 }
-//Désactivation des champs en parametre
-/*function disableFields(fields) {
-    for (const field in fields) {
-        console.log("$(" + `"${fields[field]}"` + ")").prop('disabled', true);
-    }
-}*/
-//Activation des champs en parametre
-/*function enableFields(fields) {
-    for (const field in fields) {
-        console.log("$(" + `"${fields[field]}"` + ")").prop('disabled', true);
-    }
-}*/
-//Remettre un champ à l'initial
 //Recupérer la valeur d'un champs donné en fonction de son Id
 function resetField(champId) {
     $("#" + champId).val(0)
@@ -56,7 +62,6 @@ function resetField(champId) {
 function uncheckField(champId) {
     $("#" + champId).prop('checked', false)
 }
-
 //Affichage des champs/activation désactivation garanties en fonction des catégories
 function getCategorieCol() {
     categorie = $("#categorie").val();
@@ -1074,7 +1079,6 @@ function getSectionData(section_number) {
         //console.log(sectionData);
     return sectionData;
 }
-
 //Vérification des stocks
 function chechStock() {
     var attestationsVertes = ['1', '2'];
@@ -1100,7 +1104,6 @@ function chechStock() {
         source: cedeao
     });
 }
-
 //Ecrire les marques des voitues
 function setMarques() {
     var marques_voitures = ['FIAT', 'BMW', 'ACURA', 'FORD', 'HOLDEN', 'HONDA', 'HYUNDAI', 'ISUZU', 'KIA', 'LEXUS', 'NISSAN', 'RENAULT', 'SEAT', 'CHEVROLET', 'CITROEN', 'DACIA', 'INFINITI', 'MAZDA', 'MITSUBISHI', 'PEUGEOT', 'SUBARU', 'TOYOTA', 'VOLSWAGEN']
@@ -1108,7 +1111,6 @@ function setMarques() {
         source: marques_voitures
     })
 }
-
 //Ecrire la valeur de la RC calculée
 function setRC() {
     $('#rc').val(getRC(getValueInput('categorie')));
@@ -1212,7 +1214,6 @@ function writeData() {
 
 //Rafréchir les valeurs des garanties si les caractéristiques changent
 function resetCheckboxes() {
-
     $('#steps-uid-0-t-3').on('click', function() {
         setRC();
         if ($('#incendie-check').prop('checked')) {
@@ -1261,7 +1262,7 @@ $(document).ready(function() {
     $('#souscription-form').find('select,input').each(function(i, champ) {
             $(this).on('change', function() {
                 //Action sur les champs concernés par le calcul de la date d'effet
-                if (champ.id == 'effet') {
+                if (champ.id == 'effet' || champ.id == 'duree') {
                     getEcheance();
                     //Action sur les champs concérnés par me changement de catégorie
                 } else if (champ.id == 'categorie') {
@@ -1339,21 +1340,4 @@ $(document).ready(function() {
     setRecoursTierces();
     //Number divider
     $('.divide').divide();
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 0,
-        nav: true,
-        autowidth: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 1
-            },
-            1000: {
-                items: 1
-            }
-        }
-    })
 });

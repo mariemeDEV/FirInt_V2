@@ -55,8 +55,8 @@ $routes = '../../controllers/routes.php';
             </div><!--End left side-->
 
             <div class="col-md-4 col-lg-5 admin-right"><!--Begin right side-->
-            <span class="fa fa-user profil-avatar"></span>
-            <p class='profil-title '>Administrateur</p>
+                <span class="fa fa-user profil-avatar"></span>
+                <p class='profil-title '>Administrateur</p>
             </div><!--End right side-->
         </div>
     </div>

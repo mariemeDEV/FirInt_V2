@@ -1,11 +1,12 @@
 <?php
 //Mappings
 require_once '../mapping/UserDao.php';
-require_once '../mapping/AttestationDao.php';
+require_once '../mapping/AttestationsDao.php';
 //Entities
 require_once '../entities/Utilisateur.php';
 
-
+if(isset($_POST['username']) && isset($_POST['password'])){
+}
 /*Connect a user */
 	if(isset($_POST['username']) && isset($_POST['password'])){
 		$dao = new UserDao();
@@ -43,10 +44,6 @@ require_once '../entities/Utilisateur.php';
 	}
 /*Connect a user*/
 
-/*Dotation d'attestations*/
-
-
-/*Dotation d'attestations*/
 
 
 

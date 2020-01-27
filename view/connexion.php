@@ -63,6 +63,7 @@
                   <label for="username" class="field-label text-muted fs18 mb10">Login</label>
                   <label for="username" class="field prepend-icon">
                   <input type="hidden" name='hiddenUser'>
+                  <input type='hidden' name='userAttestations'>
                     <input type="text" name="username" id="uname" class="gui-input" placeholder="Enter username">
                     <label for="username" class="field-icon">
                       <i class="fa fa-user"></i>
