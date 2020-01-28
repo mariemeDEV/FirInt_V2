@@ -22,7 +22,7 @@ function getEcheance() {
         alert('La d\'effet ne peut etre antéreure à aujord\'hui.');
         $('#effet').val('0000-00-00');
     } else {
-      //  $('#echeance').val('21/12/2020');
+        //  $('#echeance').val('21/12/2020');
         $('#date_echeance').fadeIn();
         if ($('#duree').value == 12) {
             $("#date_echeance").text("Votre contrat prend fin le : " + parseInt(dateEffet.getDate() - 1) + "/" + parseInt(dateEffet.getMonth() + 1) + "/" + parseInt(dateEffet.getFullYear() + 1) + " à 23H 59min")
@@ -72,7 +72,7 @@ function getCategorieCol() {
         $("#bris_check").prop('disabled', true);
         getCols();
         enableCheck();
-        $('#charge_col, #surplus_col, #packs_col,#cylindre_col').fadeOut();
+        $('#charge_col, #surplus_col, #packs_col,#cylindre_col,.vert-col').fadeOut();
         $('#defense-recours-check,#bris_check,#persones_trans').prop('disabled', false);
         $('#avance-recours').prop('disabled', false);
     } else if (categorie == "2") {
@@ -83,7 +83,7 @@ function getCategorieCol() {
         getCols();
         if ($("#charge_col, #surplus_col").is(":hidden")) {
             $("#charge_col, #surplus_col").fadeIn();
-            $("#cylindre_col").fadeOut();
+            $("#cylindre_col,.vert-col").fadeOut();
         } else {
             $("#charge_col").fadeIn();
         }
@@ -96,14 +96,14 @@ function getCategorieCol() {
         enableCheck();
         if (categorie == "4") {
             $('#genre').val('transport public de voyageurs');
-            $("#charge_col").fadeOut();
+            $("#charge_col,.jaune-col").fadeOut();
             $('#defense-recours-check,#tc-check,#bonus_sur_rc').prop('disabled', true);
             resetField('defense_et_recours_val');
             uncheckField('defense-recours-check');
             $('#tcol-check').prop('disabled', false);
             uncheckField('defense-recours-check');
             resetField('defense-recours-check');
-            $('#cat4-modal').fadeIn();
+            $('#cat4-modal,.vert-col').fadeIn();
             $('.close').on('click', function() {
                 $('#cat4-modal').fadeOut();
             })
@@ -113,7 +113,9 @@ function getCategorieCol() {
             $('#bris_check,#defense-recours-check,#persones_trans,#tc-check,#tcol-check,#avance-recours,#bonus_sur_rc').prop('disabled', false);
         }
         $("#charge_col").fadeIn(function() {
-            $("#surplus_col, #packs_col,#cylindre_col").fadeOut();
+            $("#surplus_col, #packs_col,#cylindre_col,.vert-col").fadeOut();
+            $("jaune-col").fadeIn();
+
         });
         getCols();
     } else if (categorie == "5") {
@@ -121,8 +123,8 @@ function getCategorieCol() {
         $('#defense-recours-check,#bonus_sur_rc').prop('disabled', false);
         $('#genre').val('2 roues');
         disableCheck()
-        $("#categorie_col, #genre_col, #marque_col, #modele_col,#immatriculation_col,#cylindre_col").fadeIn(function() {
-            $("#puissance_col, #vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col, #packs_col").fadeOut()
+        $("#categorie_col, #genre_col, #marque_col, #modele_col,#immatriculation_col,#cylindre_col,.jaune-col").fadeIn(function() {
+            $("#puissance_col, #vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col, #packs_col,.vert-col,.cedeao-col").fadeOut()
         });
         $('#bris_check,#incendie-check,#vol-check,#persones_trans,#tc-check,#tcol-check,#avance-recours').prop('disabled', true);
         resetField('defense_et_recours');
@@ -148,9 +150,9 @@ function getCategorieCol() {
         $('#genre').val('transport public de voyageurs')
         $('#bris_check,#avance-recours').prop('disabled', false);
         $("#packs_col").fadeIn(function() {
-            $("#puissance_col, #vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col, #modele_col,#immatriculation_col").fadeIn();
+            $("#puissance_col, #vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col, #modele_col,#immatriculation_col,.cedeao-col,.jaune-col").fadeIn();
         });
-        $('#charge_col,#surplus_col,#cylindre_col').fadeOut();
+        $('#charge_col,#surplus_col,#cylindre_col,.vert-col').fadeOut();
         $('#packs_col').fadeIn(3000)
         getCols();
         /*if (getValueInput('packs') == "mini") {

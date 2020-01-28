@@ -199,14 +199,14 @@
             <tbody>
                 <tr>
                     <td>
-                        <input type="checkbox" id="rc-check" name="responsabilite-civile" class='val_input divide' checked disabled value='Résponsabilité civile'>
+                        <input type="checkbox" id="rc-check" name='garanties[]' class='val_input divide' checked disabled value='Résponsabilité civile'>
                         <label for="RC" class="garantie-label">Résponsabilité civile</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' id="rc" disabled value="0">
                     </td>
                     <td>
-                        <input type="checkbox" id="bris_check" name="bris-de-glace" class='val_input' value='Bris de glace'>
+                        <input type="checkbox" id="bris_check" name='garanties[]' class='val_input' value='7'>
                         <label for="BG" class="garantie-label">Bris de glace</label>
                     </td>
                     <td>
@@ -215,16 +215,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" id="recours-check" name="responsabilite-civile" class='val_input' disabled checked value='Recours des tiers'>
+                        <input type="checkbox" id="recours-check" name='garanties[]' class='val_input' disabled checked value='Recours des tiers'>
                         <label for="BG" class="garantie-label">Recours des tiers</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val' id="recours_val" value="0">
                     </td>
                     <td> 
-                        <input type="checkbox" id="tc-check" name="tierscomplete" class='val_input tierce' value='Tierce compléte'>
+                        <input type="checkbox" id="tc-check" name='garanties[]' class='val_input tierce' value='5'>
                         <label for="BG" class="garantie-label">Tiérce complete</label>
-                        <input type="checkbox" id="tcol-check" name="tierce-collision" class='val_input tierce' value='Tierce collision'>
+                        <input type="checkbox" id="tcol-check" name='garanties[]' class='val_input tierce' value='6'>
                         <label for="tcol" class="garantie-label">Tiérce collision</label>
                     </td>
                     <td>
@@ -234,14 +234,14 @@
 
                 <tr>
                     <td>
-                        <input type="checkbox" id="defense-recours-check" name="defense_et_recours" class='val_input' value='Défense et recours'>
+                        <input type="checkbox" id="defense-recours-check" name='garanties[]' class='val_input' value='1'>
                         <label for="DR" class="garantie-label">Défense et recours</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' value="0" id='defense_et_recours_val'>
                     </td>
                         <td>
-                            <select class="form-control" name="avance_recours" id="avance-recours" value='Avance sur recours'>
+                            <select class="form-control" name="avance_recours" id="avance-recours" value='9'>
                                 <option value="avance sur recours" selected disabled>Avance sur recours</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -255,14 +255,14 @@
 
                 <tr>
                     <td>
-                        <input type="checkbox" name="incendie" class='val_input divide' id="incendie-check" value='Incendie'>
+                        <input type="checkbox" class='val_input divide' id="incendie-check" name="incendie" value='2'>
                         <label for="BG" class="garantie-label">Incendie</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' name='incendie_value' id='incendie_val' value="0">
                     </td>
                     <td>
-                        <select class="form-control" name="p_trans" id="persones_trans">
+                        <select class="form-control" name="p_trans" id="11">
                             <option value="personnes transportées" selected disabled>Personnes transportées</option>
                             <option value="1">Option1</option>
                             <option value="2">Option2</option>
@@ -276,18 +276,19 @@
 
                 <tr>
                     <td>
-                        <input type="checkbox" name="garantie_vol" id='vol-check' class='val_input' value='Vol'>
+                        <input type="checkbox" name="garantie_vol" id='vol-check' class='val_input' value='3'>
                         <label for="Vol" class="garantie-label">Vol</label>
                     </td>
                     <td>
                         <input type="text" name='vol' id='vol_val' class='garantie-val divide' value='0'>
                     </td>
                     <td>
-                        <input type="checkbox" id="assistance_check" name="garantie_assistance" class='val_input' val='Assistance'>
+                        <input type="checkbox" id="assistance_check" name="garantie_assistance" class='val_input' value='13'>
                         <label for="BG" class="garantie-label">Assistance</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' name='assistance' id='assistance_val' value="0">
+                        <input type="hidden" class='garantie-val' name='carte_brune' value="12">
                     </td>
                 </tr>
             </tbody>
@@ -391,7 +392,7 @@
                     }
                     echo '</select></div>';
                     $attVertes = json_decode($verteData);
-                    echo '<div class="col-md-6 jaune-col>
+                    echo '<div class="col-md-6 vert-col">
                     <label for="attestations vertes" class="garantie-label">attestations vertes</label>
                     <select id="att_verte" name="att_vertes" type="text" style="text-align:center !important">';
                     echo '<option value="No attestation verte" selected disabled>No attestation verte</option>';
@@ -400,7 +401,7 @@
                     }
                     echo '</select></div>';
                     $attCedeao = json_decode($cedeaoData);
-                    echo '<div class="col-md-6 jaune-col>
+                    echo '<div class="col-md-6 cedeao-col">
                     <label for="attestations_cedeao" class="garantie-label">attestations cedeao</label>
                     <select  id="att_cedeao"  name="att_cedeao" type="text" style="text-align:center !important">';
                     echo '<option value="No attestation cedeao" selected disabled>No attestation cedeao</option>';

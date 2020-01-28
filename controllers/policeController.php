@@ -28,7 +28,8 @@ return $numPolice;
 if(isset($_POST['souscription'])){
    extract($_POST);
    $numeroPolice = getNumeroPolice($categorie);
+   $garants=$garanties;
    $p = new Police($numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
    $pDao = new PoliceDao();
-   echo($pDao->insertPolice($p));
+   echo($pDao->insertPolice($p,$garanties));
 }

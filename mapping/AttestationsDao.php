@@ -94,7 +94,7 @@ function insertAttestation(Attestation $attestation){
     //Vendre une attestation
     function inserteVente(VenteAttestation $vente1,$vente2){
         try{
-            $this->getConnector()->beginTransaction();
+          //  $this->getConnector()->beginTransaction();
             //Cas des catégories 5
             if($vente2==NULL){
                 $insertVenteRequest1 = $this->getConnector()->prepare(
@@ -133,7 +133,7 @@ function insertAttestation(Attestation $attestation){
                 $update1->execute();
                 $update2->execute();
             }
-            $this->getConnector()->commit();
+          //  $this->getConnector()->commit();
             return 'Attestations vendues';
         }catch(Exception $e){
             $this->getConnector()->rollBack();
