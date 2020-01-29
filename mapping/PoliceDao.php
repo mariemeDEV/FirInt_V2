@@ -42,7 +42,7 @@ class PoliceDao{
     }
 
     //Creation de police
-    public function insertPolice(Police $p,Array $garanties){
+    public function insertPolice(Police $p,Array $garanties,Array $gantsValues){
       $this->getConnector()->beginTransaction();
         try{
     //Insertion dans la table police
@@ -54,7 +54,7 @@ class PoliceDao{
     //Insertion dans des garanties associées
    // $garantie = new PoliceGaranties('NULL',$p->getNumeroPolice());
    $gantDa =  new PoliceGarantiesDao();
-   $gantDa->insertGaranties($garanties);
+   $gantDa->insertGaranties($garanties,$gantsValues,'4010000001');
     //Insertion dans vente attestation
      //   $attDao = new AttestationsDao();
     //Vente jaune et cedeao

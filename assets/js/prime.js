@@ -896,13 +896,13 @@ function getPersonnesTransportees() {
     var pack = getValueInput('packs');
     var personnesTransportees;
     switch (option) {
-        case '1':
+        case '11':
             personnesTransportees = getPersonnesTransporteesBrute(1200);
             break;
-        case '2':
+        case '19':
             personnesTransportees = getPersonnesTransporteesBrute(2400);
             break;
-        case '3':
+        case '20A':
             personnesTransportees = getPersonnesTransporteesBrute(3600);
             if (pack == 'mini') {
                 personnesTransportees = getPersonnesTransporteesBrute(5000);
@@ -919,7 +919,7 @@ function getPersonnesTransportees() {
 function getAvanceSurRecoursCat(categorie) {
     var avanceSurRecours;
     var option = getValueInput('avance-recours');
-    if (option == '1') {
+    if (option == '9') {
         switch (categorie) {
             case '1':
                 avanceSurRecours = getAvanceSurRecoursBrute(3, 500000)
@@ -939,9 +939,9 @@ function getAvanceSurRecoursCat(categorie) {
                 }
                 break;
         }
-    } else if (option == '2') {
+    } else if (option == '22') {
         avanceSurRecours = getAvanceSurRecoursBrute(3, 750000)
-    } else if (option == '3') {
+    } else if (option == '23') {
         avanceSurRecours = getAvanceSurRecoursBrute(3, 1000000)
     }
     return avanceSurRecours
