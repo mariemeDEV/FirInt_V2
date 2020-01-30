@@ -10,24 +10,25 @@ class PoliceGarantiesDao{
         self::$connector= ConnexionDB::getInstance();
         return  self::$connector;
     }
-
-    public function insertGaranties(Array $garanties,Array $values,$police){
-        try{
-            for($g=0;$g<sizeof(($garanties));$g++){
-                echo($garanties[$g]);
-              /*  for($v=0;$v<sizeof(($values));$v++){
-                    if($garanties[$g]!=''){
-                        $pg  = new PoliceGaranties('NULL',$police,$garanties[$g],$values[$v]);
-                    }
-                   // var_dump($pg->getCodeGarantie().'<br>');
-                    $cnx =  $this->getConnector();
-                    $insertGarantie=$cnx->prepare("insert into police_valide_garantie values('".$pg->getId()."','".$pg->getNumeroPolice()."','".$pg->getCodeGarantie()."','".$pg->getMontantGarantie()."')");
-                    $insertGarantie->execute();
-                }*/
+    public function insertGaranties(array $garanties,$police){
+        foreach($garanties as $garantie=>$value) { 
+            try{
+            $pg=new PoliceGaranties('NULL',$police,$garantie,$value);
+            $cnx =  $this->getConnector();
+            $insertGarantie=$cnx->prepare(
+                "insert into police_valide_garantie values(
+                    '".$pg->getId()."',
+                    '".$pg->getNumeroPolice()."',
+                    '".$pg->getCodeGarantie()."',
+                    '".$pg->getMontantGarantie()."'
+                )"
+            );
+            $insertGarantie->execute();
+            print_r("Inserted"."\n");
+            }catch(Exception $e){
+                $e->getMessage();
             }
-            return true;
-        }catch(Exception $e){
-            $e->getMessage();
-        }
+        } 
+        
     }
 }

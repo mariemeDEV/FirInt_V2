@@ -204,45 +204,47 @@
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' name='RC_value' id="rc" disabled value="0">
-                        <input type="hidden" name='Rc_code' value='1'>
+                        <input type="hidden" name='Rc_code' value='17'>
                     </td>
+
                     <td>
-                        <input type="checkbox" id="bris_check" name='BG' class='val_input'>
+                        <input type="checkbox" id="bris_check" class='val_input'>
                         <label for="BG" class="garantie-label">Bris de glace</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' id='bris_de_glace_val' name='BG_value' value="0">
-                        <input type="hidden" value='1' name='BG'>
-                    </td>
+                        <input type="hidden" name='BG' value='7'>
+                     </td>
+
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" id="recours-check" name='RTI' class='val_input' disabled checked value='Recours des tiers'>
+                        <input type="checkbox" id="recours-check" class='val_input' disabled checked value='Recours des tiers'>
                         <label for="BG" class="garantie-label">Recours des tiers</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val' id="recours_val" name='RTI_value' value="0">
-                        <input type="hidden" name='Rti_code' value='1'>
+                        <input type="hidden" name='Rti_code' value='18'>
                     </td>
                     <td> 
-                        <input type="checkbox" id="tc-check" class='val_input tierce' value='5'>
+                        <input type="checkbox" id="tc-check" class='val_input tierce'>
                         <label for="BG" class="garantie-label">Tiérce complete</label>
-                        <input type="checkbox" id="tcol-check" class='val_input tierce' value='6'>
+                        <input type="checkbox" id="tcol-check" class='val_input tierce'>
                         <label for="tcol" class="garantie-label">Tiérce collision</label>
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' value="0" id='tierce_val' name='TIERCE_value'>
-                        <input type="hidden" value="1" name='TC'>
+                        <input type="hidden" value="5" name='TC'>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <input type="checkbox" id="defense-recours-check" name='DR' class='val_input'>
+                        <input type="checkbox" id="defense-recours-check" class='val_input'>
                         <label for="DR" class="garantie-label">Défense et recours</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide'  name='DR_value' value="0" id='defense_et_recours_val'>
+                        <input type="text" class='garantie-val divide' name='DR_value' value="0" id='defense_et_recours_val'>
                         <input type="hidden" value='1' name='DR'>
                     </td>
                         <td>
@@ -264,8 +266,8 @@
                         <label for="BG" class="garantie-label">Incendie</label>
                     </td>
                     <td>
-                        <input type="hidden" name="INC" value='1'>
-                        <input type="text" class='garantie-val divide' name='INC_value' id='incendie_val' name='INCENDIE_value'value="0">
+                        <input type="text" class='garantie-val divide' name='INC_value' id='incendie_val' name='INCENDIE_value' value="0">
+                        <input type="hidden" name="INC" value='2'>
                     </td>
                     <td>
                         <select class="form-control" name="PT" id="persones_trans">
@@ -287,8 +289,8 @@
                         <label for="Vol" class="garantie-label">Vol</label>
                     </td>
                     <td>
-                        <input type="hidden" name="VoL" value='1'>
                         <input type="text" id='vol_val' class='garantie-val divide' name='VoL_value' value='0'>
+                        <input type="hidden" name="VoL" value='3'>
                     </td>
                     <td>
                         <input type="checkbox" id="assistance_check" class='val_input'>
@@ -296,9 +298,9 @@
                     </td>
                     <td>
                         <input type="text" class='garantie-val divide' name='ASSISTANCE_value' id='assistance_val' name='ASSISTANCE_value' value="GRATUIT">
-                        <input type="hidden" class='garantie-val' name='ASSISTANCE_code' value="1">
+                        <input type="hidden" class='garantie-val' name='ASSISTANCE_code' value="13">
 
-                        <input type="hidden" class='garantie-val' name='carte_brune' value="1">
+                        <input type="hidden" class='garantie-val' name='carte_brune' value="12">
                     </td>
                 </tr>
             </tbody>

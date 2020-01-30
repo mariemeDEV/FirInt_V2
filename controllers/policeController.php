@@ -28,10 +28,20 @@ return $numPolice;
 if(isset($_POST['souscription'])){
    extract($_POST);
    $numeroPolice = getNumeroPolice($categorie);
-   $garanties=[$Rc_code,$BG,$Rti_code,$TC,$DR,$ASR,$INC,$PT,$VoL,$ASSISTANCE_code,$carte_brune];
-   $garantiesValues = [$RC_value,$BG_value,$RTI_value,$TIERCE_value,$DR_value,$ASR_value,$INC_value,$PT_value,$VoL_value,$ASSISTANCE_value,'GRATUIT'];
-
+   $garanties=array(
+      $Rc_code => $RC_value,
+      $BG=>$BG_value,
+      $Rti_code=>$RTI_value,
+      $TC=>$TIERCE_value,
+      $DR=>$DR_value,
+      $ASR=>$ASR_value,
+      $INC=>$INC_value,
+      $PT=>$PT_value,
+      $VoL=>$VoL_value,
+      $ASSISTANCE_code=>$ASSISTANCE_value,
+      $carte_brune=>'GRATUIT'
+);
    $p = new Police($numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
    $pDao = new PoliceDao();
-   echo($pDao->insertPolice($p,$garanties,$garantiesValues));
+   echo($pDao->insertPolice($p,$garanties));
 }
