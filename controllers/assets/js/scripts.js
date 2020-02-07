@@ -20,4 +20,18 @@ $(document).ready(function() {
         }
     })
 
+    $('#get-avenant').on('click', function() {
+        /* var pageURL = $(location).attr("href");
+         alert(pageURL);*/
+        $('#avenant').fadeIn();
+    })
+    $('.close').on('click', function() {
+        /*var pageURL = $(location).attr("href");
+        alert(pageURL);*/
+        $('#avenant').fadeOut();
+    })
+    $('#avenant-form').on('submit', function() {
+        alert('yes');
+    })
+
 })

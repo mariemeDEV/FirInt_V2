@@ -65,6 +65,19 @@ function insertAttestation(Attestation $attestation){
         }
 
     }
+      function getAttestationsRestantes(int $t,int $intermediaire){
+        $connector = $this->getConnector();
+        $attRequest = "SELECT numero_attestation FROM `attestation` WHERE id_type='$t' AND intermediaire='$intermediaire' AND etat_attestation='attribuee,restante'";
+        $preparedAtt = $connector->prepare($attRequest);
+        try{
+            $preparedAtt->execute();
+            $attestationsData = $preparedAtt->fetchAll(PDO::FETCH_ASSOC);
+            return $attestationsData;
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
+
+    }
 
     function getTypeAttestation(){
         $connector = $this->getConnector();

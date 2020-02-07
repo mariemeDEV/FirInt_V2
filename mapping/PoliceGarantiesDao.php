@@ -24,7 +24,7 @@ class PoliceGarantiesDao{
                 )"
             );
             $insertGarantie->execute();
-            print_r("Inserted"."\n");
+           // print_r("Inserted"."\n");
             }catch(Exception $e){
                 $e->getMessage();
             }

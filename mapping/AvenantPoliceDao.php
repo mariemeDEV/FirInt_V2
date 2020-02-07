@@ -13,9 +13,10 @@ class AvenantPoliceDao{
         return  self::$connector;
     }
     public function setAvenantPolice($numP){
-        if($numP!=''){
+        //print_r($numP);
+        if($numP==''){
             echo('exists!');
-        }else{
+        }else if($numP!=''){
             echo('does not!');
         }
         /*$pDao = new PoliceDao();

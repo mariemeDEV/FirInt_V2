@@ -59,7 +59,7 @@
     <div class="tray tray-center">
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
-          <?php include('form_souscript.php');?>
+          <?php include('avenant_form.php');?>
       </div><!-- Second row -->
       </div>
     </div>
@@ -189,13 +189,13 @@
     <span class="close">&times;</span>
     <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
     <form method='POST' action='../../forInt_v2/controllers/PoliceController.php'  id="avenant-form">
-      <div class="row">
+    <div class="row">
       <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
         <input type="text" id="inputStandard" class="form-control" name='intermediaire'>
       </div>
       <div class="row" style='padding-bottom: 11px !important;'>
       <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='matricule'>
+        <input type="text" id="inputStandard" class="form-control" name='immat'>
         <input type="hidden" name='avenant'>
       </div>
       <div class="row">

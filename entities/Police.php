@@ -36,6 +36,7 @@ class Police{
     private $valeurNeuve;
     private $valeurVenale;
     private $puissanceFiscale;
+    private $chargeUtile;
     private $codeCarosserie;
     private $dateMiseEnCirculation;
     private $montantPrime;
@@ -49,7 +50,7 @@ class Police{
     private $flagtrans;
 
 
-    function __construct($numeroPolice='', $codeFormule='',$intermediaire='', $codeCategorie='', $natureContrat='', $codeZone='', $dateEffet='', $duree='', $dateEcheance='', $qualiteAssure='',$nomAssure='',$prenomAssure='',$adresse='',$codeProfession='',$codeVilleAssure='',$codeActivite='',$typePiece='',$numPiece='',$telephone='',$typePermis='',$numPermis='',$dateDeLivPermis='',$lieuDeLivPermis='',$immatriculation='',$numChassis='',$codeMarque='',$codeSerie='',$codeGenre='',$codeUsage='',$codeEnergie='',$nombreDePlace='',$cylindre='',$valeurNeuve='',$valeurVenale='',$puissanceFiscale='',$codeCarosserie='',$dateMiseEnCirculation='',$montantPrime='',$montantAccessoires='',$montantTaxes='',$montantFGA='',$montantTTC='',$dateValidation='',$dateSouscription='',$dateSais='',$flagtrans='')
+    function __construct($numeroPolice='', $codeFormule='',$intermediaire='', $codeCategorie='', $natureContrat='', $codeZone='', $dateEffet='', $duree='', $dateEcheance='', $qualiteAssure='',$nomAssure='',$prenomAssure='',$adresse='',$codeProfession='',$codeVilleAssure='',$codeActivite='',$typePiece='',$numPiece='',$telephone='',$typePermis='',$numPermis='',$dateDeLivPermis='',$lieuDeLivPermis='',$immatriculation='',$numChassis='',$codeMarque='',$codeSerie='',$codeGenre='',$codeUsage='',$codeEnergie='',$nombreDePlace='',$cylindre='',$valeurNeuve='',$valeurVenale='',$puissanceFiscale='',$chargeUtile='',$codeCarosserie='',$dateMiseEnCirculation='',$montantPrime='',$montantAccessoires='',$montantTaxes='',$montantFGA='',$montantTTC='',$dateValidation='',$dateSouscription='',$dateSais='',$flagtrans='')
     {
         $this->numeroPolice=$numeroPolice;
         $this->codeFormule=$codeFormule;
@@ -86,6 +87,7 @@ class Police{
         $this->valeurNeuve=$valeurNeuve;
         $this->valeurVenale=$valeurVenale;
         $this->puissanceFiscale=$puissanceFiscale;
+        $this->chargeUtile=$chargeUtile;
         $this->codeCarosserie=$codeCarosserie;
         $this->dateMiseEnCirculation=$dateMiseEnCirculation;
         $this->montantPrime=$montantPrime;
@@ -1017,6 +1019,26 @@ class Police{
     public function setDuree($duree)
     {
         $this->duree = $duree;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of chargeUtile
+     */ 
+    public function getChargeUtile()
+    {
+        return $this->chargeUtile;
+    }
+
+    /**
+     * Set the value of chargeUtile
+     *
+     * @return  self
+     */ 
+    public function setChargeUtile($chargeUtile)
+    {
+        $this->chargeUtile = $chargeUtile;
 
         return $this;
     }

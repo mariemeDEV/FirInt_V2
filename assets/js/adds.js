@@ -86,7 +86,6 @@ $(document).ready(function() {
         })
         /*Add a new user*/
 
-
     /*Faire une dotation*/
     $('#dotations-attestations').on('submit', function() {
             $.ajax({
@@ -103,8 +102,6 @@ $(document).ready(function() {
             })
         })
         /*Faire une dotation*/
-
-
 
 
 })

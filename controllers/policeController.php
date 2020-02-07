@@ -7,7 +7,7 @@ require_once '../entities/Police.php';
 function getNumeroPolice($cat){
    $pDao = new PoliceDao();
    $policeNumber = $pDao->getNumPolice($cat);
-   if($policeNumber[0]['max(numpolice)+1']==''){
+   if($policeNumber[0]['max(numpolice)+1']=='NULL'){
       $numPolice="40".$cat."0000001";
    }else{
       $numPolice=$policeNumber[0]['max(numpolice)+1'];  
@@ -41,7 +41,14 @@ if(isset($_POST['souscription'])){
       $ASSISTANCE_code=>$ASSISTANCE_value,
       $carte_brune=>'GRATUIT'
 );
-   $p = new Police($numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
+   $p = new Police($numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
    $pDao = new PoliceDao();
    echo($pDao->insertPolice($p,$garanties));
+}
+//Faire un avenent
+if(isset($_POST['avenant'])){
+   //$data = 'pData';
+   $pDao = new PoliceDao();
+   $data = $pDao->getPoliceByMat('DK9999BB',30);
+   require_once('../view/intermediaires/avenant.php');
 }

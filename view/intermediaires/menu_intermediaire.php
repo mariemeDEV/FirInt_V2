@@ -1,10 +1,13 @@
 <?php
- //include('./sessions.php');
-?>
+   /* include('includes_css.php');
+    $assets = 'http://localhost/forint_v2/assets/';
+    $vendor = 'http://localhost/forint_v2/vendor/';*/
+    $routes = '../../forInt_v2/controllers/users_routes.php';
+?><!--Header include-->
     <!-- Start: Header -->
     <header class="navbar navbar-fixed-top">
       <div class="navbar-branding">
-        <a class="navbar-brand" href="../../index.php"></a>
+        <a class="navbar-brand" href=<?php echo $routes.'?action=accueil'?>></a>
         <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
       </div>
       <ul class="nav navbar-nav navbar-left">
@@ -230,35 +233,28 @@
         <ul class="nav sidebar-menu">
           <li class="sidebar-label pt20">Souscription</li>
           <li>
-            <a href="souscription.php">
+            <a href=<?php echo $routes.'?action=souscript'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Faire une souscription</span>
             </a>
-            <a href="contrats.php">
+            <!--?php echo //$routes.'?action=avenant'?--> 
+            <a href='#' id='get-avenant'>
+              <span class="fa fa-calendar"></span>
+              <span class="sidebar-title">Faire un avenant</span>
+            </a>
+            <a href=<?php echo $routes.'?action=contrats'?>>
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Consulter mes contrats</span>
             </a>
           </li>
 
-          <li class="sidebar-label pt15">Avenants</li>
-          <li>
-            <a href="garanties.php">
-              <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Créer un avenant</span>
-            </a>
-            <a href="tarifs.php">
-              <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Consultation</span>
-            </a>
-          </li>
-
           <li class="sidebar-label pt15">Simulation</li>
           <li>
-            <a href="simulation.php">
+            <a href=<?php echo $routes.'?action=simul'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Créer un dévis</span>
             </a>
-            <a href="devis.php">
+            <a href=<?php echo $routes.'?action=devis'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Consulter mes projets</span>
             </a>
