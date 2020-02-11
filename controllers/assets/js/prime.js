@@ -1260,6 +1260,7 @@ function resetCheckboxes() {
 //Appel des fonctions
 $(document).ready(function() {
     resetCheckboxes();
+    getCaracteristiquesCat()
     //Appel aux fonctions
     $('#souscription-form').find('select,input').each(function(i, champ) {
             $(this).on('change', function() {

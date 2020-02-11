@@ -6,7 +6,6 @@ require_once '../mapping/AttestationsDao.php';
 require_once '../entities/Utilisateur.php';
 
 if(isset($_POST['username']) && isset($_POST['password'])){
-}
 /*Connect a user */
 	if(isset($_POST['username']) && isset($_POST['password'])){
 		$dao = new UserDao();
@@ -42,6 +41,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 	}else{
 		echo('no data');
 	}
+}
 /*Connect a user*/
 
 

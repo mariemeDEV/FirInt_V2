@@ -188,7 +188,7 @@
   <section class='modal' id='avenant'>
     <span class="close">&times;</span>
     <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
-    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php'  id="avenant-form">
+    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
       <div class="row">
       <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
         <input type="text" id="inputStandard" class="form-control" name='intermediaire'>
@@ -230,7 +230,7 @@
   <script src="./assets/js/prime.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
-
+                                                                              
 <script>
 $(document).ready(function(){
   var marques_voitures = ['FIAT','BMW','ACURA','FORD','HOLDEN','HONDA','HYUNDAI','ISUZU','KIA','LEXUS','NISSAN','RENAULT','SEAT','CHEVROLET','CITROEN','DACIA','INFINITI','MAZDA','MITSUBISHI','PEUGEOT','SUBARU','TOYOTA','VOLSWAGEN']

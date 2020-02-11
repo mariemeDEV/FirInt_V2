@@ -1063,6 +1063,8 @@
         </aside>
         <!-- End: Right Sidebar -->
 
+        
+
     </div>
     <!-- End: Main -->
 
@@ -1079,6 +1081,7 @@
     <script src="assets/js/utility/utility.js"></script>
     <script src="assets/js/demo/demo.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/scripts.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
 

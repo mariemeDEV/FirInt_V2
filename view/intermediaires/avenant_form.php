@@ -1,11 +1,11 @@
 
- <form method='POST' id="souscription-form" class="auto-form">
+<form method='POST' id="souscription-form" class="auto-form">
       <div>
         <h3>Assuré</h3>
         <section><!--Début Bloc assuré-->
         <div class="row">
             <div class="col col-md-6">
-            <input type="hidden" name='souscription'>
+                <input type="hidden" name='avenant_data'>
                 <label for="prenom">Prénom assuré <span class="require-caracter">*</span></label>
                 <input id="prenom" name="prenom_assure" type="text" class="required" value= <?php echo($data[0]['prenom'])?>>
             </div>
@@ -72,13 +72,13 @@
                 <div class="col col-md-4" id="categorie_col">
                     <label for="Categorie vehicule">Catégorie<span class="require-caracter">*</span></label>
                     <select class="required" id="categorie" name='categorie'>
-                        <option value=<?php echo($data[0]['codecategorie'])?> selected><?php echo($data[0]['codecategorie'])?></option>
-                        <option value="1">CAT 401</option>
+                        <option value=<?php echo($data[0]['codecategorie'])?> selected><?php echo('CAT 40'.$data[0]['codecategorie'])?></option>
+                        <!--option value="1">CAT 401</option>
                         <option value="2">CAT 402</option>
                         <option value="3">CAT 403</option>
                         <option value="4">CAT 404</option>
                         <option value="5">CAT 405</option>
-                        <option value="6">CAT 418</option>
+                        <option value="6">CAT 418</option-->
                     </select>
                 </div>
                 <div class="col col-md-4" id="genre_col">
@@ -120,9 +120,12 @@
                 <div class="col col-md-4" id="energie_col">
                     <label for="Energie">Enérgie</label>
                     <select id="energie" name="energie" type="text">
-                        <option value=<?php echo($data[0]['numpolice'])?> disabled selected><?php echo($data[0]['valeurneuve'])?></option>
-                        <option value="essence">Essence</option>
-                        <option value="diesel">Diesel</option>
+                        <?php 
+                        if($data[0]['code_energie']==1){
+                        echo'<option value=<?php echo($data[0]["code_energie"]) disabled selected>Essence</option>';
+                        }else if($data[0]['code_energie']==2)
+                            echo'<option value=<?php echo($data[0]["code_energie"]) disabled selected>Diesel</option>';
+                        ?>
                     </select>
                 </div>
             </div>
@@ -130,7 +133,7 @@
                 <div class="col col-md-4" id="nombre_de_places_col">
                     <label for="Nombre de places">Nombre de places <span class="require-caracter">*</span></label>
                     <select id="nombre_de_places" name="nombreDePlaces" class="required">
-                        <option value=<?php echo($data[0]['nombreplace'])?> selected disabled><?php echo($data[0]['nombreplace'])?></option>
+                        <option value=<?php echo($data[0]['nombreplace'])?> selected><?php echo($data[0]['nombreplace'])?></option>
                         <option value="5">5</option>
                         <option value="3">3 places</option>
                         <option value="4">4 places</option>
@@ -153,11 +156,11 @@
                     </select>
                 </div>
                 <div class="col col-md-4" id="mise_en_circulation_col">
-                    <label for="Date de mse en crculation">Date de mise en circulation <span class="require-caracter">*</span></label>
-                    <input id="date_circulation" name="dateDeMiseEnCirculation" type="date" class="required" value=''>
+                    <label for="Date de mse en crculation">Date de mise en circulation <!--span class="require-caracter">*</span--></label>
+                    <input id="date_circulation" name="dateDeMiseEnCirculation" type="date" value=<?php echo($data[0]['datemisecirculation'])?>>
                 </div>
                 <div class="col col-md-4" id="charge_col">
-                    <label for="Charge utile" id="charge_label">Charge utile <span class="require-caracter">*</span></label>
+                    <label for="Charge utile" id="charge_label">Charge utile <!--span class="require-caracter">*</span--></label>
                     <select name="charge_utile" id="charge">
                         <option value=<?php echo($data[0]['charge_utile'])?> selected disabled><?php echo($data[0]['charge_utile'])?></option>
                         <option value="Break">Break</option>
@@ -172,8 +175,8 @@
                     <input id="cylindre" name="cylindre" type="number" value=<?php echo($data[0]['cylindre'])?>>
                 </div>
                 <div class="col col-md-4" id="surplus_col">
-                    <label for="Surplus de places" id="label_surplus">Surplus <span class="require-caracter">*</span></label>
-                    <select name="surplus" id="surplus" class="required">
+                    <label for="Surplus de places" id="label_surplus">Surplus <!--span class="require-caracter">*</span--></label>
+                    <select name="surplus" id="surplus">
                         <option value='' selected disabled>Surplus</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -184,7 +187,7 @@
                 </div>
                 <!--Les packs-->
                     <div class="col col-md-4" id="packs_col">
-                        <label for="Packs" >Packs <span class="require-caracter">*</span></label>
+                        <label for="Packs" >Packs <!--span class="require-caracter">*</span--></label>
                         <select name="pack" id="packs">
                             <option value="Pack" selected disabled>Packs</option>
                             <option value="mini">Pack Mini</option>
@@ -214,7 +217,7 @@
                         <label for="BG" class="garantie-label">Bris de glace</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide' id='bris_de_glace_val' name='BG_value' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val divide' id='bris_de_glace_val' name='BG_value' value='0'>
                         <input type="hidden" name='BG' value='7'>
                      </td>
 
@@ -235,7 +238,7 @@
                         <label for="tcol" class="garantie-label">Tiérce collision</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide' id='tierce_val' name='TIERCE_value' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val divide' id='tierce_val' name='TIERCE_value' value='0'>
                         <input type="hidden" value="5" name='TC'>
                     </td>
                 </tr>
@@ -246,19 +249,19 @@
                         <label for="DR" class="garantie-label">Défense et recours</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide' name='DR_value' id='defense_et_recours_val' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val divide' name='DR_value' id='defense_et_recours_val' value='0'>
                         <input type="hidden" value='1' name='DR'>
                     </td>
                         <td>
                             <select class="form-control" name="ASR" id="avance-recours">
-                                <option value=<?php echo($data[0]['numpolice'])?> selected disabled><?php echo($data[0]['numpolice'])?></option>
+                                <option value='Avance sur recours' selected disabled>Avance sur recours</option>
                                 <option value="9">Option 1</option>
                                 <option value="22">Option 2</option>
                                 <option value="23">Option 3</option>
                             </select>
                         </td>
                     <td>
-                        <input type="text" class='garantie-val divide' id='avance_sur_recours_val' name='ASR_value' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val divide' id='avance_sur_recours_val' name='ASR_value' value='0'>
                     </td>
                 </tr>
 
@@ -273,7 +276,7 @@
                     </td>
                     <td>
                         <select class="form-control" name="PT" id="persones_trans">
-                            <option value=<?php echo($data[0]['numpolice'])?> selected disabled><?php echo($data[0]['numpolice'])?></option>
+                            <option value='Personnes transportées' selected disabled>Personnes transportées</option>
                             <option value="11">Option1</option>
                             <option value="19">Option2</option>
                             <option value="20">Option3</option>
@@ -281,7 +284,7 @@
                         </select>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide' id='personnes_transportees' name='PT_value' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val divide' id='personnes_transportees' name='PT_value' value='0'>
                     </td>
                 </tr>
 
@@ -516,7 +519,7 @@
       <!--img src="../../assets/img/patterns/success-img.JPG" id='success-img' alt="" style='display:none'-->
       <p  style='text-align: center;color: #f7ba00;font-size: 23px;padding-top:45px'>Souscrption effectuée avec succés...</p>
     </section><!--Documents-->
-    </form>
+</form>
     
      
 

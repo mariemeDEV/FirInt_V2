@@ -30,8 +30,8 @@ $(document).ready(function() {
         alert(pageURL);*/
         $('#avenant').fadeOut();
     })
-    $('#avenant-form').on('submit', function() {
+ /*   $('#avenant-form').on('submit', function() {
         alert('yes');
-    })
+    })*/
 
 })

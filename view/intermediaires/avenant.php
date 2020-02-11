@@ -188,14 +188,14 @@
   <section class='modal' id='avenant'>
     <span class="close">&times;</span>
     <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
-    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php'  id="avenant-form">
-    <div class="row">
+    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
+      <div class="row">
       <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
         <input type="text" id="inputStandard" class="form-control" name='intermediaire'>
       </div>
       <div class="row" style='padding-bottom: 11px !important;'>
       <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='immat'>
+        <input type="text" id="inputStandard" class="form-control" name='matricule'>
         <input type="hidden" name='avenant'>
       </div>
       <div class="row">
@@ -204,11 +204,7 @@
     </form>
     </section>
   </section>
-
- 
-
-
-
+  
 </div><!-- End: Main -->
 
   

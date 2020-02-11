@@ -50,13 +50,13 @@ class PoliceDao{
     public function getPoliceByMat($immat,$int){
         $connector = $this->getConnector();
         $numRequest = $connector->prepare("select * from police_valide where immatriculation='".$immat."' AND intermediaire='".$int."' limit 1");
-              try{
-                $numRequest->execute();
-                $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
-                return $lastNumber;
-              }catch(Exception $e){
-                return $e->getMessage();
-            }
+          try{
+              $numRequest->execute();
+              $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
+              return $lastNumber;
+          }catch(Exception $e){
+            return $e->getMessage();
+          }
     }
     //Générer Id vente d'attestation
     public function generateIdVente($length):string{
@@ -81,7 +81,7 @@ public function insertPolice(Police $p,Array $garanties){
     
     //Insertion dans la table police
     $insertPoliceRequest =  $this->getConnector()->prepare(
-        "insert into police_valide values('".$p->getNumeroPolice()."','".$p->getCodeFormule()."','".$p->getIntermediaire()."','".$p->getCodeCategorie()."','".$p->getNatureContrat()."','".$p->getCodeZone()."','".$p->getDateEffet()."','".$p->getDuree()."','".$p->getDateEcheance()."','".$p->getQualiteAssure()."','".$p->getNomAssure()."','".$p->getPrenomAssure()."','".$p->getAdresse()."','".$p->getCodeVilleAssure()."','".$p->getCodeProfession()."','".$p->getCodeActivite()."','".$p->getTypePiece()."','".$p->getNumPiece()."','".$p->getTelephone()."','".$p->getTypePermis()."','".$p->getNumPermis()."','".$p->getDateDeLivPermis()."','".$p->getLieuDeLivPermis()."','".$p->getImmatriculation()."','".$p->getNumChassis()."','".$p->getCodeMarque()."','".$p->getCodeSerie()."','".$p->getCodeGenre()."','".$p->getCodeUsage()."','".$p->getCodeEnergie()."','".$p->getNombreDePlace()."','".$p->getCylindre()."','".$p->getValeurNeuve()."','".$p->getValeurVenale()."','".$p->getPuissanceFiscale()."','".$p->getChargeUtile()."','".$p->getCodeCarosserie()."','".$p->getDateMiseEnCirculation()."','".$p->getMontantPrime()."','".$p->getMontantAccessoires()."','".$p->getMontantTaxes()."','".$p->getMontantFGA()."','".$p->getMontantTTC()."','".$p->getDateValidation()."','".$p->getDateSouscription()."','".$p->getDateSais()."','".$p->getFlagtrans()."')"
+        "insert into police_valide values('".$p->getId()."','".$p->getNumeroPolice()."','".$p->getCodeFormule()."','".$p->getIntermediaire()."','".$p->getCodeCategorie()."','".$p->getNatureContrat()."','".$p->getCodeZone()."','".$p->getDateEffet()."','".$p->getDuree()."','".$p->getDateEcheance()."','".$p->getQualiteAssure()."','".$p->getNomAssure()."','".$p->getPrenomAssure()."','".$p->getAdresse()."','".$p->getCodeVilleAssure()."','".$p->getCodeProfession()."','".$p->getCodeActivite()."','".$p->getTypePiece()."','".$p->getNumPiece()."','".$p->getTelephone()."','".$p->getTypePermis()."','".$p->getNumPermis()."','".$p->getDateDeLivPermis()."','".$p->getLieuDeLivPermis()."','".$p->getImmatriculation()."','".$p->getNumChassis()."','".$p->getCodeMarque()."','".$p->getCodeSerie()."','".$p->getCodeGenre()."','".$p->getCodeUsage()."','".$p->getCodeEnergie()."','".$p->getNombreDePlace()."','".$p->getCylindre()."','".$p->getValeurNeuve()."','".$p->getValeurVenale()."','".$p->getPuissanceFiscale()."','".$p->getChargeUtile()."','".$p->getCodeCarosserie()."','".$p->getDateMiseEnCirculation()."','".$p->getMontantPrime()."','".$p->getMontantAccessoires()."','".$p->getMontantTaxes()."','".$p->getMontantFGA()."','".$p->getMontantTTC()."','".$p->getDateValidation()."','".$p->getDateSouscription()."','".$p->getDateSais()."','".$p->getFlagtrans()."')"
     );
     $insertPoliceRequest->execute();
         
@@ -119,21 +119,33 @@ public function insertPolice(Police $p,Array $garanties){
         }catch(Exception $e){
            return $e->getMessage();
         }
-
     }
 
 //Obtention de tous les numéros de police
 public function getPolicesValides()
 {
-    $connector = $this->getConnector();
-    $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.numpolice=e.num_police_valide where e.id_type=1");
-          try{
-            $numRequest->execute();
-            $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
-            return $lastNumber;
-          }catch(Exception $e){
-            return $e->getMessage();
-        }
+  $connector = $this->getConnector();
+  $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.numpolice=e.num_police_valide where e.id_type=1");
+    try{
+      $numRequest->execute();
+      $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
+      return $lastNumber;
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
+}
+
+//Obtention de la police en fonction de l'immatriculation
+public function getPoliceByImmat(Police $p){
+  $connector = $this->getConnector();
+  $pRequest = $connector->prepare("SELECT * FROM police_valide where immatriculation="."'".$p->getImmatriculation()."'"."|| numchassis="."'".$p->getImmatriculation()."'");
+      try{
+        $pRequest->execute();
+        $police=$pRequest->fetchAll(PDO::FETCH_ASSOC);
+        return $police;
+      }catch(Exception $e){
+        return $e->getMessage();
+    }
 }
 
 }

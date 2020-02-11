@@ -1,6 +1,7 @@
 <?php
 
 class Police{
+    private $id;
     private $numeroPolice;
     private $codeFormule;
     private $intermediaire;
@@ -50,8 +51,9 @@ class Police{
     private $flagtrans;
 
 
-    function __construct($numeroPolice='', $codeFormule='',$intermediaire='', $codeCategorie='', $natureContrat='', $codeZone='', $dateEffet='', $duree='', $dateEcheance='', $qualiteAssure='',$nomAssure='',$prenomAssure='',$adresse='',$codeProfession='',$codeVilleAssure='',$codeActivite='',$typePiece='',$numPiece='',$telephone='',$typePermis='',$numPermis='',$dateDeLivPermis='',$lieuDeLivPermis='',$immatriculation='',$numChassis='',$codeMarque='',$codeSerie='',$codeGenre='',$codeUsage='',$codeEnergie='',$nombreDePlace='',$cylindre='',$valeurNeuve='',$valeurVenale='',$puissanceFiscale='',$chargeUtile='',$codeCarosserie='',$dateMiseEnCirculation='',$montantPrime='',$montantAccessoires='',$montantTaxes='',$montantFGA='',$montantTTC='',$dateValidation='',$dateSouscription='',$dateSais='',$flagtrans='')
+    function __construct($id='',$numeroPolice='', $codeFormule='',$intermediaire='', $codeCategorie='', $natureContrat='', $codeZone='', $dateEffet='', $duree='', $dateEcheance='', $qualiteAssure='',$nomAssure='',$prenomAssure='',$adresse='',$codeProfession='',$codeVilleAssure='',$codeActivite='',$typePiece='',$numPiece='',$telephone='',$typePermis='',$numPermis='',$dateDeLivPermis='',$lieuDeLivPermis='',$immatriculation='',$numChassis='',$codeMarque='',$codeSerie='',$codeGenre='',$codeUsage='',$codeEnergie='',$nombreDePlace='',$cylindre='',$valeurNeuve='',$valeurVenale='',$puissanceFiscale='',$chargeUtile='',$codeCarosserie='',$dateMiseEnCirculation='',$montantPrime='',$montantAccessoires='',$montantTaxes='',$montantFGA='',$montantTTC='',$dateValidation='',$dateSouscription='',$dateSais='',$flagtrans='')
     {
+        $this->id=$id;
         $this->numeroPolice=$numeroPolice;
         $this->codeFormule=$codeFormule;
         $this->intermediaire=$intermediaire;
@@ -1039,6 +1041,26 @@ class Police{
     public function setChargeUtile($chargeUtile)
     {
         $this->chargeUtile = $chargeUtile;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

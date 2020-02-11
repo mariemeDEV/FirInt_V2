@@ -4,7 +4,7 @@
     include('includes_css.php');
     $assets = 'http://localhost/forint_v2/assets/';
     $vendor = 'http://localhost/forint_v2/vendor/';
-    $routes = '../../forint_v2/controllers/users_routes.php';
+    $routes = '../../controllers/users_routes.php';
 ?><!--Header include-->
 <body class="blank-page">
     <!-- Start: Main -->

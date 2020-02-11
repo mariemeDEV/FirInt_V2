@@ -962,13 +962,17 @@ function getAssistaceCat(categorie) {
 //Changement de l'apparition du formulaire en fonction de la catégorie
 function getCaracteristiquesCat() {
     $('.caracteristiques_sect').find('select,input').each(function(i, champ) {
-        var id = "#" + $(this).attr('id');
-        $(this).on("mouseleave", function() {
-            if (id == "#categorie") {
-                getCategorieCol();
-            }
+            var id = "#" + $(this).attr('id');
+            $(this).on("mouseleave", function() {
+                if (id == "#categorie") {
+                    getCategorieCol();
+                }
+            })
         })
-    })
+        /* $('.caracteristiques_sect').on("mouseenter", function() {
+             alert('yes')
+                 //  getCategorieCol();
+         })*/
 }
 //Calcul de la somme des garanties
 function getSumGaranties() {
@@ -1255,6 +1259,7 @@ function resetCheckboxes() {
         setReductions();
         writeData();
     })
+
 }
 
 //Appel des fonctions
@@ -1262,7 +1267,7 @@ $(document).ready(function() {
     resetCheckboxes();
     //Appel aux fonctions
     $('#souscription-form').find('select,input').each(function(i, champ) {
-            $(this).on('change', function() {
+            $(this).change(function() {
                 //Action sur les champs concernés par le calcul de la date d'effet
                 if (champ.id == 'effet' || champ.id == 'duree') {
                     getEcheance();
@@ -1336,6 +1341,7 @@ $(document).ready(function() {
                 else if (champ.id == 'marque') {
                     setMarques();
                 }
+
             })
         })
         //L'appel à la fonction setRecoursTierces e dépends de aucun paramétre
