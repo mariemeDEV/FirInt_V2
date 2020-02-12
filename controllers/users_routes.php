@@ -37,6 +37,12 @@ if(isset($_GET['action'])){
             $contrats = $pdao->getPolicesValides();
             require_once('../view/intermediaires/contrats.php');
         break;
+        case 'garanties':
+            require_once('../view/intermediaires/garanties.php');
+        break;
+        case 'tarifs':
+            require_once('../view/intermediaires/tarifs.php');
+        break;
        
 
     }

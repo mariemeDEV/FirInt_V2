@@ -52,19 +52,25 @@ if(isset($_POST['souscription'])){
       echo($pDao->insertPolice($p,$garanties));
   }
 }
-//Faire un avenant
+//Création d'un avenant de police
 if(isset($_POST['avenant'])){
+   extract($_POST);
    $udao = new AttestationsDao();
    $pDao = new PoliceDao();
-   $data = $pDao->getPoliceByMat('DK9999BB',30);
-   $jauneData  = json_encode($udao->getAttestationsRestantes(1,40)) ;
-   $verteData  = json_encode($udao->getAttestationsRestantes(2,40)) ;
-   $cedeaoData = json_encode($udao->getAttestationsRestantes(3,40)) ;
-   $data = $pDao->getPoliceByMat('DK9999BB',30);
-   require_once('../view/intermediaires/avenant.php');
+   $data = $pDao->getPoliceByMat($immatriculation_vehicule,$matricule_intermediaire);
+   if($data==[]){
+      $message = 'Ce véhicule n\'a jamas étè couvert dans vos contrats, veuillez créer un nouveau contrat.';
+      require_once('../view/intermediaires/souscription.php');
+   }else{
+      $jauneData  = json_encode($udao->getAttestationsRestantes(1,40)) ;
+      $verteData  = json_encode($udao->getAttestationsRestantes(2,40)) ;
+      $cedeaoData = json_encode($udao->getAttestationsRestantes(3,40)) ;
+      require_once('../view/intermediaires/avenant.php');
+   }
 }
 //Insertion d'un avenant
 if(isset($_POST['avenant_data'])){
+   extract($_POST);
    $av = new AvenantPoliceDao();
-   $av->setAvenantPolice('DK9999BB');
+  $av->setAvenantPolice($immatriculation);
 }

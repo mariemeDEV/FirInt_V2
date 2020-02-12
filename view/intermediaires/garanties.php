@@ -14,13 +14,13 @@
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/theme.css">
 
   <!-- Admin Forms CSS -->
-  <link rel="stylesheet" type="text/css" href="../../assets/admin-tools/admin-forms/css/admin-forms.css">
+  <link rel="stylesheet" type="text/css" href="./assets/admin-tools/admin-forms/css/admin-forms.css">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+  <link rel="shortcut icon" href="./assets/img/favicon.ico">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -87,7 +87,7 @@
       <div id="tab17_1" class="tab-pane">
         <div class="row">
           <div class="col-md-4">
-            <img src="../../assets/img/stock/3.jpg" class="img-responsive thumbnail mr25">
+            <img src="./assets/img/stock/3.jpg" class="img-responsive thumbnail mr25">
           </div>
           <div class="col-md-8">
             <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
@@ -97,7 +97,7 @@
       <div id="tab17_2" class="tab-pane">
         <div class="row">
           <div class="col-md-4">
-            <img src="../../assets/img/stock/4.jpg" class="img-responsive thumbnail mr25">
+            <img src="./assets/img/stock/4.jpg" class="img-responsive thumbnail mr25">
           </div>
           <div class="col-md-8">
             <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
@@ -107,7 +107,7 @@
       <div id="tab17_3" class="tab-pane active">
         <div class="row">
           <div class="col-md-4">
-            <img src="../../assets/img/stock/5.jpg" class="img-responsive thumbnail mr25">
+            <img src="./assets/img/stock/5.jpg" class="img-responsive thumbnail mr25">
           </div>
           <div class="col-md-8">
             <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
@@ -128,14 +128,14 @@
   <!-- BEGIN: PAGE SCRIPTS -->
 
   <!-- jQuery -->
-  <script src="../../vendor/jquery/jquery-1.11.1.min.js"></script>
-  <script src="../../vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+  <script src="./vendor/jquery/jquery-1.11.1.min.js"></script>
+  <script src="./vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
   <!-- Theme Javascript -->
-  <script src="../../assets/js/utility/utility.js"></script>
-  <script src="../../assets/js/demo/demo.js"></script>
-  <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/js/scripts.js"></script>
+  <script src="./assets/js/utility/utility.js"></script>
+  <script src="./assets/js/demo/demo.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/scripts.js"></script>
 
   <script type="text/javascript">
   jQuery(document).ready(function() {

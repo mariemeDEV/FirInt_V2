@@ -262,11 +262,11 @@
 
           <li class="sidebar-label pt15">Garanties</li>
           <li>
-            <a href="garanties.php">
+            <a href=<?php echo $routes.'?action=garanties'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Garanties</span>
             </a>
-            <a href="tarifs.php">
+              <a href=<?php echo $routes.'?action=tarifs'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Tarifications</span>
             </a>

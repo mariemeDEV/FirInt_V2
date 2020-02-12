@@ -13,21 +13,21 @@
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/theme.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/navbar.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/skin/default_skin/css/validate.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/validate.css">
 
   
     <!-- Datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="../../vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
 
     <!-- Datatables Addons CSS -->
-    <link rel="stylesheet" type="text/css" href="../../vendor/plugins/datatables/media/css/dataTables.plugins.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/plugins/datatables/media/css/dataTables.plugins.css">
 
 
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+  <link rel="shortcut icon" href="./assets/img/favicon.ico">
   <style>
       .data_tab{
           font-size:13px !important
@@ -52,7 +52,7 @@
  <!--form tray center background-->
 <style>
   .tray-center{
-    background-image:url('../../assets/img/patterns/backgrounds/bg_home.png')
+    background-image:url('./assets/img/patterns/backgrounds/bg_home.png')
   }
 </style>
 <!--Form tray center background-->
@@ -84,23 +84,23 @@
   <!-- BEGIN: PAGE SCRIPTS -->
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="../../vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+  <script src="./vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
     <!-- Datatables -->
-    <script src="../../vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="./vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
 
     <!-- Datatables Tabletools addon -->
-    <script src="../../vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="./vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
 
     <!-- Datatables ColReorder addon -->
-    <script src="../../vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+    <script src="./vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
 
     <!-- Datatables Bootstrap Modifications  -->
-    <script src="../../vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="./vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
 
-  <script src="../../assets/js/utility/utility.js"></script>
-  <script src="../../assets/js/demo/demo.js"></script>
-  <script src="../../assets/js/main.js"></script>
+  <script src="./assets/js/utility/utility.js"></script>
+  <script src="./assets/js/demo/demo.js"></script>
+  <script src="./assets/js/main.js"></script>
 
   <script type="text/javascript">
         jQuery(document).ready(function() {

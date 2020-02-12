@@ -136,9 +136,9 @@ public function getPolicesValides()
 }
 
 //Obtention de la police en fonction de l'immatriculation
-public function getPoliceByImmat(Police $p){
+public function getPoliceByImmat($immatriculation){
   $connector = $this->getConnector();
-  $pRequest = $connector->prepare("SELECT * FROM police_valide where immatriculation="."'".$p->getImmatriculation()."'"."|| numchassis="."'".$p->getImmatriculation()."'");
+  $pRequest = $connector->prepare("SELECT * FROM police_valide where immatriculation="."'".$immatriculation."'"."|| numchassis="."'".$immatriculation."'");
       try{
         $pRequest->execute();
         $police=$pRequest->fetchAll(PDO::FETCH_ASSOC);

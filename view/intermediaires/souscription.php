@@ -64,6 +64,18 @@
       </div>
     </div>
   </section><!-- End: Content -->
+  <!--h1>'.$message.'</h1-->
+
+<section class='modal' id='avenant-modal'>
+  <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100'>
+      <?php 
+        if($message!=''){
+          echo('<p>'.$message.'</p>');
+        }
+      ?>
+    </section>
+  </section>
 
   <section class='modal' id='cat4-modal' style='font-size: 10px !important'>
     <span class="close">&times;</span>
@@ -191,12 +203,19 @@
     <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
       <div class="row">
       <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='intermediaire'>
+        <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
       </div>
       <div class="row" style='padding-bottom: 11px !important;'>
       <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='matricule'>
+        <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
         <input type="hidden" name='avenant'>
+      </div>
+      <div class="row">
+          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
+          <select class="form-control" name="type_avenant" id="type_av">
+            <option value="1">Avenant de renouvellement</option>
+            <option value="2">Avenant de changement d'immatriculation</option>
+          </select>
       </div>
       <div class="row">
         <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 12px !important;width: 20%!important;margin:auto!important'>Success</button>
@@ -252,7 +271,17 @@ $(document).ready(function(){
             source: jaunes
         })
     })
-
+    <?php 
+      if($message!=''){
+        echo('
+          $("#avenant-modal").fadeIn();
+          $(".close").on("click", function() {
+            $("#avenant-modal").fadeOut();
+          })'
+        );
+      };
+    ;?>
+   
 })
 </script>
 </html>
