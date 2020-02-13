@@ -3,16 +3,17 @@
 class PoliceGaranties{
     private $id;
     private $numeroPolice;
+    private $avenantPolice;
     private $codeGarantie;
     private $montantGarantie;
 
-    function __construct($id='',$numeroPolice='', $codeGarantie='',$montantGarantie='')
+    function __construct($id='',$numeroPolice='', $codeGarantie='',$montantGarantie='',$avenantPolice='')
     {
         $this->id=$id;
         $this->numeroPolice=$numeroPolice;
         $this->codeGarantie=$codeGarantie;
         $this->montantGarantie=$montantGarantie;
-      
+        $this->avenantPolice=$avenantPolice;
     }
 
     /**
@@ -91,6 +92,26 @@ class PoliceGaranties{
     public function setMontantGarantie($montantGarantie)
     {
         $this->montantGarantie = $montantGarantie;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of avenantPolice
+     */ 
+    public function getAvenantPolice()
+    {
+        return $this->avenantPolice;
+    }
+
+    /**
+     * Set the value of avenantPolice
+     *
+     * @return  self
+     */ 
+    public function setAvenantPolice($avenantPolice)
+    {
+        $this->avenantPolice = $avenantPolice;
 
         return $this;
     }

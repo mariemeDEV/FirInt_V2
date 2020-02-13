@@ -59,7 +59,9 @@
     <div class="tray tray-center">
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
-          <?php include('avenant_form.php');?>
+        <?php 
+          include('avenant_form.php');
+        ?>
       </div><!-- Second row -->
       </div>
     </div>
@@ -182,33 +184,6 @@
     <span class="close">&times;</span>
     <section class='modal-content animated zoomIn animation-delay-100'>
     <p>Les tiérces complétes sont pour les catégories 1,2 et 6</p>
-    </section>
-  </section>
-
-  <section class='modal' id='avenant'>
-    <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100' style='height:55% !important;margin-left: 27%;'>
-    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
-      <div class="row">
-        <label for="matricule">Intérmédiaire<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
-      </div>
-      <div class="row" style='padding-bottom: 11px !important;'>
-        <label for="Immatriculation">Immatriculation<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
-        <input type="hidden" name='avenant'>
-      </div>
-      <div class="row">
-          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
-          <select class="form-control" name="type_avenant" id="type_av">
-            <option value="1">Avenant de renouvellement</option>
-            <option value="2">Avenant de changement d'immatriculation</option>
-          </select>
-      </div>
-      <div class="row">
-        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='position:relative;top:27px;'>Success</button>
-      </div>
-    </form>
     </section>
   </section>
   

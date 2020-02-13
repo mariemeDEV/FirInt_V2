@@ -4,15 +4,12 @@ require_once '../controllers/ConnexionDB.php';
 require_once '../entities/Attestation.php';
 require_once '../entities/VenteAttestation.php';
 
-
-
 class AttestationsDao{
-    private static $connector;
+private static $connector;
 public function getConnector(){
     self::$connector= ConnexionDB::getInstance();
     return  self::$connector;
 }
-
 //Récupération de l'ensemble des numéros d'attestations
 function getAttestations(){
     $typeAttestations= $_POST['type_attestations'];
@@ -24,7 +21,6 @@ function getAttestations(){
         return $serie;
     }
 }
-
 function insertAttestation(Attestation $attestation){
     $connector = $this->getConnector();
     $insertAttestationsRequest = $connector->prepare(
@@ -38,7 +34,6 @@ function insertAttestation(Attestation $attestation){
     );
     $insertAttestationsRequest->execute();
 }
-
 //Attribution des attestations à l'intermediaire
     function setDotation(){
         $serie = $this->getAttestations();
@@ -51,7 +46,6 @@ function insertAttestation(Attestation $attestation){
             $e->getMessage();
         }
     }
-
     function getAttestationsByType(int $t,int $intermediaire){
         $connector = $this->getConnector();
         $attRequest = "SELECT numero_attestation FROM `attestation` WHERE id_type='$t' AND intermediaire='$intermediaire'";
@@ -78,7 +72,6 @@ function insertAttestation(Attestation $attestation){
         }
 
     }
-
     function getTypeAttestation(){
         $connector = $this->getConnector();
         if($_POST['type_attestations']=='jaune'){
@@ -91,7 +84,6 @@ function insertAttestation(Attestation $attestation){
         $type = $typeRequest->execute();
         return $type;
     }
-
     function getIdAttestation($att){
         try {
             $connector = $this->getConnector();
@@ -115,7 +107,8 @@ function insertAttestation(Attestation $attestation){
                     '". $vente1->getId()."',
                     '". $vente1->getIdVente()."',
                     '". $vente1->getIdAttestation()."',
-                    '". $vente1->getPoliceValide()."'
+                    '". $vente1->getPoliceValide()."',
+                    '". $vente1->getAvenantPolice()."'
                     )"
                 );
                 $update1 = $this->getConnector()->prepare("update attestation set etat_attestation = 'attribuee,vendue' where id_attestation=".$vente1->getIdAttestation());
@@ -128,7 +121,8 @@ function insertAttestation(Attestation $attestation){
                     '". $vente1->getId()."',
                     '". $vente1->getIdVente()."',
                     '". $vente1->getIdAttestation()."',
-                    '". $vente1->getPoliceValide()."'
+                    '". $vente1->getPoliceValide()."',
+                    '". $vente1->getAvenantPolice()."'
                     )"
                 );
                 $insertVenteRequest2 = $this->getConnector()->prepare(
@@ -136,7 +130,8 @@ function insertAttestation(Attestation $attestation){
                     '". $vente2->getId()."',
                     '". $vente2->getIdVente()."',
                     '". $vente2->getIdAttestation()."',
-                    '". $vente2->getPoliceValide()."'
+                    '". $vente2->getPoliceValide()."',
+                    '". $vente1->getAvenantPolice()."'
                     )"
                 );
                 $update1 = $this->getConnector()->prepare("update attestation set etat_attestation = 'attribuee,vendue' where id_attestation=".$vente1->getIdAttestation());

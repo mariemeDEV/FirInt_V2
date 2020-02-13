@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="ad fs18">[+]</span>
+            <span class="ad fs18" id='get-avenant'>[Avenant]</span>
           </a>
           <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">
           <li class="dropdown-header">
@@ -238,10 +238,6 @@
               <span class="sidebar-title">Faire une souscription</span>
             </a>
             <!--?php echo //$routes.'?action=avenant'?--> 
-            <a href='#' id='get-avenant'>
-              <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Faire un avenant</span>
-            </a>
             <a href=<?php echo $routes.'?action=contrats'?>>
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Consulter mes contrats</span>
@@ -417,8 +413,31 @@
         <span class="pull-right text-primary fw600">USA</span>
         </h5>
     </div>
-
-    
-    
     </aside>
     <!-- End: Right Sidebar -->
+    <section class='modal' id='avenant'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100' style='height:55% !important;margin-left: 27%;'>
+    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
+      <div class="row">
+        <label for="matricule">Intérmédiaire<span class="require-caracter">*</span></label>
+        <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
+      </div>
+      <div class="row" style='padding-bottom: 11px !important;'>
+        <label for="Immatriculation">Immatriculation<span class="require-caracter">*</span></label>
+        <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
+        <input type="hidden" name='avenant'>
+      </div>
+      <div class="row">
+          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
+          <select class="form-control" name="type_avenant" id="type_av">
+            <option value="1">Avenant de renouvellement</option>
+            <option value="2">Avenant de changement d'immatriculation</option>
+          </select>
+      </div>
+      <div class="row">
+        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='position:relative;top:27px;'>Success</button>
+      </div>
+    </form>
+    </section>
+  </section>

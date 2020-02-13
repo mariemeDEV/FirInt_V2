@@ -1,11 +1,12 @@
-
 <form method='POST' id="souscription-form" class="auto-form">
-      <div>
+    <div>
         <h3>Assuré</h3>
         <section><!--Début Bloc assuré-->
         <div class="row">
             <div class="col col-md-6">
                 <input type="hidden" name='avenant_data'>
+                <input type="hidden" name="vehicule" value=<?php echo('"'.$immatriculation.'"');?>>
+                <input type="hidden" name="type" value=<?php echo('"'.$tyeAvenant.'"');?>>
                 <label for="prenom">Prénom assuré <span class="require-caracter">*</span></label>
                 <input id="prenom" name="prenom_assure" type="text" class="required" value= <?php echo($data[0]['prenom'])?>>
             </div>
@@ -88,7 +89,7 @@
                 <div class="col col-md-4" id="marque_col">
                     <label for="Marque">Marque <span class="require-caracter">*</span></label>
                     <select name="marque" id="marque">
-                        <option value=<?php echo($data[0]['code_marque'])?> disabled selected><?php echo($data[0]['code_marque'])?></option>
+                        <option value=<?php echo($data[0]['code_marque'])?>><?php echo($data[0]['code_marque'])?></option>
                         <option value="1">A</option>
                         <option value="2">B</option>
                     </select>
@@ -120,12 +121,8 @@
                 <div class="col col-md-4" id="energie_col">
                     <label for="Energie">Enérgie</label>
                     <select id="energie" name="energie" type="text">
-                        <?php 
-                        if($data[0]['code_energie']==1){
-                        echo'<option value=<?php echo($data[0]["code_energie"]) disabled selected>Essence</option>';
-                        }else if($data[0]['code_energie']==2)
-                            echo'<option value=<?php echo($data[0]["code_energie"]) disabled selected>Diesel</option>';
-                        ?>
+                        <option value="1" selected>Essence</option>
+                        <option value="2">Diesel</option>
                     </select>
                 </div>
             </div>
@@ -497,7 +494,8 @@
             </table>
             </div>
         </section><!--Fin récapitulatif-->
-    </div>
+    </div><!--Fin Formulaire Avenant-->
+
     <section id='documents' class='modal'><!--Documents-->
         <span class="close">&times;</span>
         <div class="documents-content">

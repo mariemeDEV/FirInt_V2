@@ -41,20 +41,23 @@ class AvenantPoliceDao{
         }
     }
     //Créer l'avenant d'une police
-    public function setAvenantPolice($immat){
+    public function setAvenantPolice($immat,$typeAvenant){
         $pDao          = new PoliceDao();
         $pAvenant      = $pDao->getPoliceByImmat($immat);
-        $pnumPolice    = $pAvenant[0]['numpolice'];
-        $avenantNumber = $this->getNumAvenant($pnumPolice);
-        //Insertion premére avenant(Avenant 0 d'une police)
-        if(count($pAvenant)==0 || $avenantNumber[0]['max(num_avenant)+1']=='NULL'){
-            $numAvenant=0;
-        }else if(count($pAvenant)>1){
-            $numAvenant=$avenantNumber[0]['max(num_avenant)+1'];  
+        $numPolice    = $pAvenant[0]['numpolice'];
+        $avenantNumber = $this->getNumAvenant($numPolice);
+        $avenant=0;
+        echo($numPolice.' '.$avenantNumber[0]['max(num_avenant)+1'].' '.count($pAvenant));
+    //Insertion premiére avenant(Avenant 0 d'une police)
+        if($avenantNumber[0]['max(num_avenant)+1']=='NULL'){
+            $avenant=0;
+        }else{
+            $avenant=$avenantNumber[0]['max(num_avenant)+1'];  
         }
         try{
-            $avenantPolice  = new AvenantPolice($numAvenant,1,$pnumPolice);
+            $avenantPolice  = new AvenantPolice($avenant,$typeAvenant,$numPolice);
             $this->insertAvenant($avenantPolice);
+            return $avenantPolice;
         }catch(Exception $e){
             $e->getMessage();
         }

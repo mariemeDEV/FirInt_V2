@@ -6,13 +6,15 @@ class VenteAttestation{
         private $idVente;
         private $idAttestation;
         private $policeValide;
+        private $avenantPolice;
 
-    function __construct($id='',$idVente='',$idAttestation='',$policeValide='')
+    function __construct($id='',$idVente='',$idAttestation='',$policeValide='',$avenantPolice='')
     {
         $this->id=$id;
         $this->idVente=$idVente;
         $this->idAttestation=$idAttestation;
         $this->policeValide=$policeValide;
+        $this->avenantPolice=$avenantPolice;
     }
     
      /**
@@ -95,5 +97,23 @@ class VenteAttestation{
                 return $this;
         }
 
-   
+        /**
+         * Get the value of avenantPolice
+         */ 
+        public function getAvenantPolice()
+        {
+                return $this->avenantPolice;
+        }
+
+        /**
+         * Set the value of avenantPolice
+         *
+         * @return  self
+         */ 
+        public function setAvenantPolice($avenantPolice)
+        {
+                $this->avenantPolice = $avenantPolice;
+
+                return $this;
+        }
 }
