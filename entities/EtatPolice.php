@@ -9,8 +9,6 @@ class EtatPolice{
         $this->police=$police;
     }
 
-
-
         /**
          * Get the value of type
          */ 

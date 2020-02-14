@@ -4,6 +4,7 @@ require_once '../mapping/PoliceDao.php';
 require_once '../mapping/AvenantPoliceDao.php';
 //Entities
 require_once '../entities/Police.php';
+require_once '../entities/AvenantPolice.php';
 //obtenir le numéro de police
 function getNumeroPolice($cat){
    $pDao = new PoliceDao();
@@ -26,28 +27,6 @@ return $numPolice;
    return $codeEnergie;
 }
 
-if(isset($_POST['souscription'])){
-   extract($_POST);
-   $numeroPolice = getNumeroPolice($categorie);
-   $garanties=array(
-      $Rc_code => $RC_value,
-      $BG=>$BG_value,
-      $Rti_code=>$RTI_value,
-      $TC=>$TIERCE_value,
-      $DR=>$DR_value,
-      $ASR=>$ASR_value,
-      $INC=>$INC_value,
-      $PT=>$PT_value,
-      $VoL=>$VoL_value,
-      $ASSISTANCE_code=>$ASSISTANCE_value,
-      $carte_brune=>'GRATUIT'
-   );
-   $pDao = new PoliceDao();
-   $av   = new AvenantPoliceDao();
-   $p    = new Police('NULL',$numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
-   $avenant = 0;
-   $pDao->insertPolice($p,$garanties,$avenant);
-}
 //Création d'un avenant de police
 if(isset($_POST['avenant'])){
    $udao = new AttestationsDao();
@@ -66,13 +45,11 @@ if(isset($_POST['avenant'])){
       require_once('../view/intermediaires/avenant.php');
    }  
 }
-//Insertion d'un avenant
-if(isset($_POST['avenant_data'])){
+if(isset($_POST['souscription'])){
    extract($_POST);
-   echo($energie);
-   $av   = new AvenantPoliceDao();
    $pDao = new PoliceDao();
-   $avenantPolice=$av->setAvenantPolice($vehicule,$type);
+   $avenantP   = new AvenantPoliceDao();
+   $numeroPolice = getNumeroPolice($categorie);
    $garanties=array(
       $Rc_code => $RC_value,
       $BG=>$BG_value,
@@ -86,7 +63,33 @@ if(isset($_POST['avenant_data'])){
       $ASSISTANCE_code=>$ASSISTANCE_value,
       $carte_brune=>'GRATUIT'
    );
-   $av->setAvenantPolice($vehicule,$type);
-   $p = new Police('NULL',$avenantPolice->getPolice(),'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
-   $pDao->insertPolice($p,$garanties,$avenantPolice->getNumAvenant());
+   $p = new Police('NULL',$numeroPolice,'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',getCodeEnergie($energie),$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
+   $idInserted = $pDao->insertPolice($p,$garanties);
+   $avenant = new AvenantPolice(0,1,$idInserted);
+   $avenantP->insertAvenant($avenant);
 }
+//Insertion d'un avenant
+if(isset($_POST['avenant_data'])){
+   extract($_POST);
+   echo($energie);
+   $av   = new AvenantPoliceDao();
+   $pDao = new PoliceDao();
+   $avenantPolice=$av->setAvenantPolice($vehicule,$type);
+   //echo(' '.$avenantPolice[0]->getPolice().' '.$avenantPolice[1]);
+   $garanties=array(
+      $Rc_code => $RC_value,
+      $BG=>$BG_value,
+      $Rti_code=>$RTI_value,
+      $TC=>$TIERCE_value,
+      $DR=>$DR_value,
+      $ASR=>$ASR_value,
+      $INC=>$INC_value,
+      $PT=>$PT_value,
+      $VoL=>$VoL_value,
+      $ASSISTANCE_code=>$ASSISTANCE_value,
+      $carte_brune=>'GRATUIT'
+   );
+   $p = new Police('NULL',$avenantPolice[1],'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
+   $pDao->insertPolice($p,$garanties,$avenantPolice[0]->getNumAvenant());
+}
+

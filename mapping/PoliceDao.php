@@ -70,47 +70,49 @@ class PoliceDao{
     }
 
     //Creation de police
-public function insertPolice(Police $p,Array $garanties,$avenant){
-   $this->getConnector()->beginTransaction();
-    try{
-    //Insertion dans la table police
-    $insertPoliceRequest =  $this->getConnector()->prepare(
-      "insert into police_valide values('".$p->getId()."','".$p->getNumeroPolice()."','".$p->getCodeFormule()."','".$p->getIntermediaire()."','".$p->getCodeCategorie()."','".$p->getNatureContrat()."','".$p->getCodeZone()."','".$p->getDateEffet()."','".$p->getDuree()."','".$p->getDateEcheance()."','".$p->getQualiteAssure()."','".$p->getNomAssure()."','".$p->getPrenomAssure()."','".$p->getAdresse()."','".$p->getCodeVilleAssure()."','".$p->getCodeProfession()."','".$p->getCodeActivite()."','".$p->getTypePiece()."','".$p->getNumPiece()."','".$p->getTelephone()."','".$p->getTypePermis()."','".$p->getNumPermis()."','".$p->getDateDeLivPermis()."','".$p->getLieuDeLivPermis()."','".$p->getImmatriculation()."','".$p->getNumChassis()."','".$p->getCodeMarque()."','".$p->getCodeSerie()."','".$p->getCodeGenre()."','".$p->getCodeUsage()."','".$p->getCodeEnergie()."','".$p->getNombreDePlace()."','".$p->getCylindre()."','".$p->getValeurNeuve()."','".$p->getValeurVenale()."','".$p->getPuissanceFiscale()."','".$p->getChargeUtile()."','".$p->getCodeCarosserie()."','".$p->getDateMiseEnCirculation()."','".$p->getMontantPrime()."','".$p->getMontantAccessoires()."','".$p->getMontantTaxes()."','".$p->getMontantFGA()."','".$p->getMontantTTC()."','".$p->getDateValidation()."','".$p->getDateSouscription()."','".$p->getDateSais()."','".$p->getFlagtrans()."')"
-    );
-    $insertPoliceRequest->execute();
-    //Insertion dans des garanties associées
-    $garantie = new PoliceGaranties('NULL',$p->getNumeroPolice());
-    $gantDa =  new PoliceGarantiesDao();
-    $gantDa->insertGaranties($garanties,$p->getNumeroPolice(),$avenant);
-    //Insertion dans vente attestation et Update table attestation pour les attestations vendues
-    $attDao = new AttestationsDao();
-    //Vente jaune et cedeao
-    if(isset($_POST['att_jaunes']) && isset($_POST['att_cedeao']) ){
-          $idVente = $this->generateIdVente(5);
-          $vente_j = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_jaunes'])[0]['id_attestation'],$p->getNumeroPolice());
-          $vente_c = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_cedeao'])[0]['id_attestation'],$p->getNumeroPolice());
-          $attDao->inserteVente($vente_j,$vente_c);
-    //Vente verte et cedeao
-    }else if(isset($_POST['att_vertes']) && isset($_POST['att_cedeao']) ){
-          $idVente = $this->generateIdVente(5);
-          $vente_v = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_vertes'])[0]['id_attestation'],$p->getNumeroPolice());
-          $vente_c = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_cedeao'])[0]['id_attestation'],$p->getNumeroPolice());
-          $attDao->inserteVente($vente_v,$vente_c);
-    //Vente jaune(cas catégorie5)
-    }else{
-          $idVente = $this->generateIdVente(5);
-          $vente_j = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_jaunes'])[0]['id_attestation'],$p->getNumeroPolice());
-          $attDao->inserteVente($vente_j,NULL);
-        }
-    //Définition de l'etat de la police
-    $etat = new EtatPolice(1,$p->getNumeroPolice());
-    $ep = new EtatPoliceDao();
-    $ep->setDefaultEtat($etat);
-    $this->getConnector()->commit();
-    return true;
-        }catch(Exception $e){
-           return $e->getMessage();
-        }
+  public function insertPolice(Police $p,Array $garanties){
+    $this->getConnector()->beginTransaction();
+      try{
+      //Insertion dans la table police
+      $insertPoliceRequest =  $this->getConnector()->prepare(
+        "insert into police_valide values('".$p->getId()."','".$p->getNumeroPolice()."','".$p->getCodeFormule()."','".$p->getIntermediaire()."','".$p->getCodeCategorie()."','".$p->getNatureContrat()."','".$p->getCodeZone()."','".$p->getDateEffet()."','".$p->getDuree()."','".$p->getDateEcheance()."','".$p->getQualiteAssure()."','".$p->getNomAssure()."','".$p->getPrenomAssure()."','".$p->getAdresse()."','".$p->getCodeVilleAssure()."','".$p->getCodeProfession()."','".$p->getCodeActivite()."','".$p->getTypePiece()."','".$p->getNumPiece()."','".$p->getTelephone()."','".$p->getTypePermis()."','".$p->getNumPermis()."','".$p->getDateDeLivPermis()."','".$p->getLieuDeLivPermis()."','".$p->getImmatriculation()."','".$p->getNumChassis()."','".$p->getCodeMarque()."','".$p->getCodeSerie()."','".$p->getCodeGenre()."','".$p->getCodeUsage()."','".$p->getCodeEnergie()."','".$p->getNombreDePlace()."','".$p->getCylindre()."','".$p->getValeurNeuve()."','".$p->getValeurVenale()."','".$p->getPuissanceFiscale()."','".$p->getChargeUtile()."','".$p->getCodeCarosserie()."','".$p->getDateMiseEnCirculation()."','".$p->getMontantPrime()."','".$p->getMontantAccessoires()."','".$p->getMontantTaxes()."','".$p->getMontantFGA()."','".$p->getMontantTTC()."','".$p->getDateValidation()."','".$p->getDateSouscription()."','".$p->getDateSais()."','".$p->getFlagtrans()."')"
+      );
+      $insertPoliceRequest->execute(); 
+      //Remplacer getNumPolice par le last inserted id
+      $idPolice = $this->getConnector()->lastInsertId();
+      //Insertion dans des garanties associées
+      $garantie = new PoliceGaranties('NULL',$idPolice);
+      $gantDa   =  new PoliceGarantiesDao();
+      $gantDa->insertGaranties($garanties,$idPolice);
+      //Insertion dans vente attestation et Update table attestation pour les attestations vendues
+      $attDao = new AttestationsDao();
+      //Vente jaune et cedeao
+      if(isset($_POST['att_jaunes']) && isset($_POST['att_cedeao']) ){
+            $idVente = $this->generateIdVente(5);
+            $vente_j = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_jaunes'])[0]['id_attestation'],$idPolice);
+            $vente_c = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_cedeao'])[0]['id_attestation'],$idPolice);
+            $attDao->inserteVente($vente_j,$vente_c);
+      //Vente verte et cedeao
+      }else if(isset($_POST['att_vertes']) && isset($_POST['att_cedeao']) ){
+            $idVente = $this->generateIdVente(5);
+            $vente_v = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_vertes'])[0]['id_attestation'],$idPolice);
+            $vente_c = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_cedeao'])[0]['id_attestation'],$idPolice);
+            $attDao->inserteVente($vente_v,$vente_c);
+      //Vente jaune(cas catégorie5)
+      }else{
+            $idVente = $this->generateIdVente(5);
+            $vente_j = new VenteAttestation('NULL',$idVente,$attDao->getIdAttestation($_POST['att_jaunes'])[0]['id_attestation'],$idPolice);
+            $attDao->inserteVente($vente_j,NULL);
+          }
+      //Définition de l'etat de la police
+      $etat = new EtatPolice(1,$idPolice);
+      $ep = new EtatPoliceDao();
+      $ep->setDefaultEtat($etat);
+      $this->getConnector()->commit();
+      return $idPolice ;
+          }catch(Exception $e){
+            return $e->getMessage();
+          }
     }
 
 //Obtention de tous les numéros de police

@@ -251,8 +251,7 @@
                     </td>
                         <td>
                             <select class="form-control" name="ASR" id="avance-recours">
-                                <option value='Avance sur recours' selected disabled>Avance sur recours</option>
-                                <option value="9">Option 1</option>
+                                <option value="9" selected>Option 1</option>
                                 <option value="22">Option 2</option>
                                 <option value="23">Option 3</option>
                             </select>

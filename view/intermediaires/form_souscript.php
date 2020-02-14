@@ -249,10 +249,10 @@
                     </td>
                         <td>
                             <select class="form-control" name="ASR" id="avance-recours">
-                                <option value="avance sur recours" selected disabled>Avance sur recours</option>
-                                <option value="9">Option 1</option>
-                                <option value="22">Option 2</option>
-                                <option value="23">Option 3</option>
+                                <option value="0" selected>Avance sur recours</option>
+                                <option value="9">Avance sur recours Option 1</option>
+                                <option value="22">Avance sur recours Option 2</option>
+                                <option value="23">Avance sur recours Option 3</option>
                             </select>
                         </td>
                     <td>
@@ -271,11 +271,11 @@
                     </td>
                     <td>
                         <select class="form-control" name="PT" id="persones_trans">
-                            <option value="personnes transportées" selected disabled>Personnes transportées</option>
-                            <option value="11">Option1</option>
-                            <option value="19">Option2</option>
-                            <option value="20">Option3</option>
-                            <option value="21">Option4</option>
+                            <option value="0" selected>Personnes transportées</option>
+                            <option value="11">Personnes transportées Option1</option>
+                            <option value="19">Personnes transportées Option2</option>
+                            <option value="20">Personnes transportées Option3</option>
+                            <option value="21">Personnes transportées Option4</option>
                         </select>
                     </td>
                     <td>
