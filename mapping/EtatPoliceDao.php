@@ -16,7 +16,7 @@ class EtatPoliceDao{
             $cnx =  $this->getConnector();
             $insertGarantie=$cnx->prepare(
                 "insert into etat_police values(
-                    1,
+                    '".$ep->getType()."',
                     '".$ep->getPolice()."'
                 )"
             );

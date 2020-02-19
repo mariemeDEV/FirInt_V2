@@ -50,11 +50,12 @@
     margin-right: -58px;
     border-radius: 10px;
     color: #11243a;
+    font-size: 14px !important;
 }
 
 .com-sum {
     font-weight: bold !important;
-    font-size: 21px!important;
+    font-size: 14px !important;
     color: green !important;
 }
 
@@ -79,6 +80,7 @@
     background: #c1c1c1;
     width: 50%;
     margin: auto;
+    margin-left: 34% !important;
 }
 
 .recap-tray ul li {

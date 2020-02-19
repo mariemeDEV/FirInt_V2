@@ -5,6 +5,7 @@ require_once '../mapping/AvenantPoliceDao.php';
 //Entities
 require_once '../entities/Police.php';
 require_once '../entities/AvenantPolice.php';
+
 //obtenir le numéro de police
 function getNumeroPolice($cat){
    $pDao = new PoliceDao();
@@ -16,6 +17,7 @@ function getNumeroPolice($cat){
    }
 return $numPolice;
 }
+
 //obtenir de code energie
    function getCodeEnergie($energie){
    $codeEnergie=0;
@@ -34,7 +36,7 @@ if(isset($_POST['avenant'])){
    $immatriculation = $_POST['immatriculation_vehicule'];
    $intermediaire   = $_POST['matricule_intermediaire'];
    $tyeAvenant      = $_POST['type_avenant'];
-   $data = $pDao->getPoliceByMat( $immatriculation,$intermediaire);
+   $data            = $pDao->getPoliceByMat( $immatriculation,$intermediaire);
    if($data==[]){
       $message = 'Ce véhicule n\'a jamas étè couvert dans vos contrats, veuillez créer un nouveau contrat.';
       require_once('../view/intermediaires/souscription.php');
@@ -45,6 +47,8 @@ if(isset($_POST['avenant'])){
       require_once('../view/intermediaires/avenant.php');
    }  
 }
+
+//Insertion d'une nouvelle police
 if(isset($_POST['souscription'])){
    extract($_POST);
    $pDao = new PoliceDao();
@@ -68,14 +72,13 @@ if(isset($_POST['souscription'])){
    $avenant = new AvenantPolice(0,1,$idInserted);
    $avenantP->insertAvenant($avenant);
 }
+
 //Insertion d'un avenant
 if(isset($_POST['avenant_data'])){
    extract($_POST);
-   echo($energie);
    $av   = new AvenantPoliceDao();
    $pDao = new PoliceDao();
    $avenantPolice=$av->setAvenantPolice($vehicule,$type);
-   //echo(' '.$avenantPolice[0]->getPolice().' '.$avenantPolice[1]);
    $garanties=array(
       $Rc_code => $RC_value,
       $BG=>$BG_value,
@@ -91,5 +94,13 @@ if(isset($_POST['avenant_data'])){
    );
    $p = new Police('NULL',$avenantPolice[1],'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL',$nom_assure,$prenom_assure,$adresse_assure,'NULL',$ville_assure,'NULL','NULL','NULL',$telephone_assure,'NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
    $pDao->insertPolice($p,$garanties,$avenantPolice[0]->getNumAvenant());
+}
+
+//Insertion d'un dévis
+if(isset($_POST['devis'])){
+   extract($_POST);
+   $pDao = new PoliceDao();
+   $p = new Police('NULL',getNumeroPolice($categorie),'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL','Nom Prospect','Prenom Prospect','Adresse Prospect','NULL','Ville Prospect','NULL','NULL','NULL','Telephone Prospect','NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
+   $pDao->insertDevis($p);
 }
 

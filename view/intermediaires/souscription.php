@@ -68,7 +68,7 @@
 
 <section class='modal' id='avenant-modal'>
   <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100'>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
       <?php 
         if($message!=''){
           echo('<p>'.$message.'</p>');
@@ -185,14 +185,14 @@
 
   <section class='modal' id='tierce-modal'>
   <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100'>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
     <p>NB : Les tiérces complétes et tierces collusion sont résérvées aux voitures de moins de 5ans et avec une période de couverture d'au moins 6mois </p>
     </section>
   </section>
 
   <section class='modal' id='collision'>
     <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100'>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
     <p>Les tiérces complétes sont pour les catégories 1,2 et 6</p>
     </section>
   </section>

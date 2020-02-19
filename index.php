@@ -42,10 +42,6 @@
         <canvas id="demo-canvas"></canvas>
     </div>
 
-
-
-
-
     <!-- BEGIN: PAGE SCRIPTS -->
 
     <!-- jQuery -->

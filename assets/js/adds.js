@@ -66,12 +66,12 @@ $(document).ready(function() {
     /*Get the value of the if on the table data*/
 
     /*Add a new user*/
-    var resource = '../../../view/admin/';
+    var resource = '../../forint_v2/view/admin/users.php';
     $('#add-user').on('submit', function(e) {
             e.preventDefault();
             $.ajax({
                 type: "POST",
-                url: "../controllers/UserController.php",
+                url: "../../controllers/UserController.php",
                 data: $(this).serialize(),
                 dataType: "json",
                 success: function(response) {

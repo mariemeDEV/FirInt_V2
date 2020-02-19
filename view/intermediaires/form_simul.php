@@ -1,13 +1,13 @@
 
  <form method='POST' id="souscription-form" class="auto-form">
       <div>
-      
         <h3>Période de garantie</h3><!--Début période de garantie-->
         <section><!--Début période de garantie-->
             <div class="row">
                 <div class="col col-md-6">
                     <label for="effet contrat">Date d'effet <span class="require-caracter">*</span></label>
                     <input id="effet" name="date_effet" type="date" class="required">
+                    <input type="hidden" name='devis'>
                 </div>
                 <div class="col col-md-6">
                 <label for="duree contrat">Durée contrat <span class="require-caracter">*</span></label>
@@ -81,8 +81,8 @@
                     <label for="Energie">Enérgie</label>
                     <select id="energie" name="energie" type="text">
                         <option value="energie" disabled selected>Energie</option>
-                        <option value="essence">Essence</option>
-                        <option value="diesel">Diesel</option>
+                        <option value="1">Essence</option>
+                        <option value="2">Diesel</option>
                     </select>
                 </div>
             </div>

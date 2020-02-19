@@ -37,9 +37,25 @@
     /* Black w/ opacity */
 }
 
+.alert-msg {
+    text-align: center;
+    width: 30% !important;
+    margin-left: 42% !important;
+    margin-top: 5% !important
+}
+
+.montant-cell {
+    color: green !important;
+    font-weight: bold !important
+}
+
 .data-panel {
     margin-left: -58px !important;
     width: 112% !important;
+}
+
+#datatable4_info {
+    display: none !important;
 }
 
 .commissions {
@@ -50,11 +66,12 @@
     margin-right: -58px;
     border-radius: 10px;
     color: #11243a;
+    font-size: 14px !important;
 }
 
 .com-sum {
     font-weight: bold !important;
-    font-size: 21px!important;
+    font-size: 14px !important;
     color: green !important;
 }
 

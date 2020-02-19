@@ -119,7 +119,29 @@ class PoliceDao{
 public function getPolicesValides()
 {
   $connector = $this->getConnector();
-  $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.numpolice=e.num_police_valide where e.id_type=1");
+  $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.id=e.num_police_valide where e.id_type=1");
+    try{
+      $numRequest->execute();
+      $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
+      return $lastNumber;
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
+}
+public function getDevis(){
+  $connector = $this->getConnector();
+  $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.id=e.num_police_valide where e.id_type=0");
+    try{
+      $numRequest->execute();
+      $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
+      return $lastNumber;
+    }catch(Exception $e){
+      return $e->getMessage();
+    }
+}
+public function getAnnulations(){
+  $connector = $this->getConnector();
+  $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.id=e.num_police_valide where e.id_type=2");
     try{
       $numRequest->execute();
       $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
@@ -140,6 +162,18 @@ public function getPoliceByImmat($immatriculation){
       }catch(Exception $e){
         return $e->getMessage();
     }
+}
+
+public function insertDevis(Police $p){
+  $insertPoliceRequest =  $this->getConnector()->prepare(
+    "insert into police_valide values('".$p->getId()."','".$p->getNumeroPolice()."','".$p->getCodeFormule()."','".$p->getIntermediaire()."','".$p->getCodeCategorie()."','".$p->getNatureContrat()."','".$p->getCodeZone()."','".$p->getDateEffet()."','".$p->getDuree()."','".$p->getDateEcheance()."','".$p->getQualiteAssure()."','".$p->getNomAssure()."','".$p->getPrenomAssure()."','".$p->getAdresse()."','".$p->getCodeVilleAssure()."','".$p->getCodeProfession()."','".$p->getCodeActivite()."','".$p->getTypePiece()."','".$p->getNumPiece()."','".$p->getTelephone()."','".$p->getTypePermis()."','".$p->getNumPermis()."','".$p->getDateDeLivPermis()."','".$p->getLieuDeLivPermis()."','".$p->getImmatriculation()."','".$p->getNumChassis()."','".$p->getCodeMarque()."','".$p->getCodeSerie()."','".$p->getCodeGenre()."','".$p->getCodeUsage()."','".$p->getCodeEnergie()."','".$p->getNombreDePlace()."','".$p->getCylindre()."','".$p->getValeurNeuve()."','".$p->getValeurVenale()."','".$p->getPuissanceFiscale()."','".$p->getChargeUtile()."','".$p->getCodeCarosserie()."','".$p->getDateMiseEnCirculation()."','".$p->getMontantPrime()."','".$p->getMontantAccessoires()."','".$p->getMontantTaxes()."','".$p->getMontantFGA()."','".$p->getMontantTTC()."','".$p->getDateValidation()."','".$p->getDateSouscription()."','".$p->getDateSais()."','".$p->getFlagtrans()."')"
+  );
+  $insertPoliceRequest->execute(); 
+  $idPolice = $this->getConnector()->lastInsertId();
+  //Définition de l'etat de la police
+  $etat = new EtatPolice(0,$idPolice);
+  $ep = new EtatPoliceDao();
+  $ep->setDefaultEtat($etat);
 }
 
 }

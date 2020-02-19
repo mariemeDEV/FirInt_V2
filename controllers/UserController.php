@@ -36,13 +36,13 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 		$dao->insertUser($utilisateur);
 		echo("Insertion effectuée avec succés.");
 	}else if(isset($_POST['dotation-att'])){
-		$attDao= new AttestationsDao();
-		echo($attDao->setDotation());
+		require_once('../view/connexion.php');
+		/*$attDao= new AttestationsDao();
+		$attDao->setDotation();*/
 	}else{
 		echo('no data');
 	}
 }
-/*Connect a user*/
 
 
 

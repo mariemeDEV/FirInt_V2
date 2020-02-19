@@ -10,23 +10,7 @@
         <a class="navbar-brand" href=<?php echo $routes.'?action=accueil'?>></a>
         <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
       </div>
-      <ul class="nav navbar-nav navbar-left">
-        <li>
-          <a class="sidebar-menu-toggle" href="#">
-            <span class="ad ad-ruby fs18"></span>
-          </a>
-        </li>
-        <li>
-          <a class="topbar-menu-toggle" href="#">
-            <span class="ad ad-wand fs16"></span>
-          </a>
-        </li>
-        <li class="hidden-xs">
-          <a class="request-fullscreen toggle-active" href="#">
-            <span class="ad ad-screen-full fs18"></span>
-          </a>
-        </li>
-      </ul>
+
       <form class="navbar-form navbar-left navbar-search" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search..." value="Search...">
@@ -35,8 +19,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="ad fs18" id='get-avenant'>[Avenant]</span>
+            <span class="ad fs18">[+]</span>
           </a>
+          <!--a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="ad fs18" id='get-avenant'>[Avenant]</span>
+          </a-->
           <ul class="dropdown-menu media-list w350 animated animated-shorter fadeIn" role="menu">
           <li class="dropdown-header">
               <span class="dropdown-title">TARIFICATIONS CATEGORIE4</span>
@@ -242,29 +229,36 @@
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Consulter mes contrats</span>
             </a>
+            <a href="#" id='get-avenant'>
+                <span class="fa fa-calendar"></span>
+                <span class="sidebar-title">Faire un avenant</span>
+            </a>
           </li>
 
           <li class="sidebar-label pt15">Simulation</li>
           <li>
             <a href=<?php echo $routes.'?action=simul'?>>
               <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Créer un dévis</span>
+              <span class="sidebar-title">Faire un dévis</span>
             </a>
             <a href=<?php echo $routes.'?action=devis'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Consulter mes projets</span>
             </a>
           </li>
-
           <li class="sidebar-label pt15">Garanties</li>
           <li>
             <a href=<?php echo $routes.'?action=garanties'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Garanties</span>
             </a>
-              <a href=<?php echo $routes.'?action=tarifs'?>>
+            <a href=<?php echo $routes.'?action=tarifs'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Tarifications</span>
+            </a>
+            <a href=<?php //echo $routes.'?action=tarifs'?>>
+              <span class="fa fa-calendar"></span>
+              <span class="sidebar-title">Supports</span>
             </a>
           </li>
         </ul>
@@ -417,27 +411,28 @@
     <!-- End: Right Sidebar -->
     <section class='modal' id='avenant'>
     <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100' style='height:55% !important;margin-left: 27%;'>
-    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
-      <div class="row">
-        <label for="matricule">Intérmédiaire<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
-      </div>
-      <div class="row" style='padding-bottom: 11px !important;'>
-        <label for="Immatriculation">Immatriculation<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
-        <input type="hidden" name='avenant'>
-      </div>
-      <div class="row">
-          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
-          <select class="form-control" name="type_avenant" id="type_av">
-            <option value="1">Avenant de renouvellement</option>
-            <option value="2">Avenant de changement d'immatriculation</option>
-          </select>
-      </div>
-      <div class="row">
-        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='position:relative;top:27px;'>Success</button>
-      </div>
-    </form>
+    <section class='modal-content animated zoomIn animation-delay-100' style='height:55% !important;margin-left: 32%'>
+      <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
+        <div class="row">
+          <label for="matricule">Intérmédiaire<span class="require-caracter">*</span></label>
+          <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
+        </div>
+        <div class="row" style='padding-bottom: 11px !important;'>
+          <label for="Immatriculation">Immatriculation<span class="require-caracter">*</span></label>
+          <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
+          <input type="hidden" name='avenant'>
+        </div>
+        <div class="row">
+            <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
+            <select class="form-control" name="type_avenant" id="type_av">
+              <option value="1">Avenant de renouvellement</option>
+              <option value="2">Avenant de changement d'immatriculation</option>
+              <option value="3">Avenant de changement de nom</option>
+            </select>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn active btn-success btn-block" style="width: 23%;margin: auto;position: relative;top:22px;background: #0a1c2f;color: #79633b">Valider</button>
+        </div>
+      </form>
     </section>
   </section>

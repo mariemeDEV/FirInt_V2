@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php
-    $assets = './assets/';
-    $vendor = './vendor/';
+    $assets = '../../forint_v2/assets/';
+    $vendor = '../../forint_v2/vendor/';
 ?><!--Header include-->
 
 <head>

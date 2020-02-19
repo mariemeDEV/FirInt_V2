@@ -20,7 +20,8 @@ if(isset($_GET['action'])){
             require_once('../view/intermediaires/simulation.php');
         break;
         case 'devis':
-            $udao = new AttestationsDao();
+            $pdao = new PoliceDao();
+            $devis = $pdao->getDevis();
             require_once('../view/intermediaires/devis.php');
         break;
       /*  case 'avenant':

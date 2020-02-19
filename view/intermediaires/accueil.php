@@ -41,7 +41,6 @@
         </div>
     </div>
     </div>
-
 <!-- BEGIN: PAGE SCRIPTS -->
 <!-- jQuery -->
 <?php
@@ -49,24 +48,17 @@ echo'
       <script src=';echo $vendor.'jquery/jquery-1.11.1.min.js></script>
       <script src=';echo $vendor.'jquery/jquery_ui/jquery-ui.min.js></script>
       <script src=';echo 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js></script>
-      <!-- Theme Javascript -->
       <script src=';echo $assets.'js/utility/utility.js></script>
       <script src=';echo $assets.'js/demo/demo.js></script>
       <script src=';echo $assets.'js/main.js></script>
       <script src=';echo $assets.'js/scripts.js>';
 ?>
-<script>
-
-    jQuery(document).ready(function() {
-        "use strict";
-        // Init Theme Core    
-        Core.init();
-        // Init Demo JS
-        Demo.init();
-    });
+    <script>
+        jQuery(document).ready(function() {
+            "use strict";
+            Core.init();
+            Demo.init();
+        });
     </script>
-    <!-- END: PAGE SCRIPTS -->
-
-        
 </body>
 </html>

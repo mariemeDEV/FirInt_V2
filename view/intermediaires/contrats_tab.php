@@ -2,40 +2,65 @@
                     <div class="panel panel-visible data-panel" id="spy2">
                         <div class="panel-heading">
                             <div class="panel-title hidden-xs">
-                                <span class="glyphicon glyphicon-tasks"></span>Table des productions</div>
-                        </div>
+                                <span class="glyphicon glyphicon-tasks"></span>Production</div>
+                            </div>
                         <div class="panel-body pn">
                             <table class="table table-striped table-hover data_tab data" id="datatable3" cellspacing="0" style='width:100%;font-size:12px !important'>
                                 <thead>
                                     <tr>
                                         <th>No. Police</th>
-                                        <th>Mat. Intermédiaire</th>
-                                        <th>Prénom/Nom Int.</th>
+                                        <th>Assuré</th>
                                         <th>Immat. Véhicule</th>
-                                        <th>No. Avenant</th>
+                                        <th>Avenant</th>
                                         <th>Effet contrat</th>
+                                        <th>Durée</th>
                                         <th>Echéance contrat</th>
+                                        <th>Etat</th>
                                         <th>Montant prime</th>
-                                        <th>Documents</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                <?php print_r($contrats[0]['numpolice'])?>
-                                </tr>
+                                <?php 
+                                    foreach ($contrats as $c=>$value){
+                                    echo '
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td>'.$value['numpolice'].'</td>
+                                        <td>'.$value['prenom'].' '.$value['nom'].'</td>
+                                        <td>'.$value['immatriculation'].'</td>
+                                        <td>0</td>
+                                        <td>'.$value['dateeffet'].'</td>
+                                        <td>'.$value['duree'].'</td>
+                                        <td>'.$value['dateecheance'].'</td>
+                                        <td>En cours</td>
+                                        <td>'.$value['montant_ttc'].'</td>
                                         <td>
-                                            <button>Documents</button>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Actions
+                                                <span class="caret ml5"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#">Editer</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="#">Avenant</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="#">Imprimer</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="#">Annuler</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                         </td>
-                                    </tr>
+                                    </tr>';
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>

@@ -118,7 +118,7 @@
                         "sNext": ""
                     }
                 },
-                "iDisplayLength": 8,
+                "iDisplayLength": 6,
                 "aLengthMenu": [
                     [5, 10, 25, 50, -1],
                     [5, 10, 25, 50, "All"]
@@ -132,15 +132,5 @@
             $('.dataTables_filter input').attr("placeholder", "Enter Terms...");
         });
     </script>
-
-
-
-
-
-  
-
-
-
 </body>
-
 </html>

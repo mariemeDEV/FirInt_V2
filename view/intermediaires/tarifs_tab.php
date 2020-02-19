@@ -1,13 +1,13 @@
 
 
-                <div class="col-md-12">
+                <div class="col-md-12" style='width: 111% !important;margin-left: -5% !important'>
                     <div class="panel panel-visible" id="spy3">
                         <div class="panel-heading">
                             <div class="panel-title hidden-xs">
                                 <span class="glyphicon glyphicon-tasks"></span>TARIFICATION POOL TPV</div>
                         </div>
                         <div class="panel-body pn">
-                            <table class="table table-striped table-hover data_tab" id="datatable4" cellspacing="0" width="100%"  style="text-transform: uppercase !important">
+                            <table class="table table-striped table-hover data_tab" id="datatable4" cellspacing="0" width="100%"  style="text-transform: uppercase !important;font-size:11px !important">
                                 <thead>
                                     <tr>
                                         <th>Type de véhicule</th>
