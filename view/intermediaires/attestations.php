@@ -71,7 +71,7 @@
     <div class="tray tray-center">
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
-          <?php include('contrats_tab.php');?>
+          <?php include('attestations_tab.php');?>
       </div><!-- Second row -->
       </div>
     </div>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>ForInt</title>
@@ -197,9 +196,9 @@
     </section>
   </section>
 
-  <section class='modal' id='avenant'>
+  <section class='modal avenant'>
     <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
+    <section class='modal-content animated zoomIn animation-delay-100' style='height: 62% !important;margin-left: 27%;'>
     <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
       <div class="row">
       <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
@@ -211,26 +210,22 @@
         <input type="hidden" name='avenant'>
       </div>
       <div class="row">
-          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
-          <select class="form-control" name="type_avenant" id="type_av">
-            <option value="1">Avenant de renouvellement</option>
-            <option value="2">Avenant de changement d'immatriculation</option>
-          </select>
+        <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
+        <select class="form-control type_av" name="type_avenant">
+          <option value="Type d'avenant" selected disabled>Type d'avenant</option>
+          <option value="1">Avenant de Renouvellement</option>
+          <option value="2">Avenant changement de Nom</option>
+          <option value="3">Avenant de changement d'Immatriculation</option>
+        </select>
       </div>
       <div class="row">
-        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 12px !important;width: 20%!important;margin:auto!important'>Success</button>
+        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 20px !important;width: 20%!important;margin:auto!important'>Success</button>
       </div>
     </form>
     </section>
   </section>
 
- 
-
-
-
 </div><!-- End: Main -->
-
-  
 
   <!-- BEGIN: PAGE SCRIPTS -->
   <!-- jQuery -->

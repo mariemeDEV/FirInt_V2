@@ -229,12 +229,11 @@
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Consulter mes contrats</span>
             </a>
-            <a href="#" id='get-avenant'>
+            <a href="#" class='get-avenant'>
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Faire un avenant</span>
             </a>
           </li>
-
           <li class="sidebar-label pt15">Simulation</li>
           <li>
             <a href=<?php echo $routes.'?action=simul'?>>
@@ -244,6 +243,17 @@
             <a href=<?php echo $routes.'?action=devis'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Consulter mes projets</span>
+            </a>
+          </li>
+          <li class="sidebar-label pt15">Attestations</li>
+          <li>
+            <a href=<?php echo $routes.'?action=consult_attestations'?>>
+              <span class="fa fa-calendar"></span>
+              <span class="sidebar-title">Consultation</span>
+            </a>
+            <a href=<?php echo $routes.'?action=commande_attestations'?>>
+              <span class="fa fa-calendar"></span>
+              <span class="sidebar-title">Commande</span>
             </a>
           </li>
           <li class="sidebar-label pt15">Garanties</li>
@@ -256,7 +266,7 @@
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Tarifications</span>
             </a>
-            <a href=<?php //echo $routes.'?action=tarifs'?>>
+            <a href=<?php echo $routes.'?action=supports'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Supports</span>
             </a>

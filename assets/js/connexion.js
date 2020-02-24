@@ -4,7 +4,7 @@ $(document).ready(function() {
             e.preventDefault();
             $.ajax({
                 type: 'POST',
-                url: '../controllers/UserController.php',
+                url: 'http://192.168.72.249:2702/forint_v2/controllers/UserController.php',
                 data: $(this).serialize(),
                 dataType: 'html',
                 success: function(userData) {
@@ -17,7 +17,7 @@ $(document).ready(function() {
                         var user = JSON.parse(userData);
                         console.log(user);
                         var role = user[0].role_user;
-                        var ressource = 'http://localhost/forint_v2/view/';
+                        var ressource = 'http://192.168.72.249:2702/forint_v2/view/';
                         var url1 = ressource + 'admin/accueil_admin.php';
                         var url2 = ressource + 'intermediaires/accueil.php';
                         var url3 = ressource + 'controlleurs/accueil_controlleur.php';
@@ -46,5 +46,4 @@ $(document).ready(function() {
                 }
             })
         })
-        /*Connexion*/
 })

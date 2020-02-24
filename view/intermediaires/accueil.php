@@ -2,9 +2,9 @@
 <html>
 <?php
     include('includes_css.php');
-    $assets = 'http://localhost/forint_v2/assets/';
-    $vendor = 'http://localhost/forint_v2/vendor/';
-    $routes = '../../controllers/users_routes.php';
+    $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
+    $vendor = 'http://192.168.72.249:2702/forint_v2/vendor/';
+    $routes = 'http://192.168.72.249:2702/forint_v2/controllers/users_routes.php';
 ?><!--Header include-->
 <body class="blank-page">
     <!-- Start: Main -->

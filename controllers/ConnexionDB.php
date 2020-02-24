@@ -9,7 +9,7 @@ class ConnexionDB{
 	public static function getInstance() {
 		if(empty(self::$instance)) {
 			$db_info = array(
-				"db_host" => "localhost",
+				"db_host" => "127.0.0.1",
 				"db_user" => "root",
 				"db_pass" => "",
                 "db_name" => "v2"

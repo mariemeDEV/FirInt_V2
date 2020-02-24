@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-    <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-    <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/style.css">
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="./assets/admin-tools/admin-forms/css/admin-forms.css">
+    <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/style.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -45,8 +45,8 @@
     <!-- BEGIN: PAGE SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
-    <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+    <script src="./vendor/jquery/jquery-1.11.1.min.js"></script>
+    <script src="./vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
 
     <!-- CanvasBG Plugin(creates mousehover effect) -->

@@ -900,9 +900,9 @@
                                         <tr>
                                             <td class="">
                                                 <label class="option block mn">
-                          <input type="checkbox" name="mobileos" value="FR">
-                          <span class="checkbox mn"></span>
-                        </label>
+                                                    <input type="checkbox" name="mobileos" value="FR">
+                                                    <span class="checkbox mn"></span>
+                                                </label>
                                             </td>
                                             <td class="">
                                                 01/11/2015
@@ -916,8 +916,8 @@
                                             <td class="text-right">
                                                 <div class="btn-group text-right">
                                                     <button type="button" class="btn btn-danger br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Canceled
-                            <span class="caret ml5"></span>
-                          </button>
+                                                        <span class="caret ml5"></span>
+                                                    </button>
                                                     <ul class="dropdown-menu" role="menu">
                                                         <li>
                                                             <a href="#">Edit</a>
@@ -961,8 +961,8 @@
                                             <td class="text-right">
                                                 <div class="btn-group text-right">
                                                     <button type="button" class="btn btn-danger br2 btn-xs fs12 dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Canceled
-                            <span class="caret ml5"></span>
-                          </button>
+                                                        <span class="caret ml5"></span>
+                                                    </button>
                                                     <ul class="dropdown-menu" role="menu">
                                                         <li>
                                                             <a href="#">Edit</a>

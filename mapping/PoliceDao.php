@@ -175,5 +175,26 @@ public function insertDevis(Police $p){
   $ep = new EtatPoliceDao();
   $ep->setDefaultEtat($etat);
 }
+public function getPoliceById($id){
+  $connector = $this->getConnector();
+  $pRequest = $connector->prepare("select * from police_valide where id='".$id."' limit 1");
+        try{
+          $pRequest->execute();
+          $police=$pRequest->fetchAll(PDO::FETCH_ASSOC);
+          return $police;
+        }catch(Exception $e){
+          return $e->getMessage();
+      }
+}
+
+public function updatePolice($categorie,$dateEffet,$duree,$echeance,$nomAssure,$prenomAssure,$adresse,$telephone,$immatriculation,$chassis,$marque,$serie,$genre,$energie,$nbPlaces,$cylindre,$vNeuve,$vVenale,$pFiscale,$chargeUtile,$montantPrime,$montantAccessoires,$montantTaxes,$montantFGA,$montantTTC){
+  $updatePoliceRequest =  $this->getConnector()->prepare("update police_valide set codeCategorie='".$categorie."',dateEffet='".$dateEffet."',duree='".$duree."',dateEcheance='".$echeance."',nom='".$nomAssure."',prenom='".$prenomAssure."',adresse='".$adresse."',telephone='".$telephone."',immatriculation='".$immatriculation."',numChassis='".$chassis."',code_marque='".$marque."',codeserie='".$serie."',code_genre='".$genre."',code_energie='".$energie."',nombreplace='".$nbPlaces."',cylindre='".$cylindre."',valeurneuve='".$vNeuve."',valeurvenale='".$vVenale."',puissancefiscale='".$pFiscale."',charge_utile='".$chargeUtile."',montant_prime='".$montantPrime."', montant_accessoire='".$montantAccessoires."',montant_taxe='".$montantTaxes."',montant_fga='".$montantFGA."',montant_ttc='".$montantTTC."'");
+  try{
+    $updatePoliceRequest->execute();
+    return 'Updated';
+  }catch(Exception $e){
+    return $e->getMessage();
+}
+}
 
 }

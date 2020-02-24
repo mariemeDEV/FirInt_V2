@@ -1020,7 +1020,6 @@ function getTaxe() {
     var taux = parseInt(10) / 100;
     return Math.floor(total * taux);
 }
-
 //La FGA
 function getFGA() {
     var rc = parseInt(getRC(getValueInput('categorie')));
@@ -1217,7 +1216,6 @@ function writeData() {
         $('#vehicule_data').append('<li>' + garantiesData[v] + '</li>');
     }
 }
-
 //Rafréchir les valeurs des garanties si les caractéristiques changent
 function resetCheckboxes() {
     $('#steps-uid-0-t-3').on('click', function() {
@@ -1259,9 +1257,7 @@ function resetCheckboxes() {
         setReductions();
         writeData();
     })
-
 }
-
 //Appel des fonctions
 $(document).ready(function() {
     resetCheckboxes();

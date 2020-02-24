@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php 
-$assets = 'http://192.168.72.249:2702/forint_v2/assets/';
-?>
+
 <head>
   <meta charset="utf-8">
   <title>ForInt</title>
@@ -15,9 +13,9 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/theme.css'?>>
-  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/theme.css'?>>
-  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/validate.css'?>>
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/validate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css">  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -62,7 +60,7 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
         <?php 
-          include('avenant_form.php');
+          include('devisUpdate_form.php');
         ?>
       </div><!-- Second row -->
       </div>
@@ -188,8 +186,6 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
     <p>Les tiérces complétes sont pour les catégories 1,2 et 6</p>
     </section>
   </section>
-
-  </section>
   
 </div><!-- End: Main -->
 
@@ -234,18 +230,7 @@ $(document).ready(function(){
             source: jaunes
         })
     })
-    selectedAvenant = $('#avenant-chosen').val();
-   if (selectedAvenant == 2) {
-        $('#souscription-form').find('select:not(.av-enabled),input:not(#prenom,#nom,.av-enabled,#effet)').each(function() {
-            $(this).prop('disabled', true);
-            $(this).css('background-color','#eeeeee');
-        })
-    } else if (selectedAvenant == 3) {
-        $('#souscription-form').find('select,input:not(#immatriculation,#effet,.av-enabled,#effet)').each(function() {
-            $(this).prop('disabled', true);
-            $(this).css('background-color','#eeeeee');
-        })
-    }
+
 })
 </script>
 </html>

@@ -1,13 +1,12 @@
 <form method='POST' id="souscription-form" class="auto-form">
     <div>
         <h3>Assuré</h3>
-        <input type="hidden" value =<?php echo('"'.$tyeAvenant.'"') ?> id='avenant-chosen'>
         <section><!--Début Bloc assuré-->
         <div class="row">
             <div class="col col-md-6">
-                <input type="hidden" name='avenant_data'>
-                <input type="hidden" name="vehicule" value=<?php echo('"'.$immatriculation.'"');?>>
-                <input type="hidden" name="type" value=<?php echo('"'.$tyeAvenant.'"');?>>
+                <input type="hidden" name='update_data'>
+                <input type="hidden" name="vehicule" value=<?php //echo('"'.$immatriculation.'"');?>>
+                <input type="hidden" name="type" value=<?php //echo('"'.$tyeAvenant.'"');?>>
                 <label for="prenom">Prénom assuré <span class="require-caracter">*</span></label>
                 <input id="prenom" name="prenom_assure" type="text" class="required" value= <?php echo($data[0]['prenom'])?>>
             </div>
@@ -73,14 +72,14 @@
             <div class="row">
                 <div class="col col-md-4" id="categorie_col">
                     <label for="Categorie vehicule">Catégorie<span class="require-caracter">*</span></label>
-                    <select class="required av-enabled" id="categorie" name='categorie'>
+                    <select class="required" id="categorie" name='categorie'>
                         <option value=<?php echo($data[0]['codecategorie'])?> selected><?php echo('CAT 40'.$data[0]['codecategorie'])?></option>
-                        <!option value="1">CAT 401</option>
+                        <!--option value="1">CAT 401</option>
                         <option value="2">CAT 402</option>
                         <option value="3">CAT 403</option>
                         <option value="4">CAT 404</option>
                         <option value="5">CAT 405</option>
-                        <option value="6">CAT 418</option>
+                        <option value="6">CAT 418</option-->
                     </select>
                 </div>
                 <div class="col col-md-4" id="genre_col">
@@ -113,7 +112,7 @@
             <div class="row">
                 <div class="col col-md-4" id="vv_col">
                     <label for="Valeur neuve">Valeur neuve</label>
-                    <input id="valeur_neuve" class="divide" name="valeurVenale" type="text" placeholder="Valeur Neuve" value=<?php echo($data[0]['valeurneuve'])?>>
+                    <input id="valeur_neuve" class="divide" name="valeurVenale" type="text" placeholder="Valeur Neuve" value=<?php echo($data[0]['numpolice'])?>>
                 </div>
                 <div class="col col-md-4" id="vn_col">
                     <label for="Valeur neuve">Valeur vénale</label>
@@ -198,82 +197,82 @@
         </section><!--Fin caractéristiques véhcule-->
         <h3>Garanties</h3><!--Début garanties-->
         <section>
-        <table class="primes-tab">
+        <table  class="primes-tab">
             <tbody>
                 <tr>
                     <td>
-                        <input type="checkbox" id="rc-check" class='val_input divide av-enabled' checked disabled value='Responsabilité Civile'>
+                        <input type="checkbox" id="rc-check" class='val_input divide' checked disabled value='Responsabilité Civile'>
                         <label for="RC" class="garantie-label">Résponsabilité civile</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' name='RC_value' id="rc" disabled value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val divide' name='RC_value' id="rc" disabled value=<?php echo($data[0]['numpolice'])?>>
                         <input type="hidden" name='Rc_code' value='17'>
                     </td>
 
                     <td>
-                        <input type="checkbox" id="bris_check" class='val_input av-enabled'>
+                        <input type="checkbox" id="bris_check" class='val_input'>
                         <label for="BG" class="garantie-label">Bris de glace</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' id='bris_de_glace_val' name='BG_value' value='0'>
+                        <input type="text" class='garantie-val divide' id='bris_de_glace_val' name='BG_value' value='0'>
                         <input type="hidden" name='BG' value='7'>
                      </td>
 
                 </tr>
                 <tr>
                     <td>
-                        <input type="checkbox" id="recours-check" class='val_input av-enabled' disabled checked value='Recours des tiers'>
+                        <input type="checkbox" id="recours-check" class='val_input' disabled checked value='Recours des tiers'>
                         <label for="BG" class="garantie-label">Recours des tiers</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val av-enabled' id="recours_val" name='RTI_value' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="text" class='garantie-val' id="recours_val" name='RTI_value' value=<?php echo($data[0]['numpolice'])?>>
                         <input type="hidden" name='Rti_code' value='18'>
                     </td>
                     <td> 
-                        <input type="checkbox" id="tc-check" class='val_input tierce av-enabled'>
+                        <input type="checkbox" id="tc-check" class='val_input tierce'>
                         <label for="BG" class="garantie-label">Tiérce complete</label>
-                        <input type="checkbox" id="tcol-check" class='val_input tierce av-enabled'>
+                        <input type="checkbox" id="tcol-check" class='val_input tierce'>
                         <label for="tcol" class="garantie-label">Tiérce collision</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' id='tierce_val' name='TIERCE_value' value='0'>
+                        <input type="text" class='garantie-val divide' id='tierce_val' name='TIERCE_value' value='0'>
                         <input type="hidden" value="5" name='TC'>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <input type="checkbox" id="defense-recours-check" class='val_input av-enabled'>
+                        <input type="checkbox" id="defense-recours-check" class='val_input'>
                         <label for="DR" class="garantie-label">Défense et recours</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' name='DR_value' id='defense_et_recours_val' value='0'>
+                        <input type="text" class='garantie-val divide' name='DR_value' id='defense_et_recours_val' value='0'>
                         <input type="hidden" value='1' name='DR'>
                     </td>
                         <td>
-                            <select class="form-control av-enabled" name="ASR" id="avance-recours">
+                            <select class="form-control" name="ASR" id="avance-recours">
                                 <option value="9" selected>Option 1</option>
                                 <option value="22">Option 2</option>
                                 <option value="23">Option 3</option>
                             </select>
                         </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' id='avance_sur_recours_val' name='ASR_value' value='0'>
+                        <input type="text" class='garantie-val divide' id='avance_sur_recours_val' name='ASR_value' value='0'>
                     </td>
                 </tr>
 
                 <tr>
-                <td>
-                    <input type="checkbox" class='val_input divide av-enabled' id="incendie-check">
-                    <label for="BG" class="garantie-label">Incendie</label>
-                </td>
-                <td>
-                    <input type="text" class='garantie-val divide av-enabled' name='INC_value' id='incendie_val' name='INCENDIE_value' value="0">
-                    <input type="hidden" name="INC" value='2'>
-                </td>
                     <td>
-                        <select class="form-control av-enabled" name="PT" id="persones_trans">
-                            <option value='Personnes transportées' selected>Personnes transportées</option>
+                        <input type="checkbox" class='val_input divide' id="incendie-check">
+                        <label for="BG" class="garantie-label">Incendie</label>
+                    </td>
+                    <td>
+                        <input type="text" class='garantie-val divide' name='INC_value' id='incendie_val' name='INCENDIE_value' value=<?php echo($data[0]['numpolice'])?>>
+                        <input type="hidden" name="INC" value='2'>
+                    </td>
+                    <td>
+                        <select class="form-control" name="PT" id="persones_trans">
+                            <option value='Personnes transportées' selected disabled>Personnes transportées</option>
                             <option value="11">Option1</option>
                             <option value="19">Option2</option>
                             <option value="20">Option3</option>
@@ -281,28 +280,28 @@
                         </select>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' id='personnes_transportees' name='PT_value' value='0'>
+                        <input type="text" class='garantie-val divide' id='personnes_transportees' name='PT_value' value='0'>
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <input type="checkbox" id='vol-check' class='val_input av-enabled'>
+                        <input type="checkbox" id='vol-check' class='val_input'>
                         <label for="Vol" class="garantie-label">Vol</label>
                     </td>
                     <td>
-                        <input type="text" id='vol_val' class='garantie-val divide av-enabled' name='VoL_value' value='0'>
+                        <input type="text" id='vol_val' class='garantie-val divide' name='VoL_value' value='0'>
                         <input type="hidden" name="VoL" value='3'>
                     </td>
                     <td>
-                        <input type="checkbox" id="assistance_check" class='val_input av-enabled'>
+                        <input type="checkbox" id="assistance_check" class='val_input'>
                         <label for="Assistance" class="garantie-label">Assistance</label>
                     </td>
                     <td>
-                        <input type="text" class='garantie-val divide av-enabled' name='ASSISTANCE_value' id='assistance_val' name='ASSISTANCE_value' value="GRATUIT">
+                        <input type="text" class='garantie-val divide' name='ASSISTANCE_value' id='assistance_val' name='ASSISTANCE_value' value="GRATUIT">
                         <input type="hidden" class='garantie-val' name='ASSISTANCE_code' value="13">
 
-                        <input type="hidden" class='garantie-val av-enabled' name='carte_brune' value="12">
+                        <input type="hidden" class='garantie-val' name='carte_brune' value="12">
                     </td>
                 </tr>
             </tbody>
@@ -326,7 +325,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-control av-enabled" name="bonus_rc" id="bonus_sur_rc">
+                            <select class="form-control" name="bonus_rc" id="bonus_sur_rc">
                                 <option value="0">0</option>
                                 <option value="5">5%</option>
                                 <option value="10">10%</option>
@@ -335,7 +334,7 @@
                             </select>
                         </td>
                         <td>
-                            <select class="form-control av-enabled" name="reduction-commerciale" id="reduction_commerciale">
+                            <select class="form-control" name="reduction-commerciale" id="reduction_commerciale">
                                 <option value="0">0</option>
                                 <option value="5">5%</option>
                                 <option value="10">10%</option>
@@ -358,8 +357,8 @@
                 <h1 class="total-text animated fadeInLeft animation-delay-100">PRIME TOTALE(FCFA)</h1>
                 <input type='text' value='0' id='valueTotale' class='divide total-input  animated fadeInLeft animation-delay-100' disabled>
                 <img src="./assets/img/patterns/prime.png" class="animated fadeInLeft animation-delay-100" alt="">
-                <label for="" style='position: relative;left: 235px;top: 158px;color: white !important;'>Bonus RC</label>
-                <p class="reductions"><input type="text" class='garantie-val divide av-enabled' name='bonus-sur-rc' id='bonus-rc' value="0" 
+                <label for="" style='position: relative;left: 235px;top: 169px;color: white !important;'>Bonus RC</label>
+                <p class="reductions"><input type="text" class='garantie-val divide' name='bonus-sur-rc' id='bonus-rc' value="0" 
                 style='position: relative;
                 top: 123px;
                 width: 90px !important;
@@ -370,7 +369,7 @@
                 font-weight: bold;' disabled>
                 </p>
                 <label for="" style='position: relative;left: 472px;top: 80px;color:white !important'>Réduction Com.</label>
-                <p class="reductions"><input type="text" class='garantie-val av-enabled' name='reduction-com' id='reduction-com' value="0" 
+                <p class="reductions"><input type="text" class='garantie-val' name='reduction-com' id='reduction-com' value="0" 
                     style='position: relative;
                     top: 47px;
                     width: 56px !important;
@@ -399,7 +398,7 @@
                     $attJaunes = json_decode($jauneData);
                     echo '<div class="col-md-6 jaune-col">
                     <label for="attestations jaunes" class="garantie-label">No attestation jaune</label>
-                    <select id="att_jaune" name="att_jaunes" type="text" style="text-align:center !important" class="av-enabled">';
+                    <select id="att_jaune" name="att_jaunes" type="text" style="text-align:center !important">';
                     echo '<option value="No attestation jaune" selected disabled>attestations jaunes</option>';
                     foreach($attJaunes as $key=>$attJaune){
                         echo '<option value="'.$attJaune->numero_attestation.'">'.$attJaune->numero_attestation.'</option>';
@@ -408,7 +407,7 @@
                     $attVertes = json_decode($verteData);
                     echo '<div class="col-md-6 vert-col">
                     <label for="attestations vertes" class="garantie-label">attestations vertes</label>
-                    <select id="att_verte" name="att_vertes" type="text" style="text-align:center !important" class="av-enabled">';
+                    <select id="att_verte" name="att_vertes" type="text" style="text-align:center !important">';
                     echo '<option value="No attestation verte" selected disabled>No attestation verte</option>';
                     foreach($attVertes as $key=>$attVerte){
                         echo '<option value="'.$attVerte->numero_attestation.'">'.$attVerte->numero_attestation.'</option>';
@@ -417,7 +416,7 @@
                     $attCedeao = json_decode($cedeaoData);
                     echo '<div class="col-md-6 cedeao-col">
                     <label for="attestations_cedeao" class="garantie-label">attestations cedeao</label>
-                    <select  id="att_cedeao"  name="att_cedeao" type="text" style="text-align:center !important" class="av-enabled">';
+                    <select  id="att_cedeao"  name="att_cedeao" type="text" style="text-align:center !important">';
                     echo '<option value="No attestation cedeao" selected disabled>No attestation cedeao</option>';
                     foreach($attCedeao as $key=>$attC){
                         echo '<option value="'.$attC->numero_attestation.'">'.$attC->numero_attestation.'</option>';

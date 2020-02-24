@@ -1,5 +1,5 @@
 <?php 
-$assets = 'http://localhost/forint_v2/assets/';
+$assets = 'http://192.168.72.249:2702/forint_v2/assets/';
 echo'
     <head>
     <!-- Meta, title, CSS, favicons, etc. -->

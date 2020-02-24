@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php 
-$assets = 'http://192.168.72.249:2702/forint_v2/assets/';
-?>
+
 <head>
   <meta charset="utf-8">
   <title>ForInt</title>
@@ -15,9 +13,9 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
 
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/theme.css'?>>
-  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/theme.css'?>>
-  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/validate.css'?>>
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/theme.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/validate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/themes/tooltipster-light.min.css">  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -61,13 +59,12 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
     <div class="tray tray-center">
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
-        <?php 
-          include('avenant_form.php');
-        ?>
+          <?php include('updateForm.php');?>
       </div><!-- Second row -->
       </div>
     </div>
   </section><!-- End: Content -->
+  <!--h1>'.$message.'</h1-->
 
   <section class='modal' id='cat4-modal' style='font-size: 10px !important'>
     <span class="close">&times;</span>
@@ -177,20 +174,51 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
 
   <section class='modal' id='tierce-modal'>
   <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100'>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
     <p>NB : Les tiérces complétes et tierces collusion sont résérvées aux voitures de moins de 5ans et avec une période de couverture d'au moins 6mois </p>
     </section>
   </section>
 
   <section class='modal' id='collision'>
     <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100'>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
     <p>Les tiérces complétes sont pour les catégories 1,2 et 6</p>
     </section>
   </section>
 
+  <section class='modal avenant'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
+    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
+      <div class="row">
+      <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
+        <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
+      </div>
+      <div class="row" style='padding-bottom: 11px !important;'>
+      <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
+        <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
+        <input type="hidden" name='avenant'>
+      </div>
+      <div class="row">
+          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
+          <select class="form-control type_av" name="type_avenant">
+            <option value="Type d'avenant" selected disabled>Type d'avenant</option>
+            <option value="1">Avenant de Renouvellement</option>
+            <option value="2">Avenant changement de Nom</option>
+            <option value="3">Avenant de changement d'Immatriculation</option>
+          </select>
+      </div>
+      <div class="row">
+        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 12px !important;width: 20%!important;margin:auto!important'>Success</button>
+      </div>
+    </form>
+    </section>
   </section>
-  
+
+ 
+
+
+
 </div><!-- End: Main -->
 
   
@@ -212,7 +240,7 @@ $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
   <script src="./assets/js/prime.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
-
+                                                                              
 <script>
 $(document).ready(function(){
   var marques_voitures = ['FIAT','BMW','ACURA','FORD','HOLDEN','HONDA','HYUNDAI','ISUZU','KIA','LEXUS','NISSAN','RENAULT','SEAT','CHEVROLET','CITROEN','DACIA','INFINITI','MAZDA','MITSUBISHI','PEUGEOT','SUBARU','TOYOTA','VOLSWAGEN']
@@ -234,18 +262,17 @@ $(document).ready(function(){
             source: jaunes
         })
     })
-    selectedAvenant = $('#avenant-chosen').val();
-   if (selectedAvenant == 2) {
-        $('#souscription-form').find('select:not(.av-enabled),input:not(#prenom,#nom,.av-enabled,#effet)').each(function() {
-            $(this).prop('disabled', true);
-            $(this).css('background-color','#eeeeee');
-        })
-    } else if (selectedAvenant == 3) {
-        $('#souscription-form').find('select,input:not(#immatriculation,#effet,.av-enabled,#effet)').each(function() {
-            $(this).prop('disabled', true);
-            $(this).css('background-color','#eeeeee');
-        })
-    }
+    <?php 
+      if($message!=''){
+        echo('
+          $("#avenant-modal").fadeIn();
+          $(".close").on("click", function() {
+            $("#avenant-modal").fadeOut();
+          })'
+        );
+      };
+    ;?>
+   
 })
 </script>
 </html>

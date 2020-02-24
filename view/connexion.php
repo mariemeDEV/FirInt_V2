@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<?php
+    $assets = 'http://192.168.72.249:2702/forint_v2/assets/';
+    $vendor = 'http://192.168.72.249:2702/forint_v2/vendor/';
+?><!--Header include-->
 
 <head>
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -12,18 +16,13 @@
 
   <!-- Font CSS (Via CDN) -->
   <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
-
   <!-- Theme CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-  <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/connexion.css">
-
-
+  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/theme.css'?>>
+  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'skin/default_skin/css/connexion.css'?>>
   <!-- Admin Forms CSS -->
-
-  <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-
+  <link rel="stylesheet" type="text/css" href=<?php echo $assets.'admin-tools/admin-forms/css/admin-forms.css'?>>
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <link rel="shortcut icon" href=<?php echo $assets.'img/favicon.ico'?>>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -101,18 +100,14 @@
               <a href="connexion.php"> | Saham Sénégal</a>
             </p>
           </div>
-
           <!-- Registration Links(alt) -->
           <!--div class="login-links hidden">
             <a href="pages_forgotpw(alt).html" class="active" title="Sign In">Sign In</a> |
             <a href="pages_register(alt).html" class="" title="Register">Register</a>
           </div-->
-
         </div>
-
       </section>
       <!-- End: Content -->
-
     </section>
     <!-- End: Content-Wrapper -->
     <div class="modal connection-modal">
@@ -130,32 +125,26 @@
   <!-- BEGIN: PAGE SCRIPTS -->
 
   <!-- jQuery -->
-  <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
-  <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+  <script src=<?php echo $vendor.'jquery/jquery-1.11.1.min.js'?>></script>
+  <script src=<?php echo $vendor.'jquery/jquery_ui/jquery-ui.min.js'?>></script>
 
   <!-- Theme Javascript -->
-  <script src="assets/js/utility/utility.js"></script>
-  <script src="assets/js/demo/demo.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="../assets/js/connexion.js"></script>
+  <script src=<?php echo $assets.'js/utility/utility.js'?>></script>
+  <script src=<?php echo $assets.'js/demo/demo.js'?>></script>
+  <script src=<?php echo $assets.'js/main.js'?>></script>
+  <script src=<?php echo $assets.'js/connexion.js'?>></script>
 
   <!-- Page Javascript -->
   <script type="text/javascript">
   jQuery(document).ready(function() {
-
     "use strict";
-
     // Init Theme Core      
     Core.init();
-
     // Init Demo JS
     Demo.init();
-
   });
   </script>
-
   <!-- END: PAGE SCRIPTS -->
 
 </body>
-
 </html>

@@ -20,18 +20,28 @@ $(document).ready(function() {
         }
     })
 
-    $('#get-avenant').on('click', function() {
-        /* var pageURL = $(location).attr("href");
-         alert(pageURL);*/
-        $('#avenant').fadeIn();
+    $('.get-avenant').on('click', function() {
+        $('.avenant').fadeIn();
     })
     $('.close').on('click', function() {
-        /*var pageURL = $(location).attr("href");
-        alert(pageURL);*/
-        $('#avenant').fadeOut();
+        $('.avenant').fadeOut();
     })
- /*   $('#avenant-form').on('submit', function() {
-        alert('yes');
-    })*/
+    $('select.type_av').on('change', function() {
+        var selectedAvenant = $(this).children("option:selected").val();
+        if (selectedAvenant == 1) {
+            $('#souscription-form').find('select,input').not("#prenom input[type=text]").each(function() {
+                $(this).prop('disabled', true);
+            })
+        } else if (selectedAvenant == 2) {
+            $('#souscription-form').find('select,input').not("#prenom input[type=text]").each(function() {
+                $(this).prop('disabled', true);
+            })
+        } else if (selectedAvenant == 3) {
+            $('#souscription-form').find('select,input').not("#prenom input[type=text]").each(function() {
+                $(this).prop('disabled', true);
+            })
+        }
+    });
+
 
 })
