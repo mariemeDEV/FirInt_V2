@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>.
+<head>
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
   <title>ForInt-garanties</title>
@@ -18,6 +18,7 @@
 
   <!-- Admin Forms CSS -->
   <link rel="stylesheet" type="text/css" href="./assets/admin-tools/admin-forms/css/admin-forms.css">
+  <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/navbar.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/img/favicon.ico">
@@ -492,11 +493,10 @@
     </div>
   </div>
 </div>
-      <!-- End: Content -->
-        </div>
+  <!-- End: Content -->
+</div>
 
-    
-
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
   </div>
   <!-- End: Main -->
 
@@ -556,8 +556,14 @@
         },
         initialState: "minimized"
       });
-
     });
+    
+    $('.get-avenant').on('click', function() {
+      $('.avenant').fadeIn();
+    })
+    $('.close').on('click', function() {
+      $('.avenant').fadeOut();
+    })
 
   });
   </script>

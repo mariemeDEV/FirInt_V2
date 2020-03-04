@@ -12,7 +12,7 @@
                                 <span class="glyphicon glyphicon-tasks"></span>Production</div>
                             </div>
                         <div class="panel-body pn">
-                            <table class="table table-striped table-hover table-bordered mbn data_tab data" id="datatable3" cellspacing="0" style='width:100%;font-size:12px !important'>
+                            <table class="table table-striped table-hover table-bordered mbn data_tab data" id="production-tab" cellspacing="0" style='width:100%;font-size:14px !important'>
                                 <thead>
                                     <tr>
                                         <th>No. Police</th>
@@ -32,36 +32,45 @@
                                     foreach ($contrats as $c=>$value){
                                         $id=$value['id'];
                                     echo '
+                                    <input type="hidden" id="id-police" value='.$id.'>
                                     <tr>
-                                        <td>'.$value['numpolice'].'</td>
+                                        <td class="numP"><input type="hidden" value='.$value['numpolice'].'>'.$value['numpolice'].'</td>
                                         <td>'.$value['prenom'].' '.$value['nom'].'</td>
                                         <td>'.$value['immatriculation'].'</td>
-                                        <td>0</td>
+                                        <td>'.$value['num_avenant'].'</td>
                                         <td>'.$value['dateeffet'].'</td>
                                         <td>'.$value['duree'].'</td>
-                                        <td>'.$value['dateecheance'].'</td>
-                                        <td>En cours</td>
-                                        <td>'.$value['montant_ttc'].'</td>
+                                        <td>'.$value['dateecheance'].'</td>';
+                                            if($value['id_type']==1){
+                                                echo'<td style="background:#56bf46">En cours...</td>';
+                                            }else if($value['id_type']==2){
+                                                echo'<td style="background:#ec5454">Annulé</td>';
+                                            }
+                                        echo
+                                        '<td>'.$value['montant_ttc'].'</td>
                                         <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Actions
                                                 <span class="caret ml5"></span>
                                             </button>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li>
+                                                <li class="not-allowed">
                                                     <a href='.$routes."?action=edit&id=$id".'>Editer</a>
                                                 </li>
                                                 <li class="divider"></li>
-                                                <li>
-                                                    <a class="get-avenant" href="#">Avenant</a>
+                                                <li class="not-allowed get-avenant">
+                                                    <a href="#">Avenant</a>
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li>
-                                                    <a href="#">Imprimer</a>
+                                                    <a href='.$routes."?action=print&id=$id".'>Imprimer</a>
                                                 </li>
                                                 <li class="divider"></li>
-                                                <li>
-                                                    <a href="#">Annuler</a>
+                                                <li class="not-allowed">
+                                                    <a href="#" class="annul-police">
+                                                        Annuler
+                                                        <input type="hidden" id="id-police" value='.$id.'>
+                                                    </a>
                                                 </li>
                                             </ul>
                                         </div>

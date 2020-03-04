@@ -77,31 +77,7 @@
     </div>
   </section><!-- End: Content -->
 
-  <section class='modal avenant'>
-      <span class="close">&times;</span>
-      <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
-      <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
-      <div class="row">
-      <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
-          <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
-      </div>
-      <div class="row" style='padding-bottom: 11px !important;'>
-      <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
-          <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
-          <input type="hidden" name='avenant'>
-      </div>
-      <div class="row">
-          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
-          <select class="form-control" name="type_avenant" id="type_av">
-              <option value="1">Avenant de renouvellement</option>
-              <option value="2">Avenant de changement d'immatriculation</option>
-          </select>
-      </div>
-      <div class="row">
-          <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 12px !important;width: 20%!important;margin:auto!important'>Success</button>
-      </div>
-      </form>
-    </section>
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
 
 </div><!-- End: Main -->
 
@@ -146,10 +122,10 @@
                       "sNext": ""
                   }
               },
-              "iDisplayLength": 6,
+              "iDisplayLength": 10,
               "aLengthMenu": [
-                  [5, 10, 25, 50, -1],
-                  [5, 10, 25, 50, "All"]
+                  [10, 20, 30, 40, -1],
+                  [10, 20, 30, 40, "All"]
               ],
               "sDom": '<"dt-panelmenu clearfix"Tfr>t<"dt-panelfooter clearfix"ip>',
               "oTableTools": {

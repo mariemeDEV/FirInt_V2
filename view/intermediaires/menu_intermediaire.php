@@ -13,7 +13,7 @@
 
       <form class="navbar-form navbar-left navbar-search" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search..." value="Search...">
+          <input type="text" class="form-control" placeholder="Recherche" value="Search...">
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
@@ -88,53 +88,22 @@
         </li>
 
         <li class="menu-divider hidden-xs">
-          <i class="fa fa-circle"></i>
+          <i class="fa fa-circle" style='color: #1cbd05 !important'></i>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown"><?php //echo($matricule)?>
             <span class="caret caret-tp hidden-xs"></span>
           </a>
           <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
-            <li class="dropdown-header clearfix">
-              <div class="pull-left ml10">
-                <select id="user-status">
-                  <optgroup label="Current Status:">
-                    <option value="1-1">Away</option>
-                    <option value="1-2">Offline</option>
-                    <option value="1-3" selected="selected">Online</option>
-                  </optgroup>
-                </select>
-              </div>
-
-              <div class="pull-right mr10">
-                <select id="user-role">
-                  <optgroup label="Logged in As:">
-                    <option value="1-1">Client</option>
-                    <option value="1-2">Editor</option>
-                  </optgroup>
-                </select>
-              </div>
-
-            </li>
             <li class="list-group-item">
               <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-envelope"></span> Messages
+                <span class="fa fa-envelope"></span> Notifications
                 <span class="label label-warning">2</span>
               </a>
             </li>
             <li class="list-group-item">
-              <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-user"></span> Friends
-                <span class="label label-warning">6</span>
-              </a>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-gear"></span> Account Settings </a>
-            </li>
-            <li class="list-group-item">
-              <a href="#" class="animated animated-short fadeInUp">
-                <span class="fa fa-power-off"></span> Logout </a>
+              <a href=<?php echo $routes.'?action=deconnect'?> class="animated animated-short fadeInUp">
+                <span class="fa fa-power-off"></span> Deconnexion </a>
             </li>
           </ul>
         </li>
@@ -224,7 +193,6 @@
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Faire une souscription</span>
             </a>
-            <!--?php echo //$routes.'?action=avenant'?--> 
             <a href=<?php echo $routes.'?action=contrats'?>>
                 <span class="fa fa-calendar"></span>
                 <span class="sidebar-title">Consulter mes contrats</span>
@@ -251,10 +219,10 @@
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Consultation</span>
             </a>
-            <a href=<?php echo $routes.'?action=commande_attestations'?>>
+            <!--a href=<?php //echo $routes.'?action=commande_attestations'?>>
               <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Commande</span>
-            </a>
+              <span class="sidebar-title">Commande d'attestations</span>
+            </a-->
           </li>
           <li class="sidebar-label pt15">Garanties</li>
           <li>
@@ -265,10 +233,6 @@
             <a href=<?php echo $routes.'?action=tarifs'?>>
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Tarifications</span>
-            </a>
-            <a href=<?php echo $routes.'?action=supports'?>>
-              <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Supports</span>
             </a>
           </li>
         </ul>
@@ -419,30 +383,4 @@
     </div>
     </aside>
     <!-- End: Right Sidebar -->
-    <section class='modal' id='avenant'>
-    <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100' style='height:55% !important;margin-left: 32%'>
-      <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
-        <div class="row">
-          <label for="matricule">Intérmédiaire<span class="require-caracter">*</span></label>
-          <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
-        </div>
-        <div class="row" style='padding-bottom: 11px !important;'>
-          <label for="Immatriculation">Immatriculation<span class="require-caracter">*</span></label>
-          <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
-          <input type="hidden" name='avenant'>
-        </div>
-        <div class="row">
-            <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
-            <select class="form-control" name="type_avenant" id="type_av">
-              <option value="1">Avenant de renouvellement</option>
-              <option value="2">Avenant de changement d'immatriculation</option>
-              <option value="3">Avenant de changement de nom</option>
-            </select>
-        </div>
-        <div class="row">
-          <button type="submit" class="btn active btn-success btn-block" style="width: 23%;margin: auto;position: relative;top:22px;background: #0a1c2f;color: #79633b">Valider</button>
-        </div>
-      </form>
-    </section>
-  </section>
+    

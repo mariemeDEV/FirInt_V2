@@ -94,10 +94,10 @@
           <!-- Registration Links -->
           <div class="login-links">
             <p>
-              <a href="reset_pw.php" class="active">Mot de passe oublié</a>
+              <a href="reset_pw.php" class="active" style='color: #1d3b4c !important'>Mot de passe oublié</a>
             </p>
-            <p>For-Int
-              <a href="connexion.php"> | Saham Sénégal</a>
+            <p><span style='color:#ffffff'>For-Int</span>
+              <a href="http://www.sahamassurance.sn/"> | Saham Sénégal</a>
             </p>
           </div>
           <!-- Registration Links(alt) -->
@@ -115,7 +115,14 @@
     </div>
 
     <div class="modal error-modal">
-      <p>Vous n'etes pas reconnu</p>
+      <div class="panel mt30 mb25" style="width: 23%;margin: auto;text-align: center;margin-top: -12px !important">
+      <div class="panel-body bg-light p25 pb15">
+        <p>
+          Vous n'etes pas reconnu,
+          Vérifier vos identifiants...
+        </p>
+      </div>
+      </div>
     </div>
 
   </div>

@@ -1,5 +1,6 @@
 <?php
 $assets = 'http://localhost/forint_v2/assets/';
+$routes = 'http://192.168.72.249:2702/forint_v2/controllers/users_routes.php';
  // include('./sessions.php');
 ?><!--Header include-->
     <!-- Start: Header -->
@@ -70,27 +71,6 @@ $assets = 'http://localhost/forint_v2/assets/';
             <span class="caret caret-tp hidden-xs"></span>
           </a>
           <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
-            <li class="dropdown-header clearfix">
-              <div class="pull-left ml10">
-                <select id="user-status">
-                  <optgroup label="Current Status:">
-                    <option value="1-1">Away</option>
-                    <option value="1-2">Offline</option>
-                    <option value="1-3" selected="selected">Online</option>
-                  </optgroup>
-                </select>
-              </div>
-
-              <div class="pull-right mr10">
-                <select id="user-role">
-                  <optgroup label="Logged in As:">
-                    <option value="1-1">Client</option>
-                    <option value="1-2">Editor</option>
-                  </optgroup>
-                </select>
-              </div>
-
-            </li>
             <li class="list-group-item">
               <a href="#" class="animated animated-short fadeInUp">
                 <span class="fa fa-envelope"></span> Notifications
@@ -98,7 +78,7 @@ $assets = 'http://localhost/forint_v2/assets/';
               </a>
             </li>
             <li class="list-group-item">
-              <a href="#" class="animated animated-short fadeInUp">
+              <a href=<?php echo $routes.'?action=deconnect'?> class="animated animated-short fadeInUp">
                 <span class="fa fa-power-off"></span> Deconnexion </a>
             </li>
           </ul>

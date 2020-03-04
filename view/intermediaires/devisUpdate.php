@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>ForInt</title>
@@ -52,24 +51,34 @@
 
 <body class="sb-l-o admin-validation-page">
   <div class="main"><!-- Start: Main -->
-
   <?php include('menu_intermediaire.php');?><!-- Header include-->
 
   <section id='content' class='table-layout'><!-- Begin: Content -->
     <div class="tray tray-center">
       <div class="admin-form theme-primary mw1000 center-block" style="padding-bottom: 175px;">
       <div class="panel heading-border" id="form-content"><!-- First row -->
-          <?php include('updateForm.php');?>
+          <?php include('devisUpdate_form.php');?>
       </div><!-- Second row -->
       </div>
     </div>
   </section><!-- End: Content -->
   <!--h1>'.$message.'</h1-->
 
-  <section class='modal' id='tierce-modal'>
+<section class='modal' id='avenant-modal'>
   <span class="close">&times;</span>
     <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
-    <p>NB : Les tiérces complétes et tierces collusion sont résérvées aux voitures de moins de 5ans et avec une période de couverture d'au moins 6mois </p>
+      <?php 
+        if($message!=''){
+          echo('<p>'.$message.'</p>');
+        }
+      ?>
+    </section>
+</section>
+
+  <section class='modal' id='tierce-modal'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
+      <p>NB : Les tiérces complétes et tierces collusion sont résérvées aux voitures de moins de 5ans et avec une période de couverture d'au moins 6mois </p>
     </section>
   </section>
 
@@ -80,15 +89,8 @@
     </section>
   </section>
 
-    <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
-
- 
-
-
-
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
 </div><!-- End: Main -->
-
-  
 
   <!-- BEGIN: PAGE SCRIPTS -->
   <!-- jQuery -->
@@ -116,7 +118,7 @@ $(document).ready(function(){
             source: marques_voitures
         })
     })
-  /*  function pushAttestations(selector,tab=[]){
+    function pushAttestations(selector,tab=[]){
         $(selector).each(function(){
             tab.push($(this).val())
         })
@@ -126,9 +128,9 @@ $(document).ready(function(){
     var jaunes = pushAttestations('#att_jaune option',attestationsJaunes);
     $('#jaunes').on('change',function(){
       $(this).autocomplete({
-            source: jaunes
-        })
-    })*/
+        source: jaunes
+      })
+    })
     <?php 
       if($message!=''){
         echo('
@@ -139,7 +141,6 @@ $(document).ready(function(){
         );
       };
     ;?>
-   
 })
 </script>
 </html>

@@ -119,7 +119,7 @@ class PoliceDao{
 public function getPolicesValides()
 {
   $connector = $this->getConnector();
-  $numRequest = $connector->prepare("SELECT * FROM police_valide as p join etat_police as e on p.id=e.num_police_valide where e.id_type=1");
+  $numRequest = $connector->prepare("SELECT p.id,p.numpolice,p.prenom,p.nom,p.immatriculation,p.dateeffet,p.dateecheance,p.duree,p.montant_ttc,e.id_type,a.num_avenant FROM police_valide as p join etat_police as e on p.id=e.num_police_valide join avenant as a on p.id=a.numpolice");
     try{
       $numRequest->execute();
       $lastNumber=$numRequest->fetchAll(PDO::FETCH_ASSOC);
@@ -138,6 +138,16 @@ public function getDevis(){
     }catch(Exception $e){
       return $e->getMessage();
     }
+}
+public function deleteDevis($idDevis){
+  $connector = $this->getConnector();
+  $deleteRequest = $connector->prepare("delete from police_valide where id='".$idDevis."'");
+  try{
+    $deleteRequest->execute();
+    return 'deleted';
+  }catch(Exception $e){
+    return $e->getMessage();
+}
 }
 public function getAnnulations(){
   $connector = $this->getConnector();
@@ -187,11 +197,20 @@ public function getPoliceById($id){
       }
 }
 
-public function updatePolice($categorie,$dateEffet,$duree,$echeance,$nomAssure,$prenomAssure,$adresse,$telephone,$immatriculation,$chassis,$marque,$serie,$genre,$energie,$nbPlaces,$cylindre,$vNeuve,$vVenale,$pFiscale,$chargeUtile,$montantPrime,$montantAccessoires,$montantTaxes,$montantFGA,$montantTTC){
-  $updatePoliceRequest =  $this->getConnector()->prepare("update police_valide set codeCategorie='".$categorie."',dateEffet='".$dateEffet."',duree='".$duree."',dateEcheance='".$echeance."',nom='".$nomAssure."',prenom='".$prenomAssure."',adresse='".$adresse."',telephone='".$telephone."',immatriculation='".$immatriculation."',numChassis='".$chassis."',code_marque='".$marque."',codeserie='".$serie."',code_genre='".$genre."',code_energie='".$energie."',nombreplace='".$nbPlaces."',cylindre='".$cylindre."',valeurneuve='".$vNeuve."',valeurvenale='".$vVenale."',puissancefiscale='".$pFiscale."',charge_utile='".$chargeUtile."',montant_prime='".$montantPrime."', montant_accessoire='".$montantAccessoires."',montant_taxe='".$montantTaxes."',montant_fga='".$montantFGA."',montant_ttc='".$montantTTC."'");
+public function updatePolice($categorie,$dateEffet,$duree,$echeance,$nomAssure,$prenomAssure,$adresse,$telephone,$immatriculation,$chassis,$marque,$serie,$genre,$energie,$nbPlaces,$cylindre,$vNeuve,$vVenale,$pFiscale,$chargeUtile,$montantPrime,$montantAccessoires,$montantTaxes,$montantFGA,$montantTTC,$nP){
+  $updatePoliceRequest =  $this->getConnector()->prepare("update police_valide set codeCategorie='".$categorie."',dateEffet='".$dateEffet."',duree='".$duree."',dateEcheance='".$echeance."',nom='".$nomAssure."',prenom='".$prenomAssure."',adresse='".$adresse."',telephone='".$telephone."',immatriculation='".$immatriculation."',numChassis='".$chassis."',code_marque='".$marque."',codeserie='".$serie."',code_genre='".$genre."',code_energie='".$energie."',nombreplace='".$nbPlaces."',cylindre='".$cylindre."',valeurneuve='".$vNeuve."',valeurvenale='".$vVenale."',puissancefiscale='".$pFiscale."',charge_utile='".$chargeUtile."',montant_prime='".$montantPrime."', montant_accessoire='".$montantAccessoires."',montant_taxe='".$montantTaxes."',montant_fga='".$montantFGA."',montant_ttc='".$montantTTC."' WHERE numpolice='".$nP."'");
   try{
     $updatePoliceRequest->execute();
     return 'Updated';
+  }catch(Exception $e){
+    return $e->getMessage();
+}
+}
+
+public function annulePolice($idP){
+  $annulePoliceRequest =  $this->getConnector()->prepare("update etat_police set id_type=2 where num_police_valide='".$idP."'");
+  try{
+    $annulePoliceRequest->execute();
   }catch(Exception $e){
     return $e->getMessage();
 }

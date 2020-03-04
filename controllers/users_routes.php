@@ -48,19 +48,32 @@ if(isset($_GET['action'])){
             $devis = $pdao->getDevis();
             require_once('../view/intermediaires/devis.php');
         break;
-      /*  case 'avenant':
-            $udao = new AttestationsDao();
+        case 'updateDevis':
+            $verteData=getVertes();
+            $jauneData=getJaunes();
+            $cedeaoData=getCedeao();
             $pDao = new PoliceDao();
-            $data = $pDao->getPoliceByMat('DK9999BB',30);
-            $jauneData  = json_encode($udao->getAttestationsRestantes(1,40)) ;
-            $verteData  = json_encode($udao->getAttestationsRestantes(2,40)) ;
-            $cedeaoData = json_encode($udao->getAttestationsRestantes(3,40)) ;
-            require_once('../view/intermediaires/avenant.php');
-        break;*/
+            $id=$_GET['id'];
+            $data = $pDao->getPoliceById($id);
+            require_once('../view/intermediaires/devisUpdate.php');
+        break;
         case 'contrats':
             $pdao = new PoliceDao();
             $contrats = $pdao->getPolicesValides();
             require_once('../view/intermediaires/contrats.php');
+        break;
+        case 'annul':
+            $pdao = new PoliceDao();
+            $contrats = $pdao->getPolicesValides();
+            $pdao->annulePolice($_GET['idPolice']);
+            require_once('../view/intermediaires/contrats.php');
+        break;
+        case 'print' :
+            require_once('../view/intermediaires/cp.php');
+            //require_once('../view/intermediaires/jaune.php');
+        break;
+        case 'printDevis' :
+            require_once('../view/intermediaires/cp.php');
         break;
         case 'garanties':
             require_once('../view/intermediaires/garanties.php');
@@ -80,21 +93,27 @@ if(isset($_GET['action'])){
             $data = $pDao->getPoliceById($id);
             require_once('../view/intermediaires/policeUpdate.php');
         break;
-        case 'updateDevis':
-            if(isset($_POST['update_data'])){
-                print_r($_POST);
-             }
-        break;
         case 'consult_attestations':
-            $slug = create_slug('view/intermediaires/attestations.php');
-           /* $pdao = new PoliceDao();
-            $contrats = $pdao->getPolicesValides();*/
+            $attDao = new AttestationsDao();
+            $att = $attDao->getAttestationsInt(40);
             require_once('../view/intermediaires/attestations.php');
         break;
-        case 'commande_attestations':
+        case 'supprimer':
+            $pdao = new PoliceDao();
+            print_r($pdao->deleteDevis($_GET['idPr']));
+            $devis = $pdao->getDevis();
+            require_once('../view/intermediaires/devis.php');
+        break;
+      /*  case 'commande_attestations':
             $pdao = new PoliceDao();
             $contrats = $pdao->getPolicesValides();
             require_once('../view/intermediaires/attestations.php');
+        break;*/
+        case 'deconnect':
+            require_once('../view/connexion.php');
+        break;
+        default :
+            require_once('../view/pages_404.php');
         break;
        
     }

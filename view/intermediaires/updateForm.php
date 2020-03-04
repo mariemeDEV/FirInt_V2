@@ -5,8 +5,7 @@
         <div class="row">
             <div class="col col-md-6">
                 <input type="hidden" name='update_data'>
-                <input type="hidden" name="vehicule" value=<?php //echo('"'.$immatriculation.'"');?>>
-                <input type="hidden" name="type" value=<?php //echo('"'.$tyeAvenant.'"');?>>
+                <input type="hidden" name="numPolice" value=<?php echo('"'.$data[0]['numpolice'].'"');?>>
                 <label for="prenom">Prénom assuré <span class="require-caracter">*</span></label>
                 <input id="prenom" name="prenom_assure" type="text" class="required" value= <?php echo($data[0]['prenom'])?>>
             </div>
@@ -47,7 +46,7 @@
             <div class="row">
                 <div class="col col-md-6">
                     <label for="effet contrat">Date d'effet <span class="require-caracter">*</span></label>
-                    <input id="effet" name="date_effet" type="date" class="required" value=<?php echo($data[0]['numpolice'])?>>
+                    <input id="effet" name="date_effet" type="date" class="required" value=<?php echo($data[0]['dateeffet'])?>>
                 </div>
                 <div class="col col-md-6">
                 <label for="duree contrat">Durée contrat <span class="require-caracter">*</span></label>
@@ -394,47 +393,18 @@
                 </ul>
            </div>
            <div class="row inputs-row">
-                <?php 
-                    $attJaunes = json_decode($jauneData);
-                    echo '<div class="col-md-6 jaune-col">
+                <div class="col-md-6 jaune-col">
                     <label for="attestations jaunes" class="garantie-label">No attestation jaune</label>
-                    <select id="att_jaune" name="att_jaunes" type="text" style="text-align:center !important">';
-                    echo '<option value="No attestation jaune" selected disabled>attestations jaunes</option>';
-                    foreach($attJaunes as $key=>$attJaune){
-                        echo '<option value="'.$attJaune->numero_attestation.'">'.$attJaune->numero_attestation.'</option>';
-                    }
-                    echo '</select></div>';
-                    $attVertes = json_decode($verteData);
-                    echo '<div class="col-md-6 vert-col">
-                    <label for="attestations vertes" class="garantie-label">attestations vertes</label>
-                    <select id="att_verte" name="att_vertes" type="text" style="text-align:center !important">';
-                    echo '<option value="No attestation verte" selected disabled>No attestation verte</option>';
-                    foreach($attVertes as $key=>$attVerte){
-                        echo '<option value="'.$attVerte->numero_attestation.'">'.$attVerte->numero_attestation.'</option>';
-                    }
-                    echo '</select></div>';
-                    $attCedeao = json_decode($cedeaoData);
-                    echo '<div class="col-md-6 cedeao-col">
-                    <label for="attestations_cedeao" class="garantie-label">attestations cedeao</label>
-                    <select  id="att_cedeao"  name="att_cedeao" type="text" style="text-align:center !important">';
-                    echo '<option value="No attestation cedeao" selected disabled>No attestation cedeao</option>';
-                    foreach($attCedeao as $key=>$attC){
-                        echo '<option value="'.$attC->numero_attestation.'">'.$attC->numero_attestation.'</option>';
-                    }
-                    echo '</select></div>';
-                ?>
-                <!--div class="col-md-6 jaune-col">
-                    <label for="attestations jaunes" class="garantie-label">No attestation jaune</label>
-                    <input id="jaunes" name="att_jaunes" type="text" class="required" style='text-align:center !important'>
+                    <input id="jaunes" name="att_jaunes" type="text" class="required" style='text-align:center !important;background:#eeeeee' disabled>
                 </div>
                 <div class="col-md-6 verte-col">
                     <label for="attestations vertes" class="garantie-label">No attestation verte</label>
-                    <input id="vertes" name="att_vertes" type="text" class="required" style='text-align:center !important'>
+                    <input id="vertes" name="att_vertes" type="text" class="required" style='text-align:center !important;background:#eeeeee' disabled>
                 </div>
                 <div class="col-md-6 cedeao-col">
                     <label for="attestations_cedeao" class="garantie-label">No attestation cedeao</label>
-                    <input id="cedeao" name="att_cedeao" type="text" class="required" style='text-align:center !important'>
-                </div-->
+                    <input id="cedeao" name="att_cedeao" type="text" class="required" style='text-align:center !important;background:#eeeeee' disabled>
+                </div>
            </div>
         </section><!--Fin validation-->
 
@@ -442,22 +412,22 @@
         <section class='recap-sector' id='recap-section'>
             <section id="content" class="table-layout animated fadeIn">
             <!--Begi left-->
-            <aside class="tray tray-left tray310 p10 recap-tray">
+            <aside class="tray tray-left tray310 p10 recap-tray" style='background:#348434'>
                 <h4> ASSURE</h4>
                 <hr class="alt short">
                     <ul id='assure_data'></ul>
             </aside>
-            <aside class="tray tray-left tray310 p10  recap-tray">
+            <aside class="tray tray-left tray310 p10  recap-tray" style='background:#6c95c5'>
                 <h4>VEHICULE</h4>
                 <hr class="alt short">
                     <ul id='vehicule_data'></ul>
             </aside>
-            <aside class="tray tray-left tray310 p10  recap-tray">
+            <aside class="tray tray-left tray310 p10  recap-tray" style='background:#e6ab32'>
                 <h4> PERIODE DE GARANTIE </h4>
                 <hr class="alt short">
                     <ul id='periode_data'></ul>
             </aside> 
-            <aside class="tray tray-left tray310 p10  recap-tray">
+            <aside class="tray tray-left tray310 p10  recap-tray" style='background:#f17070'>
                 <h4> GARANTIES</h4>
                 <hr class="alt short">
                     <ul id='garanties_data'></ul>
@@ -495,22 +465,22 @@
         </section><!--Fin récapitulatif-->
     </div><!--Fin Formulaire Avenant-->
 
-    <section id='documents' class='modal'><!--Documents-->
+    <!--section id='documents' class='modal'>
         <span class="close">&times;</span>
         <div class="documents-content">
         <i class="fa fa-print animated infinite bounceIn delay-1s tooltip" id='impress-btn' title='Imprimer les documents...'></i>
         <div class="owl-carousel owl-theme">
-            <div class="item" id='item1' style="width: 180%"><!--JAUNE DATA-->
+            <div class="item" id='item1' style="width: 180%">
                 <img src="./assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
-            </div><!--JAUNE DATA-->
-            <div class="item" id='item2' style="width: 180%"><!--CP DATA-->
+            </div>
+            <div class="item" id='item2' style="width: 180%">
                 <img src="./assets/img/documents/jaune.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
-            </div><!--CP DATA-->
-            <div class="item" id='item3' style="width: 180%"><!--CEDEAO DATA-->
+            </div>
+            <div class="item" id='item3' style="width: 180%">
                 <img src="./assets/img/documents/cp.JPG" alt="" style="width: 52% !important;margin-left: 2% !important">
-            </div><!--CEDEAO DATA-->
+            </div>
         </div>
-    </section><!--Documents-->
+    </section--><!--Documents-->
     <section id='success-souscript' class='modal'><!--Documents-->
       <img src="./assets/img/patterns/ajax-loader.gif" id='loader' alt="" style='margin-left:42%'>
       <!--img src="../../assets/img/patterns/success-img.JPG" id='success-img' alt="" style='display:none'-->

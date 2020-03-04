@@ -17,14 +17,11 @@
   <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/navbar.css">
   <link rel="stylesheet" type="text/css" href="./assets/skin/default_skin/css/validate.css">
 
-  
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="./vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
+  <!-- Datatables CSS -->
+  <link rel="stylesheet" type="text/css" href="./vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
 
-    <!-- Datatables Addons CSS -->
-    <link rel="stylesheet" type="text/css" href="./vendor/plugins/datatables/media/css/dataTables.plugins.css">
-
-
+  <!-- Datatables Addons CSS -->
+  <link rel="stylesheet" type="text/css" href="./vendor/plugins/datatables/media/css/dataTables.plugins.css">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/img/favicon.ico">
@@ -76,6 +73,18 @@
       </div>
     </div>
   </section><!-- End: Content -->
+
+  
+  <section class='modal' id='confirm-suppr-modal'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
+      <p class='conf-msg'></p>
+        <a id ='idPr' href='#' class="btn btn-gradient dark btn-block" style='width: 34%!important;height: 35px;margin: auto!important;position: relative;top: 25px;background:#11243a;color: #d19e4f'>Oui</a>
+    </section>
+  </section>
+
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
+
 </div><!-- End: Main -->
 
   
@@ -84,21 +93,20 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="./vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+  <!-- Datatables -->
+  <script src="./vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
 
-    <!-- Datatables -->
-    <script src="./vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
+  <!-- Datatables Tabletools addon -->
+  <script src="./vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
 
-    <!-- Datatables Tabletools addon -->
-    <script src="./vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+  <!-- Datatables ColReorder addon -->
+  <script src="./vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
 
-    <!-- Datatables ColReorder addon -->
-    <script src="./vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
-
-    <!-- Datatables Bootstrap Modifications  -->
-    <script src="./vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
-    <script src="./assets/js/utility/utility.js"></script>
-    <script src="./assets/js/demo/demo.js"></script>
-    <script src="./assets/js/main.js"></script>
+  <!-- Datatables Bootstrap Modifications  -->
+  <script src="./vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+  <script src="./assets/js/utility/utility.js"></script>
+  <script src="./assets/js/demo/demo.js"></script>
+  <script src="./assets/js/main.js"></script>
 
   <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -129,7 +137,25 @@
                 }
             });
             // Add Placeholder text to datatables filter bar
-            $('.dataTables_filter input').attr("placeholder", "Enter Terms...");
+            $('.dataTables_filter input').attr("placeholder", "Recherche...");
+
+            $('.get-avenant').on('click', function() {
+              $('.avenant').fadeIn();
+            })
+
+            $('.suppr-devis').on('click', function() {
+              $('#confirm-suppr-modal').fadeIn();  
+              var immat = $('.immatricul').find('input').val();
+              $('.conf-msg').text('Confirmez-vous suppression du projet sur le : '+immat+' ?')
+              var idProjet = $(this).find('input').val();
+              var supprUrl = '../../forInt_v2/controllers/users_routes.php?action=supprimer&idPr='+idProjet;
+              $('#idPr').attr("href", supprUrl );  
+            })
+
+            $('.close').on('click', function() {
+              $('.avenant').fadeOut();
+              $('#confirm-suppr-modal').fadeOut();
+            })
         });
     </script>
 </body>

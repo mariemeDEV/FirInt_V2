@@ -22,19 +22,12 @@ function getEcheance() {
         alert('La d\'effet ne peut etre antéreure à aujord\'hui.');
         $('#effet').val('0000-00-00');
     } else {
-        //  $('#echeance').val('21/12/2020');
         $('#date_echeance').fadeIn();
         if ($('#duree').value == 12) {
             $("#date_echeance").text("Votre contrat prend fin le : " + parseInt(dateEffet.getDate() - 1) + "/" + parseInt(dateEffet.getMonth() + 1) + "/" + parseInt(dateEffet.getFullYear() + 1) + " à 23H 59min")
         } else {
             $("#date_echeance").text("Votre contrat prend fin le : " + parseInt(dateEffet.getDate() - 1) + "/" + parseInt(dateEffet.getMonth() + 1) + "/" + parseInt(dateEffet.getFullYear()) + " à 23H 59min")
         }
-    }
-}
-//Affichage des champs en fonction des catégories
-function getCols() {
-    if ($("#vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col,#puissance_col, #vv_col, #vn_col,#nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col,#marque_col, #modele_col,#immatriculation_col,#cylindre_col").is(":hidden")) {
-        $("#vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col,#puissance_col, #vv_col, #vn_col,#nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col,#marque_col, #modele_col,#immatriculation_col,#cylindre_col").fadeIn();
     }
 }
 //Vérifier si des valeurs correctes sont selectionnées pour les champs select
@@ -62,129 +55,103 @@ function resetField(champId) {
 function uncheckField(champId) {
     $("#" + champId).prop('checked', false)
 }
+//Affichage des champs en fonction des catégories
+function getCols() {
+    if ($("#vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col,#puissance_col, #vv_col, #vn_col,#nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col,#marque_col, #modele_col,#immatriculation_col,#cylindre_col").is(":hidden")) {
+        $("#vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col,#puissance_col, #vv_col, #vn_col,#nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col,#marque_col, #modele_col,#immatriculation_col,#cylindre_col").fadeIn();
+    }
+}
+function getGenreCat(genreDesc){
+    $('#genre').val(genreDesc);
+    $('#genre').prop('disabled',true);
+    $('#genre').css('background-color','#eeeeee')
+}
 //Affichage des champs/activation désactivation garanties en fonction des catégories
 function getCategorieCol() {
     categorie = $("#categorie").val();
     if (categorie == "1") {
-        //enableFields({ a: '#defense-recours-check', b: '#tc-check', c: '#tcol-check' })
-        $('#genre').val('promenade et affaires personne physique');
-        $('#defense-recours-check,#tc-check,#tcol-check,#bonus_sur_rc').prop('disabled', false);
+        getGenreCat('promenade et affaires personne physique');
+        $('#defense-recours-check,#tc-check,#tcol-check,#bonus_sur_rc,#avance-recours,#defense-recours-check,#bris_check,#persones_trans').prop('disabled', false);
         $("#bris_check").prop('disabled', true);
-        getCols();
-        enableCheck();
         $('#charge_col, #surplus_col, #packs_col,#cylindre_col,.vert-col').fadeOut();
-        $('#defense-recours-check,#bris_check,#persones_trans').prop('disabled', false);
-        $('#avance-recours').prop('disabled', false);
-    } else if (categorie == "2") {
-        $('#charge option:eq(1),#defense-recours-check,#persones_trans,#bris_check,#tc-check,#tcol-check,#avance-recours,#bonus_sur_rc').prop('disabled', false);
-        $('#genre').val('transport pour propre compte');
-        $("#charge_col, #surplus_col").fadeIn();
-        enableCheck();
+        $('#nombre_de_places option').prop('disabled',false)
         getCols();
+        enableCheck();
+    } else if (categorie == "2") {
+        getGenreCat('transport pour propre compte');
+        $('#charge option:eq(1),#defense-recours-check,#persones_trans,#bris_check,#tc-check,#tcol-check,#avance-recours,#bonus_sur_rc').prop('disabled', false);
+        $("#charge_col, #surplus_col").fadeIn();
         if ($("#charge_col, #surplus_col").is(":hidden")) {
             $("#charge_col, #surplus_col").fadeIn();
-            $("#cylindre_col,.vert-col").fadeOut();
-        } else {
-            $("#charge_col").fadeIn();
-        }
-        $('#cylindre_col').fadeOut();
+            $("#cylindre_col,.vert-col,#cylindre_col").fadeOut();
+        } 
+        $('#nombre_de_places option').prop('disabled',false)
+        enableCheck();
+        getCols();
     } else if (categorie == "3" || categorie == "4") {
         //La charge utile Break est eliminée pour les catégories 3 et 4
+        getGenreCat('transport public de marchandises');
+        $("#surplus_col, #packs_col,#cylindre_col,.vert-col").fadeOut();
+        $("jaune-col").fadeIn();
         $('#charge option:eq(1)').prop('disabled', true)
-        $('#genre').val('transport public de marchandises');
         $('#bris_check,#persones_trans').prop('disabled', false);
-        enableCheck();
+        $('#nombre_de_places option').prop('disabled',false)
         if (categorie == "4") {
-            $('#genre').val('transport public de voyageurs');
+            getGenreCat('transport public de voyageurs');
+            $('.vert-col').fadeIn();
             $("#charge_col,.jaune-col").fadeOut();
-            $('#defense-recours-check,#tc-check,#bonus_sur_rc').prop('disabled', true);
-            resetField('defense_et_recours_val');
-            uncheckField('defense-recours-check');
+            $('#defense-recours-check,#tc-check,#bonus_sur_rc,#reduction_commerciale').prop('disabled', true);
             $('#tcol-check').prop('disabled', false);
-            uncheckField('defense-recours-check');
-            resetField('defense-recours-check');
-            $('#cat4-modal,.vert-col').fadeIn();
-            $('.close').on('click', function() {
-                $('#cat4-modal').fadeOut();
-            })
-            uncheckField('tc-check');
-            uncheckField('tcol-check');
+            $('#nombre_de_places option').not('option:eq(3),option:eq(6),option:eq(14),option:eq(19),option:eq(16),option:eq(18),option:eq(17),option:eq(19)').prop('disabled',true);
+            resetField('defense_et_recours_val');resetField('defense-recours-check');uncheckField('defense-recours-check');uncheckField('defense-recours-check');uncheckField('tc-check');uncheckField('tcol-check');
         } else if (categorie == "3") {
             $('#bris_check,#defense-recours-check,#persones_trans,#tc-check,#tcol-check,#avance-recours,#bonus_sur_rc').prop('disabled', false);
         }
-        $("#charge_col").fadeIn(function() {
-            $("#surplus_col, #packs_col,#cylindre_col,.vert-col").fadeOut();
-            $("jaune-col").fadeIn();
-
-        });
+        enableCheck();
         getCols();
     } else if (categorie == "5") {
+        getGenreCat('2 roues')
         $('#bris_check').prop('disabled', true);
-        $('#defense-recours-check,#bonus_sur_rc').prop('disabled', false);
-        $('#genre').val('2 roues');
-        disableCheck()
+        $('#defense-recours-check').prop('disabled', false);
         $("#categorie_col, #genre_col, #marque_col, #modele_col,#immatriculation_col,#cylindre_col,.jaune-col").fadeIn(function() {
             $("#puissance_col, #vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col, #charge_col, #surplus_col, #packs_col,.vert-col,.cedeao-col").fadeOut()
         });
+        $("#cylindre_col").css({'float':'right', 'margin-top':'-69px'})
         $('#bris_check,#incendie-check,#vol-check,#persones_trans,#tc-check,#tcol-check,#avance-recours').prop('disabled', true);
-        resetField('defense_et_recours');
-        resetField('bris_de_glace_val');
-        resetField('incendie_val');
-        resetField('vol_val');
-        resetField('tierce_val');
-        resetField('avance_sur_recours_val');
-        //resetField('defense_et_recours_val');
-        uncheckField('incendie-check');
-        uncheckField('bris_check');
-        uncheckField('tc-check');
-        uncheckField('tcol-check');
-        uncheckField('vol-check');
-        //uncheckField('defense-recours-check');
+        resetField('defense_et_recours');resetField('bris_de_glace_val');resetField('incendie_val');resetField('vol_val');resetField('tierce_val');resetField('avance_sur_recours_val');uncheckField('incendie-check');uncheckField('bris_check');uncheckField('tc-check');uncheckField('tcol-check');uncheckField('vol-check');
         $('.tierce').val(0);
+        disableCheck()
+        $('#nombre_de_places option').prop('disabled',false)
     } else if (categorie == "6") {
-        $('#genre').val('Pack Auto');
-        enableCheck();
+        getGenreCat('Pack Auto');
         $('#bonus_sur_rc').prop('disabled', true);
-        $('#defense-recours-check').prop('disabled', false);
-        $('#defense-recours-check').prop('disabled', false);
-        $('#genre').val('transport public de voyageurs')
-        $('#bris_check,#avance-recours').prop('disabled', false);
+        $('#bris_check,#incendie-check,#vol-check,#defense-recours-check,#persones_trans,#tc-check,#tcol-check,#avance-recours,#bonus_sur_rc,#reduction_commerciale').prop('disabled', true);
         $("#packs_col").fadeIn(function() {
             $("#puissance_col, #vv_col, #vn_col, #energie_col, #nombre_de_places_col, #mise_en_circulation_col, #modele_col,#immatriculation_col,.cedeao-col,.jaune-col").fadeIn();
         });
+        $('#packs_col').fadeIn();
         $('#charge_col,#surplus_col,#cylindre_col,.vert-col').fadeOut();
-        $('#packs_col').fadeIn(3000)
+        $("#packs_col").css({'float':'right', 'margin-top':'-69px'});
+        $('#nombre_de_places option').prop('disabled',false)
+        disableCheck();
         getCols();
-        /*if (getValueInput('packs') == "mini") {
-            alert('mini')
-        } else if (getValueInput('packs') == "classic") {
-            alert('classic')
-        } else if (getValueInput('packs') == "confort") {
-            alert('confort')
-        } else if (getValueInput('packs') == "liberte") {
-            alert('liberte')
-        }*/
     }
 }
 /*$('#packs').on('change', function() {
     alert('yes')
 })*/
-
 //Recupérer la valeur d'un champs donné en fonction de son Id
 function getValueInput(champId) {
     return $("#" + champId).val()
 }
-
 //Calcul de l'age de la voiture en fonction de la date de premiére mise en circulation et la date actuelle
 function getVoitureAge() {
     return Math.round((Date.now() - (+new Date(getValueInput('date_circulation')))) / (31557600000)) - 1;
 }
-
 //Les surplus
 function getSurPlusvalue(surplus) {
     return surplus * 4852
 }
-
 //Les taux
 function getTaux(duree) {
     //La durée est éstimée en mois
@@ -700,7 +667,6 @@ function checkAvanceAvailable() {
         }
     }
 }
-
 function getAvanceSurRecoursBrute(taux, limitation) {
     checkAvanceAvailable();
     return parseInt(limitation * (getTaux(getValueInput('duree')) / 100) * (taux / 100));
@@ -1106,13 +1072,7 @@ function chechStock() {
         source: cedeao
     });
 }
-//Ecrire les marques des voitues
-function setMarques() {
-    var marques_voitures = ['FIAT', 'BMW', 'ACURA', 'FORD', 'HOLDEN', 'HONDA', 'HYUNDAI', 'ISUZU', 'KIA', 'LEXUS', 'NISSAN', 'RENAULT', 'SEAT', 'CHEVROLET', 'CITROEN', 'DACIA', 'INFINITI', 'MAZDA', 'MITSUBISHI', 'PEUGEOT', 'SUBARU', 'TOYOTA', 'VOLSWAGEN']
-    $('#marque').autocomplete({
-        source: marques_voitures
-    })
-}
+
 //Ecrire la valeur de la RC calculée
 function setRC() {
     $('#rc').val(getRC(getValueInput('categorie')));
@@ -1191,26 +1151,31 @@ function setReductions() {
 
 //Ecrire les données sur le récaputilatif
 function writeData() {
-    var assureData = getSectionData(0);
-    var periodeData = getSectionData(1);
-    var garantiesData = getSectionData(3);
-    var vehiculeData = getSectionData(2);
-    var assureLibelles = ['Prénom', 'Nom'];
+    var assureData        = getSectionData(0);
+    var periodeData       = getSectionData(1);
+    var garantiesData     = getSectionData(3);
+    var vehiculeData      = getSectionData(2);
+    var assureLibelles    = ['Prénom', 'Nom','Adresse','téléphone','Ville'];
+    var periodeLibelles   = ['Date d\'effet', 'Durée(En mois)'];
+    var vehiculeLibelles  = ['Catégorie','Type','Marque','Immatriculation','Marque','Enérgie','Nombre de places','Date de mise en circulation','Charge utile','Surplus','Packs'];
+    var garantiesLibelles = ['Prénom', 'Nom','Adresse','téléphone','Ville'];
+
+    //var periodeLibelle[]
     $('#assure_data li').remove();
     for (a = 0; a < assureData.length; a++) {
-        $('#assure_data').append('<li>' + assureData[a] + '</li>');
+        $('#assure_data').append('<li>'+'<span style="font-weight:bold">'+assureLibelles[a]+'</span> :     ' + '<span style="alignright:100%">'+assureData[a]+'</span>' + '</li>');
+    }
+    $('#vehicule_data li').remove();
+    for (v = 0; v < vehiculeData.length; v++) {
+        $('#vehicule_data').append('<li>'+'<span style="font-weight:bold">'+vehiculeLibelles[v]+'</span> :     ' + vehiculeData[v] + '</li>');
     }
     $('#periode_data li').remove();
     for (p = 0; p < periodeData.length; p++) {
-        $('#periode_data').append('<li>' + periodeData[p] + '</li>');
+        $('#periode_data').append('<li>'+'<span style="font-weight:bold">'+periodeLibelles[p]+'</span> :     '  + periodeData[p] + '</li>');
     }
     $('#garanties_data li').remove();
     for (g = 0; g < garantiesData.length; g++) {
         $('#garanties_data').append('<li>' + garantiesData[g] + '</li>');
-    }
-    $('#vehicule_data li').remove();
-    for (v = 0; v < garantiesData.length; v++) {
-        $('#vehicule_data').append('<li>' + garantiesData[v] + '</li>');
     }
 }
 
@@ -1233,6 +1198,14 @@ function resetCheckboxes() {
         setAvanceSurRecours();
         setAssistance();
         setPrimeNette();
+
+        setAccessoires();
+        setFGA();
+        setTaxes();
+        setPrimeNette();
+        setPrimeTotale();
+        setBonusRC();
+        setReductionCommerciale();    
     })
     $('#steps-uid-0-t-4').on('click', function() {
         setAccessoires();
@@ -1266,7 +1239,7 @@ $(document).ready(function() {
             $(this).on('change', function() {
                 //Action sur les champs concernés par le calcul de la date d'effet
                 if (champ.id == 'effet' || champ.id == 'duree') {
-                    getEcheance();
+                   // getEcheance();
                     //Action sur les champs concérnés par me changement de catégorie
                 } else if (champ.id == 'categorie') {
                     getCaracteristiquesCat();
@@ -1334,13 +1307,19 @@ $(document).ready(function() {
                     setPrimeTotale();
                 }
                 //Champs concérnés par le chargement des differentes marques de voitures
-                else if (champ.id == 'marque') {
+               /* else if (champ.id == 'marque') {
                     setMarques();
-                }
+                }*/
             })
         })
+        //Ecrire les marques des voitues
+        var marques_voitures = ['FIAT', 'BMW', 'ACURA', 'FORD', 'HOLDEN', 'HONDA', 'HYUNDAI', 'ISUZU', 'KIA', 'LEXUS', 'NISSAN', 'RENAULT', 'SEAT', 'CHEVROLET', 'CITROEN', 'DACIA', 'INFINITI', 'MAZDA', 'MITSUBISHI', 'PEUGEOT', 'SUBARU', 'TOYOTA', 'VOLSWAGEN']
+        for(var i=0;i<marques_voitures.length;i++){
+            $('#marque').append("<option value='"+marques_voitures[i]+"'>"
+            +marques_voitures[i]+"</option>"); 
+        }
         //L'appel à la fonction setRecoursTierces e dépends de aucun paramétre
-    setRecoursTierces();
-    //Number divider
-    $('.divide').divide();
+        setRecoursTierces();
+        //Number divider
+        $('.divide').divide();
 });

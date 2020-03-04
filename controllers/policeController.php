@@ -36,7 +36,7 @@ if(isset($_POST['avenant'])){
    $tyeAvenant      = $_POST['type_avenant'];
    $data            = $pDao->getPoliceByMat( $immatriculation,$intermediaire);
    if($data==[]){
-      $message = 'Ce véhicule n\'a jamas étè couvert dans vos contrats, veuillez créer un nouveau contrat.';
+      $message = 'Ce véhicule n\'a jamas étè couvert dans vos contrats, veuillez d\'abord lui créer une police.';
       require_once('../view/intermediaires/souscription.php');
    }else{
       $jauneData  = json_encode($udao->getAttestationsRestantes(1,40)) ;
@@ -69,6 +69,7 @@ if(isset($_POST['souscription'])){
    $idInserted = $pDao->insertPolice($p,$garanties);
    $avenant = new AvenantPolice(0,1,$idInserted);
    $avenantP->insertAvenant($avenant);
+   require_once('../view/intermediaires/production.php');
 }
 
 //Insertion d'un avenant
@@ -99,12 +100,15 @@ if(isset($_POST['devis'])){
    $pDao = new PoliceDao();
    $p = new Police('NULL',getNumeroPolice($categorie),'NULL',30,$categorie,'NULL','NULL',$date_effet,$duree_contrat,$date_echeance,'NULL','Nom Prospect','Prenom Prospect','Adresse Prospect','NULL','Ville Prospect','NULL','NULL','NULL','Telephone Prospect','NULL','NULL','NULL','NULL',$immatriculation,$immatriculation,2,$marque,1,'NULL',$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$chargeUtile,'NULL',$dateDeMiseEnCirculation,$nette,$acc,$taxe,$fga,$totale,'NULL','NULL',date_create()->format('Y-m-d H:i:s'),'NULL');
    $pDao->insertDevis($p);
+   require_once('../view/intermediaires/devis.php');
 }
 //Mise à jour d'une police
 if(isset($_POST['update_data'])){
    extract($_POST);
    $pDao = new PoliceDao();
-   $pDao->updatePolice($categorie,$date_effet,$duree_contrat,$date_echeance,$nom_assure,$prenom_assure,$adresse_assure,$telephone_assure,$immatriculation,$immatriculation,$marque,1,1,$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$charge_utile,$nette,$acc,$taxe,$fga,$totale);
+   $pDao->updatePolice($categorie,$date_effet,$duree_contrat,$date_echeance,$nom_assure,$prenom_assure,$adresse_assure,$telephone_assure,$immatriculation,$immatriculation,$marque,1,1,$energie,$nombreDePlaces,$cylindre,$valeurNeuve,$valeurVenale,$puissance,$charge_utile,$nette,$acc,$taxe,$fga,$totale,$_POST['numPolice']);
+   $contrats = $pDao->getPolicesValides();
+   header('Location:../view/intermediaires/contrats.php');
 }
 
 

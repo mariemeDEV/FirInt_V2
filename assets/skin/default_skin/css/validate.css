@@ -1036,7 +1036,6 @@ Wizard
 .wizard>.content {
     background: #eee;
     display: block;
-    margin: 0.5em;
     height: 25em !important;
     overflow: hidden;
     position: relative;
@@ -1303,7 +1302,9 @@ Tabcontrol
     margin: 5px 0 15px;
     display: block;
     font-size: 13px;
-    font-weight: 400;
+    font-weight: bold;
+    color: #11243a;
+    font-size: 16px;
 }
 
 fieldset {
@@ -1320,7 +1321,7 @@ fieldset {
 #souscription-form input[type="url"] {
     width: 97%;
     /*border: 1px inset rgba(22, 59, 102, 0.57);*/
-    background: #FFF;
+    background: #f7f7f7f0;
     margin: 0 0 5px !important;
     border-radius: 3px !important;
     box-shadow: 0 0 8px #666666c2;
@@ -1336,7 +1337,7 @@ fieldset {
 #souscription-form input[type="date"] {
     width: 97%;
     /*border: 1px inset rgba(22, 59, 102, 0.57);*/
-    background: #FFF;
+    background: #f7f7f7f0;
     margin: 0 0 5px !important;
     border-radius: 3px !important;
     box-shadow: 0 0 8px #666666c2;
@@ -1346,7 +1347,7 @@ fieldset {
 #souscription-form select {
     width: 97%;
     /* border: 1px inset rgba(22, 59, 102, 0.57);*/
-    background: #FFF;
+    background: #f7f7f7f0;
     margin: 0 0 5px !important;
     border-radius: 3px !important;
     box-shadow: 0 0 8px #666666c2;
@@ -1390,7 +1391,7 @@ fieldset {
     top: 150px;
     left: 286px;
     z-index: 1;
-    color: #ffffff;
+    color:#f7f7f7f0;
 }
 
 .conditions-row h3 {

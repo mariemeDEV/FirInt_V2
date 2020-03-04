@@ -33,7 +33,7 @@
           font-size:13px !important
       }
 
-      #datatable3_info{
+      #production-tab_info{
           display:none !important;
       }
       
@@ -77,31 +77,15 @@
     </div>
   </section><!-- End: Content -->
 
-  <section class='modal avenant'>
-      <span class="close">&times;</span>
-      <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
-      <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
-      <div class="row">
-      <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
-          <input type="text" id="inputStandard" class="form-control" name='matricule_intermediaire'>
-      </div>
-      <div class="row" style='padding-bottom: 11px !important;'>
-      <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
-          <input type="text" id="inputStandard" class="form-control" name='immatriculation_vehicule'>
-          <input type="hidden" name='avenant'>
-      </div>
-      <div class="row">
-          <label for="Type d'avenant">Type d'avenant<span class="require-caracter">*</span></label>
-          <select class="form-control" name="type_avenant" id="type_av">
-              <option value="1">Avenant de renouvellement</option>
-              <option value="2">Avenant de changement d'immatriculation</option>
-          </select>
-      </div>
-      <div class="row">
-          <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 12px !important;width: 20%!important;margin:auto!important'>Success</button>
-      </div>
-      </form>
+  <section class='modal confirm-modal'>
+    <span class="close">&times;</span>
+    <section class='modal-content animated zoomIn animation-delay-100 alert-msg'>
+      <p class='conf-msg'></p>
+        <a id='idPol' href='#' class="btn btn-gradient dark btn-block" style='width: 34%!important;height: 35px;margin: auto!important;position: relative;top: 25px;background:#11243a;color: #d19e4f'>Oui</a>
     </section>
+  </section>
+  
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
 
 </div><!-- End: Main -->
 
@@ -128,43 +112,64 @@
     <script src="./assets/js/main.js"></script>
 
 
-  <script type="text/javascript">
-        jQuery(document).ready(function() {
-          "use strict";
-          // Init Theme Core    
-          Core.init();
-          // Init Demo JS  
-          Demo.init();
-          $('#datatable3').dataTable({
-              "aoColumnDefs": [{
-                  'bSortable': false,
-                  'aTargets': [-1]
-              }],
-              "oLanguage": {
-                  "oPaginate": {
-                      "sPrevious": "",
-                      "sNext": ""
-                  }
-              },
-              "iDisplayLength": 6,
-              "aLengthMenu": [
-                  [5, 10, 25, 50, -1],
-                  [5, 10, 25, 50, "All"]
-              ],
-              "sDom": '<"dt-panelmenu clearfix"Tfr>t<"dt-panelfooter clearfix"ip>',
-              "oTableTools": {
-                  "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+      "use strict";
+      // Init Theme Core    
+      Core.init();
+      // Init Demo JS  
+      Demo.init();
+      $('#production-tab').dataTable({
+          "aoColumnDefs": [{
+              'bSortable': false,
+              'aTargets': [-1]
+          }],
+          "oLanguage": {
+              "oPaginate": {
+                  "sPrevious": "",
+                  "sNext": ""
               }
-          });
-          $('.dataTables_filter input').attr("placeholder", "Enter Terms...");
-
-        $('.get-avenant').on('click', function() {
-          $('.avenant').fadeIn();
+          },
+          "iDisplayLength": 6,
+          "aLengthMenu": [
+              [5, 10, 25, 50, -1],
+              [5, 10, 25, 50, "All"]
+          ],
+          "sDom": '<"dt-panelmenu clearfix"Tfr>t<"dt-panelfooter clearfix"ip>',
+          "oTableTools": {
+              "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
+          }
+      });
+      $('.dataTables_filter input').attr("placeholder", "Enter Terms...");
+    })
+    $('.close').on('click', function() {
+      $('.avenant').fadeOut();
+      $('.confirm-modal').fadeOut();
+    })
+</script>
+<script>
+  $(document).find('#production-tab tr').each(function() {
+    var actions = $(this).find('td').eq(9);
+    var police  = $(this).find('td').eq(1).html();
+    var etatP   =  $(this).find('td').eq(7).html();
+    var disabledLink = actions .find('ul .not-allowed a');
+      if(etatP=='Annulé'){
+        disabledLink.css('cursor','not-allowed');
+        disabledLink.removeAttr("href");
+      }else if(etatP=='En cours...'){
+          var avenant = actions.find('ul .get-avenant');
+          avenant.find('a').on('click',function(){
+            $('.avenant').fadeIn();
+          })
+          actions.find('ul li .annul-police').on('click',function(){
+          $('.conf-msg').text('Confirmez-vous l\'annulation de la police ? : '+police +' ?')
+          $('.confirm-modal').fadeIn();
+          var idPolice = $(this).find('input').val();
+          var supprUrl = '../../forInt_v2/controllers/users_routes.php?action=annul&idPolice='+idPolice ;
+          $('#idPol').attr("href", supprUrl); 
         })
-        $('.close').on('click', function() {
-          $('.avenant').fadeOut();
-        })
-        });
-    </script>
+      }
+  })
+</script>
 </body>
 </html>

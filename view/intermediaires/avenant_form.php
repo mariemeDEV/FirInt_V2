@@ -120,10 +120,11 @@
                     <input id="valeur_venale" class="divide" name="valeurNeuve" type="text" placeholder="Valeur Vénale" value=<?php echo($data[0]['valeurvenale'])?>>
                 </div>
                 <div class="col col-md-4" id="energie_col">
-                    <label for="Energie">Enérgie</label>
-                    <select id="energie" name="energie" type="text">
-                        <option value="1" selected>Essence</option>
-                        <option value="2">Diesel</option>
+                    <label for="Energie">Enérgie<span class="require-caracter">*</span></label>
+                    <select id="energie" name="energie" type="text" required>
+                        <option value="energie" disabled selected>Energie</option>
+                        <option value="essence">Essence</option>
+                        <option value="diesel">Diesel</option>
                     </select>
                 </div>
             </div>
@@ -132,10 +133,10 @@
                     <label for="Nombre de places">Nombre de places <span class="require-caracter">*</span></label>
                     <select id="nombre_de_places" name="nombreDePlaces" class="required">
                         <option value=<?php echo($data[0]['nombreplace'])?> selected><?php echo($data[0]['nombreplace'])?></option>
-                        <option value="5">5</option>
+                        <option value="2">2 places</option>
                         <option value="3">3 places</option>
                         <option value="4">4 places</option>
-                        <option value="2">2 places</option>
+                        <option value="5">5 places</option>
                         <option value="6">6 places</option>
                         <option value="7">7 places</option>
                         <option value="8">8 places</option>

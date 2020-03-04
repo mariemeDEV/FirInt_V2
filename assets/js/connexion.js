@@ -9,7 +9,7 @@ $(document).ready(function() {
                 dataType: 'html',
                 success: function(userData) {
                     if (userData == false) {
-                        $('.error-modal').fadeIn().delay(3000).queue(function() {
+                        $('.error-modal').fadeIn().delay(2000).queue(function() {
                             $(this).fadeOut();
                             $(this).dequeue();
                         });

@@ -46,7 +46,7 @@
                     <input id="genre" name="genre" type="text" value="" placeholder="Genre">
                 </div>
                 <div class="col col-md-4" id="marque_col">
-                    <label for="Marque">Marque <span class="require-caracter">*</span></label>
+                    <label for="Marque">Marque</label>
                     <select name="marque" id="marque">
                         <option value="marque" disabled selected>Marque</option>
                         <option value="1">A</option>
@@ -78,23 +78,23 @@
                     <input id="valeur_venale" class="divide" name="valeurNeuve" type="text" value="" placeholder="Valeur Vénale">
                 </div>
                 <div class="col col-md-4" id="energie_col">
-                    <label for="Energie">Enérgie</label>
-                    <select id="energie" name="energie" type="text">
+                <label for="Energie">Enérgie<span class="require-caracter">*</span></label>
+                    <select id="energie" name="energie" type="text" required>
                         <option value="energie" disabled selected>Energie</option>
-                        <option value="1">Essence</option>
-                        <option value="2">Diesel</option>
+                        <option value="essence">Essence</option>
+                        <option value="diesel">Diesel</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col col-md-4" id="nombre_de_places_col">
-                    <label for="Nombre de places">Nombre de places <span class="require-caracter">*</span></label>
-                    <select id="nombre_de_places" name="nombreDePlaces" class="required">
+                    <label for="Nombre de places">Nombre de places</label>
+                    <select id="nombre_de_places" name="nombreDePlaces">
                         <option value="Nombre de places" selected disabled>Nombre de places</option>
-                        <option value="5">5</option>
+                        <option value="2">2 places</option>
                         <option value="3">3 places</option>
                         <option value="4">4 places</option>
-                        <option value="2">2 places</option>
+                        <option value="5">5 places</option>
                         <option value="6">6 places</option>
                         <option value="7">7 places</option>
                         <option value="8">8 places</option>
@@ -113,8 +113,8 @@
                     </select>
                 </div>
                 <div class="col col-md-4" id="mise_en_circulation_col">
-                    <label for="Date de mse en crculation">Date de mise en circulation <span class="require-caracter">*</span></label>
-                    <input id="date_circulation" name="dateDeMiseEnCirculation" type="date" class="required" value="">
+                    <label for="Date de mse en crculation">Date de mise en circulation</label>
+                    <input id="date_circulation" name="dateDeMiseEnCirculation" type="date" value="">
                 </div>
                 <div class="col col-md-4" id="charge_col">
                     <label for="Charge utile" id="charge_label">Charge utile <span class="require-caracter">*</span></label>
@@ -132,8 +132,8 @@
                     <input id="cylindre" name="cylindre" type="number">
                 </div>
                 <div class="col col-md-4" id="surplus_col">
-                    <label for="Surplus de places" id="label_surplus">Surplus <span class="require-caracter">*</span></label>
-                    <select name="surplus" id="surplus" class="required">
+                    <label for="Surplus de places" id="label_surplus">Surplus</label>
+                    <select name="surplus" id="surplus">
                         <option value="Surplus" selected disabled>Surplus</option>
                         <option value="0">0</option>
                         <option value="1">1</option>

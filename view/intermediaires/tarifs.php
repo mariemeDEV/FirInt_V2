@@ -74,9 +74,7 @@
     </div>
   </section><!-- End: Content -->
 
-  
-
-
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
 </div><!-- End: Main -->
 
   
@@ -112,10 +110,6 @@
 
             // Init Demo JS  
             Demo.init();
-
-        
-
-
             $('#datatable4').dataTable({
                 "aoColumnDefs": [{
                     'bSortable': false,
@@ -137,15 +131,14 @@
                     "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
                 }
             });
-
-      
-
-           
-
             // Add Placeholder text to datatables filter bar
-            $('.dataTables_filter input').attr("placeholder", "Enter Terms...");
-
-
+            $('.dataTables_filter input').attr("placeholder", "Recherche...");
+            $('.get-avenant').on('click', function() {
+              $('.avenant').fadeIn();
+            })
+            $('.close').on('click', function() {
+              $('.avenant').fadeOut();
+            })
         });
     </script>
 

@@ -65,112 +65,6 @@
     </div>
   </section><!-- End: Content -->
 
-  <section class='modal' id='cat4-modal' style='font-size: 10px !important'>
-    <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100 modal-content'>
-      <p>NB : Pour les véhicules de catégorie4, les tarifications se font comme suit:</p>
-      <table class="table table-bordered table-stripted">
-        <thead>
-          <tr>
-            <th>Energie</th>
-            <th>Nombre de places</th>
-            <th>Puissance fiscale</th>
-          </tr>
-        </thead>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-         <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-         <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-         <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-         <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-         <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-        <tr>
-            <td>Essence</td>
-            <td>15 places</td>
-            <td>2ch</td>
-        </tr>
-      </table>
-    </section>
-  </section>
-
   <section class='modal' id='tierce-modal'>
   <span class="close">&times;</span>
     <section class='modal-content animated zoomIn animation-delay-100'>
@@ -185,30 +79,8 @@
     </section>
   </section>
 
-  <section class='modal' id='avenant'>
-    <span class="close">&times;</span>
-    <section class='modal-content animated zoomIn animation-delay-100' style='height: 45% !important;margin-left: 27%;'>
-    <form method='POST' action='../../forInt_v2/controllers/PoliceController.php?action=avenant'  id="avenant-form">
-      <div class="row">
-      <label for="prenom">Intérmédiaire<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='intermediaire'>
-      </div>
-      <div class="row" style='padding-bottom: 11px !important;'>
-      <label for="prenom">Immatriculation<span class="require-caracter">*</span></label>
-        <input type="text" id="inputStandard" class="form-control" name='matricule'>
-        <input type="hidden" name='avenant'>
-      </div>
-      <div class="row">
-        <button type="submit" class="btn btn-success btn-gradient dark btn-block" style='margin-top: 12px !important;width: 20%!important;margin:auto!important'>Success</button>
-      </div>
-    </form>
-    </section>
-  </section>
-
- 
-
-
-
+  <!-- Modal avenant--><?php include('avenant_modal.php') ?><!--Modal avenant -->
+  
 </div><!-- End: Main -->
 
   

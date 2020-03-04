@@ -11129,7 +11129,7 @@ hr {
 }
 
 hr.alt {
-    border-top: 1px dashed #cccccc;
+    border-top: 1px dashed #11243a !important;
 }
 
 hr.short {
@@ -15069,7 +15069,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     padding: 5px 12px;
     line-height: 1.49;
     text-decoration: none;
-    color: #4a89dc;
+    color: #11243a;
     background-color: #ffffff;
     border: 1px solid #dddddd;
     margin-left: -1px;
@@ -27858,8 +27858,9 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-    background-color: #70ca63;
-    border-color: #70ca63;
+    background-color: #11243a;
+    color: #d19e4f;
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
 .btn-success .badge {
