@@ -1097,7 +1097,7 @@ function setDefenseEtRecours() {
 function setBrisDeGlace() {
     $('#bris_de_glace_val').val(getBrisDeGlacePuissance(getValueInput('puissance')));
 }
-//Ecrire la valeur de la prime ince,die
+//Ecrire la valeur de la prime incendie
 function setIncendie() {
     $('#incendie_val').val(getIncendieCat(getValueInput('categorie')));
 }
@@ -1240,7 +1240,7 @@ $(document).ready(function() {
                 //Action sur les champs concernés par le calcul de la date d'effet
                 if (champ.id == 'effet' || champ.id == 'duree') {
                    // getEcheance();
-                    //Action sur les champs concérnés par me changement de catégorie
+                    //Action sur les champs concérnés par le changement de catégorie
                 } else if (champ.id == 'categorie') {
                     getCaracteristiquesCat();
                     //Action sur les champs concérnés par le changement de puissace
